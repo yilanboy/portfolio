@@ -1,2 +1,13 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import Introduction from '../components/Introduction.svelte';
+	import Projects from '../components/Projects.svelte';
+	import About from '../components/About.svelte';
+</script>
+
+<main class="font-sans-poppins flex flex-1 flex-col p-4">
+	<Introduction />
+
+	<Projects />
+
+	<About />
+</main>
