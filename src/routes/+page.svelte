@@ -4,7 +4,7 @@
 	import About from '../components/About.svelte';
 </script>
 
-<main class="font-sans-poppins flex flex-1 flex-col p-4">
+<main class="font-sans-poppins flex flex-1 flex-col px-6">
 	<Introduction />
 
 	<Projects />
