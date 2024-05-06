@@ -18,7 +18,7 @@
 	<div class="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-10">
 		<Step step={steps[0]}>
 			<p class="text-left">
-				這是我用<strong class="text-blue-500">Tailwind CSS</strong>、<strong class="text-blue-500"
+				這是我用 <strong class="text-blue-500">Tailwind CSS</strong>、<strong class="text-blue-500"
 					>Alpine.js</strong
 				>、<strong class="text-blue-500">Laravel</strong> 與
 				<strong class="text-blue-500">Livewire</strong>
