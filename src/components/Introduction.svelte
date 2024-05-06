@@ -6,18 +6,23 @@
 		</h2>
 
 		<p class="text-base sm:text-lg md:text-xl">
-			後端打工仔。<strong class="text-green-500">擅長各類維運技能與雲端服務</strong>，但下班後喜歡不務正業的研究前後端的技術
+			後端打工仔。<strong class="text-green-500">擅長各類維運技能與雲端服務</strong
+			>，但下班後喜歡不務正業的研究前後端的技術
 			。個性就像動態語言般隨興，但渴望做事能像囉嗦的靜態語言那樣嚴謹。
 		</p>
 	</div>
 
-	<div class="flex justify-center lg:justify-end">
+	<div class="flex justify-center">
 		<div class="relative z-0 flex">
 			<img class="z-20 w-[28rem] rounded-full" src={'images/profile.jpg'} alt="Profile" />
-			<div class="absolute right-0 top-0 z-30 size-32 rounded-full bg-green-500"></div>
+			<div
+				class="absolute right-0 top-0 z-30 size-32 rounded-full border-8 border-gray-50 bg-green-500"
+			></div>
 			<div class="absolute bottom-0 right-0 z-10 size-40 rounded-full bg-blue-500"></div>
-			<div class="absolute left-10 z-10 size-10 rounded-full bg-red-500"></div>
-			<div class="absolute bottom-0 left-16 z-30 size-20 rounded-full bg-yellow-500"></div>
+			<div class="absolute left-10 top-0 z-10 size-10 rounded-full bg-red-500"></div>
+			<div
+				class="absolute bottom-0 left-16 z-30 size-20 rounded-full border-8 border-gray-50 bg-yellow-500"
+			></div>
 		</div>
 	</div>
 </section>
