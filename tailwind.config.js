@@ -6,7 +6,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				'sans-poppins': ["'Noto Sans TC', 'Poppins',sans-serif", ...defaultTheme.fontFamily.sans]
+				'sans-poppins': ["'Noto Sans TC', 'Poppins',sans-serif", ...defaultTheme.fontFamily.sans],
+				'caveat': ["'Caveat', cursive", ...defaultTheme.fontFamily.sans]
 			}
 		}
 	},

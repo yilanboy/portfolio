@@ -1,4 +1,4 @@
-<section id="introPage" class="grid grid-cols-1 gap-10 py-8 sm:py-14 lg:grid-cols-2">
+<section id="introduction" class="grid grid-cols-1 gap-10 py-20 lg:grid-cols-2">
 	<div class="flex flex-col gap-6 text-center md:gap-8 lg:justify-center lg:gap-10 lg:text-left">
 		<h2 class="text-5xl font-semibold leading-normal">
 			Hi！我是 <span class="text-green-500">Allen</span><br />
@@ -6,7 +6,7 @@
 		</h2>
 
 		<p class="text-base sm:text-lg md:text-xl">
-			後端打工仔。<strong class="text-green-500">擅長各類維運技能與雲端服務</strong
+			後端打工仔。<span class="text-green-500">擅長各類維運技能與雲端服務</span
 			>，但下班後喜歡不務正業的研究前後端的技術
 			。個性就像動態語言般隨興，但渴望做事能像囉嗦的靜態語言那樣嚴謹。
 		</p>

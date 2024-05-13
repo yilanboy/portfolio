@@ -3,6 +3,7 @@
 
 	let tabs = [
 		{ name: '專案', link: '#projects' },
+		{ name: '經歷', link: '#experience' },
 		{ name: '關於我', link: '#about' }
 	];
 </script>
@@ -11,7 +12,7 @@
 	class={'sticky top-0 z-10 flex items-center justify-between border border-solid px-6 duration-200' +
 		(y > 0 ? ' border-gray-600 bg-gray-50 py-4' : ' border-transparent bg-transparent py-6')}
 >
-	<h1>
+	<h1 class="font-caveat text-2xl md:text-4xl">
 		<b>Allen</b> Jiang
 	</h1>
 	<div class="ml-auto hidden items-center gap-4 pr-4 sm:flex">
