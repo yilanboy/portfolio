@@ -38,8 +38,7 @@
 	<div>
 		{#each experiences as experience (experience.title)}
 			<div class="group relative py-6 pl-8 sm:pl-32">
-				<!-- Purple label -->
-				<div class="mb-1 font-caveat text-3xl font-medium text-yellow-500 sm:mb-0">
+				<div class="mb-1 font-caveat text-lg font-medium text-yellow-500 sm:mb-0 md:text-xl">
 					{experience.slogan}
 				</div>
 				<!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
