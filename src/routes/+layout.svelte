@@ -14,9 +14,7 @@
 </script>
 
 <div class="bg-gray-50 text-gray-900">
-	<div
-		class="relative mx-auto flex min-h-screen w-full max-w-[1400px] flex-col text-sm sm:text-base"
-	>
+	<div class="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col text-sm sm:text-base">
 		<div
 			class={'fixed bottom-0 right-0 z-10 flex p-10 duration-200' +
 				(y > 0 ? ' opacity-full pointer-events-auto' : ' pointer-events-none opacity-0')}
