@@ -1,28 +1,28 @@
 <script lang="ts">
 	let experiences = [
 		{
-			slogan: 'Change Careers, Learn to Be a DevOps Engineer',
 			time: 'Jul, 2022',
 			title: '轉換跑道，學習成為一位 DevOps 工程師',
-			content: ''
+			content:
+				'在從事後端工程師的那些年，我時常接觸雲端與維運相關工具，而在這個過程中，我發現了 DevOps 領域的魅力，將寫好的程式自動部署到正式環境上並穩定運行，對我來說是一件非常有成就感的事情。於是我決定轉換跑道，學習成為一位 DevOps 工程師。'
 		},
 		{
-			slogan: "Let's Write Some Blogs!",
 			time: 'Aug, 2020',
 			title: '開始寫部落格，紀錄並分享所學的技術',
-			content: ''
+			content:
+				'在前輩的建議下，我開發了自己的部落格，並將自己有興趣的技術話題，或是日常工作中碰到的技術難題，以文章的形式，分享在自己的部落格上。寫文章讓我受益良多，不只能幫助自己加深記憶，也讓我遇到了許多志同道合的人。'
 		},
 		{
-			slogan: 'Become a Backend Developer, Write Some Code',
 			time: 'Feb, 2020',
 			title: '接觸後端開發，深耕後端領域',
-			content: ''
+			content:
+				'因為就學時就對網頁開發有著一定的興趣，我決定轉換跑道成為後端工程師。雖然起步有點晚，但在同事的幫助與自己的努力下，我逐漸進步成合格的後端工程師，漸漸的在後端領域累積了不少經驗。'
 		},
 		{
-			slogan: 'Security is Important, But so Hard to Me',
 			time: 'Feb, 2017',
 			title: '新人初出茅廬，進入資安領域',
-			content: ''
+			content:
+				'剛出社會的時候，在因緣際會之下進入了資安領域。工作上除了協助資安工具的開發，我還協助了設計資安課程，靶機環境的準備與教材編寫。這在份工作中，我學習到很多資安相關的基礎知識，也考了一張很基礎的 CEH 資安認證。'
 		}
 	];
 </script>
@@ -38,9 +38,6 @@
 	<div>
 		{#each experiences as experience (experience.title)}
 			<div class="group relative py-6 pl-8 sm:pl-32">
-				<div class="mb-1 font-caveat text-lg font-medium text-yellow-500 sm:mb-0 md:text-xl">
-					{experience.slogan}
-				</div>
 				<!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
 				<div
 					class="mb-1 flex flex-col items-start before:absolute before:left-2 before:h-full before:-translate-x-1/2 before:translate-y-3 before:self-start before:bg-slate-300 before:px-px after:absolute after:left-2 after:box-content after:h-2 after:w-2 after:-translate-x-1/2 after:translate-y-1.5 after:rounded-full after:border-4 after:border-slate-50 after:bg-yellow-600 group-last:before:hidden sm:flex-row sm:before:left-0 sm:before:ml-[6.5rem] sm:after:left-0 sm:after:ml-[6.5rem]"
