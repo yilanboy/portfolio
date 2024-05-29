@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Introduction from '../components/Introduction.svelte';
-	import Projects from '../components/Projects.svelte';
-	import About from '../components/About.svelte';
-	import Experience from '../components/Experience.svelte';
+	import Introduction from '../components/sections/Introduction.svelte';
+	import Projects from '../components/sections/Projects.svelte';
+	import About from '../components/sections/About.svelte';
+	import Experience from '../components/sections/Experience.svelte';
 </script>
 
-<main class="font-sans-poppins flex flex-1 flex-col px-6">
+<main class="flex flex-1 flex-col px-6 font-sans-poppins">
 	<Introduction />
 
 	<Projects />
