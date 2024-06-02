@@ -3,7 +3,7 @@
 	let bar: HTMLDivElement;
 
 	export let barColor = '#111827';
-	export let barBackgroundColor = '#d1d5db';
+	export let barBackgroundColor = '#e5e7eb';
 	export let progress = '3%';
 	export let centerBackgroundColor = '#f9fafb';
 
@@ -49,7 +49,7 @@
 	@property --bar-background-color {
 		syntax: '<color>';
 		inherits: false;
-		initial-value: #d1d5db;
+		initial-value: #e5e7eb;
 	}
 
 	@property --progress {

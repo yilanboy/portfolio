@@ -3,6 +3,7 @@
 	import Projects from '../components/sections/Projects.svelte';
 	import About from '../components/sections/About.svelte';
 	import Experience from '../components/sections/Experience.svelte';
+	import TechStack from '../components/sections/TechStack.svelte';
 </script>
 
 <main class="flex flex-1 flex-col px-6 font-sans-poppins">
@@ -11,6 +12,8 @@
 	<Projects />
 
 	<Experience />
+
+	<TechStack />
 
 	<About />
 </main>

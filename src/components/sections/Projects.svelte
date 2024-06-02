@@ -12,7 +12,12 @@
 	<div class="flex flex-col gap-2 text-center">
 		<h6 class="font-caveat text-2xl md:text-4xl">A few of my creative endeavors</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
-			想看看我做了哪些<span class="text-blue-500">有趣的事情</span>嗎？
+			看看我做了哪些
+			<span
+				class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-blue-500"
+			>
+				<span class="relative text-gray-50">有趣的事情</span>
+			</span>
 		</h3>
 	</div>
 	<div class="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-10">

@@ -22,12 +22,16 @@
 	id="about"
 	class="relative flex flex-col gap-16 py-20 pt-10 sm:gap-20 md:gap-24 lg:py-32 lg:pt-16"
 >
-	<div
-		class="relative flex flex-col gap-2 py-8 text-center before:absolute before:left-0 before:top-0 before:h-1.5 before:w-2/3 before:bg-red-500 after:absolute after:bottom-0 after:right-0 after:h-1.5 after:w-2/3 after:bg-red-500"
-	>
+	<div class="flex flex-col gap-2 text-center">
 		<h6 class="font-caveat text-2xl md:text-4xl">Want to know more about me?</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
-			關於<span class="text-red-500">我</span>
+			想知道更多
+			<span
+				class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-red-500"
+			>
+				<span class="relative text-gray-50">關於我</span>
+			</span>
+			的事情嗎？
 		</h3>
 	</div>
 	<p class="mx-auto text-lg font-semibold sm:text-xl md:text-2xl">我其實也是 . . .</p>
