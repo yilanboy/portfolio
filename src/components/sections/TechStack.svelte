@@ -42,7 +42,7 @@
 		</div>
 
 		<div class="flex items-center justify-center">
-			<CircularProgressBar progress="20%" barColor="#ff5733">
+			<CircularProgressBar progress="20%" barColor="#f73c00">
 				<Svelte classList="size-20" />
 			</CircularProgressBar>
 		</div>
