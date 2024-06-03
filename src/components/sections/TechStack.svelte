@@ -7,6 +7,7 @@
 	import Azure from '../icons/Azure.svelte';
 	import Svelte from '../icons/Svelte.svelte';
 	import TailwindCss from '../icons/TailwindCss.svelte';
+	import Livewire from '../icons/Livewire.svelte';
 </script>
 
 <section id="tech-stack" class="flex flex-col gap-24 py-20">
@@ -24,13 +25,13 @@
 
 	<div class="grid grid-cols-1 gap-16 lg:grid-cols-4">
 		<div class="flex items-center justify-center">
-			<CircularProgressBar progress="80%" barColor="#ff9900">
+			<CircularProgressBar progress="65%" barColor="#ff9900">
 				<Aws classList="size-20" />
 			</CircularProgressBar>
 		</div>
 
 		<div class="flex items-center justify-center">
-			<CircularProgressBar progress="30%" barColor="#138dd8">
+			<CircularProgressBar progress="20%" barColor="#138dd8">
 				<Azure classList="size-20" />
 			</CircularProgressBar>
 		</div>
@@ -42,13 +43,19 @@
 		</div>
 
 		<div class="flex items-center justify-center">
+			<CircularProgressBar progress="70%" barColor="#fb70a9">
+				<Livewire classList="size-20" />
+			</CircularProgressBar>
+		</div>
+
+		<div class="flex items-center justify-center">
 			<CircularProgressBar progress="20%" barColor="#f73c00">
 				<Svelte classList="size-20" />
 			</CircularProgressBar>
 		</div>
 
 		<div class="flex items-center justify-center">
-			<CircularProgressBar progress="60%" barColor="#38bdf8">
+			<CircularProgressBar progress="50%" barColor="#38bdf8">
 				<TailwindCss classList="size-20" />
 			</CircularProgressBar>
 		</div>
