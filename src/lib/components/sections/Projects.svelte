@@ -1,5 +1,5 @@
 <script>
-	import Step from '../Step.svelte';
+	import Step from '$lib/components/Step.svelte';
 
 	let steps = [
 		{ name: '部落格', href: 'https://docfunc.com', description: '部落格' },

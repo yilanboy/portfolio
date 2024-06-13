@@ -1,8 +1,8 @@
 <script lang="ts">
 	import '../app.css';
-	import Header from '../components/layouts/Header.svelte';
-	import Footer from '../components/layouts/Footer.svelte';
-	import ArrowUp from '../components/icons/ArrowUp.svelte';
+	import Header from '$lib/components/layouts/Header.svelte';
+	import Footer from '$lib/components/layouts/Footer.svelte';
+	import ArrowUp from '$lib/components/icons/ArrowUp.svelte';
 
 	let y = 0;
 	let innerHeight = 0;

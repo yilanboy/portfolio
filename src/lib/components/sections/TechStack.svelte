@@ -1,13 +1,13 @@
 <script>
-	import CircularProgressBar from '../CircularProgressBar.svelte';
-	import Laravel from '../icons/Laravel.svelte';
-	import Terraform from '../icons/Terraform.svelte';
-	import Ansible from '../icons/Ansible.svelte';
-	import Aws from '../icons/Aws.svelte';
-	import Azure from '../icons/Azure.svelte';
-	import Svelte from '../icons/Svelte.svelte';
-	import TailwindCss from '../icons/TailwindCss.svelte';
-	import Livewire from '../icons/Livewire.svelte';
+	import CircularProgressBar from '$lib/components/CircularProgressBar.svelte';
+	import Laravel from '$lib/components/icons/Laravel.svelte';
+	import Terraform from '$lib/components/icons/Terraform.svelte';
+	import Ansible from '$lib/components/icons/Ansible.svelte';
+	import Aws from '$lib/components/icons/Aws.svelte';
+	import Azure from '$lib/components/icons/Azure.svelte';
+	import Svelte from '$lib/components/icons/Svelte.svelte';
+	import TailwindCss from '$lib/components/icons/TailwindCss.svelte';
+	import Livewire from '$lib/components/icons/Livewire.svelte';
 </script>
 
 <section id="tech-stack" class="flex flex-col gap-24 py-20">
