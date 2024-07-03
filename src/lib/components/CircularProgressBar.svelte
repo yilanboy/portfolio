@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	let bar: HTMLDivElement;
 
 	export let barColor = '#111827';
 	export let barBackgroundColor = '#e5e7eb';
 	export let progress = '3%';
 	export let centerBackgroundColor = '#f9fafb';
+	let bar: HTMLDivElement;
 
 	onMount(() => {
 		const options = {
