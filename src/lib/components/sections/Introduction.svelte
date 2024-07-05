@@ -16,12 +16,14 @@
 		<div class="relative z-0 flex">
 			<img class="z-20 w-[28rem] rounded-full" src={'images/profile.jpg'} alt="Profile" />
 			<div
-				class="green-spot-floating absolute right-0 z-30 size-32 rounded-full border-8 border-gray-50 bg-green-500"
+				class="green-spot-floating absolute right-0 top-0 z-30 size-32 rounded-full border-8 border-gray-50 bg-green-500"
 			></div>
 			<div
 				class="blue-spot-floating absolute bottom-0 right-0 z-10 size-40 rounded-full bg-blue-500"
 			></div>
-			<div class="red-spot-floating absolute left-10 z-10 size-10 rounded-full bg-red-500"></div>
+			<div
+				class="red-spot-floating absolute left-10 top-0 z-10 size-10 rounded-full bg-red-500"
+			></div>
 			<div
 				class="yellow-spot-floating absolute bottom-0 left-16 z-30 size-20 rounded-full border-8 border-gray-50 bg-yellow-500"
 			></div>
@@ -30,59 +32,31 @@
 </section>
 
 <style>
-	@keyframes red-spot-floating {
+	@keyframes floating {
 		0%,
 		100% {
-			top: -1.5rem;
+			transform: translate(0, -1.5rem);
+			scale: 1;
 		}
 		50% {
-			top: 1.5rem;
+			transform: translate(0, 1.5rem);
+			scale: 1.2;
 		}
 	}
 
 	.red-spot-floating {
-		animation: red-spot-floating 6s infinite;
-	}
-
-	@keyframes green-spot-floating {
-		0%,
-		100% {
-			top: -1.5rem;
-		}
-		50% {
-			top: 1.5rem;
-		}
+		animation: floating 12s infinite;
 	}
 
 	.green-spot-floating {
-		animation: green-spot-floating 10s infinite;
-	}
-
-	@keyframes yellow-spot-floating {
-		0%,
-		100% {
-			bottom: 2rem;
-		}
-		50% {
-			bottom: -2rem;
-		}
+		animation: floating 6s infinite;
 	}
 
 	.yellow-spot-floating {
-		animation: yellow-spot-floating 8s infinite;
-	}
-
-	@keyframes blue-spot-floating {
-		0%,
-		100% {
-			bottom: 2rem;
-		}
-		50% {
-			bottom: -2rem;
-		}
+		animation: floating 8s infinite;
 	}
 
 	.blue-spot-floating {
-		animation: blue-spot-floating 12s infinite;
+		animation: floating 16s infinite;
 	}
 </style>
