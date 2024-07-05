@@ -33,15 +33,15 @@
 	@keyframes red-spot-floating {
 		0%,
 		100% {
-			top: -1rem;
+			top: -1.5rem;
 		}
 		50% {
-			top: 1rem;
+			top: 1.5rem;
 		}
 	}
 
 	.red-spot-floating {
-		animation: red-spot-floating 4s infinite;
+		animation: red-spot-floating 6s infinite;
 	}
 
 	@keyframes green-spot-floating {
@@ -55,7 +55,7 @@
 	}
 
 	.green-spot-floating {
-		animation: green-spot-floating 6s infinite;
+		animation: green-spot-floating 10s infinite;
 	}
 
 	@keyframes yellow-spot-floating {
@@ -75,7 +75,7 @@
 	@keyframes blue-spot-floating {
 		0%,
 		100% {
-			bottom: 1rem;
+			bottom: 2rem;
 		}
 		50% {
 			bottom: -2rem;
@@ -83,6 +83,6 @@
 	}
 
 	.blue-spot-floating {
-		animation: blue-spot-floating 10s infinite;
+		animation: blue-spot-floating 12s infinite;
 	}
 </style>

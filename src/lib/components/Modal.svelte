@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
+	import AcrossMark from '$lib/components/icons/AcrossMark.svelte';
 
 	export let showModal = false;
 </script>
@@ -21,17 +22,13 @@
 					id="modal"
 					class="relative transform overflow-hidden rounded-lg bg-gray-50 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl"
 				>
+					<button on:click={() => (showModal = false)} type="button" class="absolute right-4 top-4">
+						<AcrossMark
+							classList="size-10 text-gray-400 transition duration-150 hover:text-gray-600"
+						/>
+					</button>
 					<div class="bg-gray-50 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
 						<slot />
-					</div>
-					<div class="bg-gray-100 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-						<button
-							on:click={() => (showModal = false)}
-							type="button"
-							class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-gray-50 shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
-						>
-							關閉
-						</button>
 					</div>
 				</div>
 			</div>
