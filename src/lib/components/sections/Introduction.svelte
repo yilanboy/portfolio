@@ -49,11 +49,11 @@
 	}
 
 	.green-spot-floating {
-		animation: floating 6s infinite;
+		animation: floating 8s infinite;
 	}
 
 	.yellow-spot-floating {
-		animation: floating 8s infinite;
+		animation: floating 10s infinite;
 	}
 
 	.blue-spot-floating {
