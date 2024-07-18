@@ -45,18 +45,18 @@
 	}
 
 	.red-spot-floating {
-		animation: floating 12s infinite;
+		animation: floating 14s infinite;
 	}
 
 	.green-spot-floating {
-		animation: floating 8s infinite;
-	}
-
-	.yellow-spot-floating {
 		animation: floating 10s infinite;
 	}
 
+	.yellow-spot-floating {
+		animation: floating 12s infinite;
+	}
+
 	.blue-spot-floating {
-		animation: floating 16s infinite;
+		animation: floating 18s infinite;
 	}
 </style>
