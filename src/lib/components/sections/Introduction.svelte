@@ -1,8 +1,15 @@
 <section id="introduction" class="grid grid-cols-1 gap-10 py-20 lg:grid-cols-2">
 	<div class="flex flex-col gap-6 text-center md:gap-8 lg:justify-center lg:gap-10 lg:text-left">
 		<h2 class="text-5xl font-semibold leading-normal">
-			Hi！我是 <span class="text-green-500">Allen</span><br />
-			是一位 <span class="text-green-500">DevOps</span> 工程師
+			Hi！我是 <span
+				class="inline-block bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent"
+				>Allen</span
+			><br />
+			是一位
+			<span
+				class="inline-block bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent"
+				>DevOps</span
+			> 工程師
 		</h2>
 
 		<p class="text-base sm:text-lg md:text-xl">
