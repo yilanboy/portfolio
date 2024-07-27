@@ -1,3 +1,42 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+
+	let dynamicText: HTMLElement;
+
+	const words = ['DevOps', 'Backend', 'Frontend', 'Coding'];
+
+	let wordIndex = 0;
+	let charIndex = 0;
+	let isDeleting = false;
+
+	function typeEffect() {
+		const currentWord = words[wordIndex];
+		const currentChar = currentWord.substring(0, charIndex);
+
+		if (!dynamicText) {
+			return;
+		}
+
+		dynamicText.textContent = currentChar;
+
+		if (!isDeleting && charIndex < currentWord.length) {
+			charIndex++;
+			setTimeout(typeEffect, 200);
+		} else if (isDeleting && charIndex > 0) {
+			charIndex--;
+			setTimeout(typeEffect, 100);
+		} else {
+			isDeleting = !isDeleting;
+			wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
+			setTimeout(typeEffect, 1200);
+		}
+	}
+
+	onMount(() => {
+		typeEffect();
+	});
+</script>
+
 <section id="introduction" class="grid grid-cols-1 gap-10 py-20 lg:grid-cols-2">
 	<div class="flex flex-col gap-6 text-center md:gap-8 lg:justify-center lg:gap-10 lg:text-left">
 		<h2 class="text-5xl font-semibold leading-normal">
@@ -16,6 +55,14 @@
 			後端打工仔。<span class="text-green-500">擅長各類維運技能與雲端服務</span
 			>，但下班後喜歡不務正業的研究前後端的技術
 			。個性就像動態語言般隨興，但渴望做事能像囉嗦的靜態語言那樣嚴謹。
+		</p>
+
+		<p id="typewriter" class="text-5xl font-bold">
+			I Love <span
+				id="dynamicText"
+				class="before:animate-blink relative inline-block h-full text-indigo-500 before:absolute before:-bottom-2 before:-right-8 before:h-1.5 before:w-8 before:bg-indigo-500 before:contain-none"
+				bind:this={dynamicText}
+			></span>
 		</p>
 	</div>
 
