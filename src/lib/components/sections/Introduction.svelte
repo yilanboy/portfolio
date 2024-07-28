@@ -3,7 +3,7 @@
 
 	let dynamicText: HTMLElement;
 
-	const words = ['DevOps', 'Backend', 'Frontend', 'Coding'];
+	const words = ['Operation', 'Coding', 'Sharing'];
 
 	let wordIndex = 0;
 	let charIndex = 0;
@@ -11,21 +11,20 @@
 
 	function typeEffect() {
 		const currentWord = words[wordIndex];
-		const currentChar = currentWord.substring(0, charIndex);
 
-		if (!dynamicText) {
-			return;
-		}
-
-		dynamicText.textContent = currentChar;
+		dynamicText.textContent = currentWord.substring(0, charIndex);
 
 		if (!isDeleting && charIndex < currentWord.length) {
+			// dynamic text is typing
 			charIndex++;
 			setTimeout(typeEffect, 200);
 		} else if (isDeleting && charIndex > 0) {
+			// dynamic text is deleting
 			charIndex--;
 			setTimeout(typeEffect, 100);
 		} else {
+			// dynamic text is finished, and change isDeleting to true
+			// dynamic text is deleted, change isDeleting to false, and show next word
 			isDeleting = !isDeleting;
 			wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
 			setTimeout(typeEffect, 1200);
@@ -51,16 +50,18 @@
 			> 工程師
 		</h2>
 
-		<p class="text-base sm:text-lg md:text-xl">
-			後端打工仔。<span class="text-green-500">擅長各類維運技能與雲端服務</span
-			>，但下班後喜歡不務正業的研究前後端的技術
+		<p class="inline-block text-base sm:text-lg md:text-xl">
+			後端打工仔。擅長各類<span class="text-green-500">維運技能</span>與<span class="text-green-500"
+				>雲端服務</span
+			>，下班後喜歡不務正業的研究<span class="text-green-500">前後端技術</span>
 			。個性就像動態語言般隨興，但渴望做事能像囉嗦的靜態語言那樣嚴謹。
 		</p>
 
 		<p id="typewriter" class="text-5xl font-bold">
-			I Love <span
+			I Love
+			<span
 				id="dynamicText"
-				class="before:animate-blink relative inline-block h-full text-indigo-500 before:absolute before:-bottom-2 before:-right-8 before:h-1.5 before:w-8 before:bg-indigo-500 before:contain-none"
+				class="relative inline-block h-full text-indigo-500 before:absolute before:-bottom-2 before:-right-8 before:h-1.5 before:w-8 before:animate-blink before:bg-indigo-500 before:contain-none"
 				bind:this={dynamicText}
 			></span>
 		</p>
