@@ -57,7 +57,7 @@
 			。個性就像動態語言般隨興，但渴望做事能像囉嗦的靜態語言那樣嚴謹。
 		</p>
 
-		<p id="typewriter" class="text-5xl font-bold">
+		<p id="typewriter" class="flex items-center gap-4 text-5xl font-bold">
 			I Love
 			<span
 				id="dynamicText"
