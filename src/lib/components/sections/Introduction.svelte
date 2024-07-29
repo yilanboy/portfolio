@@ -22,11 +22,14 @@
 			// dynamic text is deleting
 			charIndex--;
 			setTimeout(typeEffect, 100);
-		} else {
+		} else if (!isDeleting && charIndex === currentWord.length) {
 			// dynamic text is finished, and change isDeleting to true
+			isDeleting = true;
+			setTimeout(typeEffect, 1500);
+		} else {
 			// dynamic text is deleted, change isDeleting to false, and show next word
-			isDeleting = !isDeleting;
-			wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
+			isDeleting = false;
+			wordIndex = (wordIndex + 1) % words.length;
 			setTimeout(typeEffect, 1200);
 		}
 	}
