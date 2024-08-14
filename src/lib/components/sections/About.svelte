@@ -1,5 +1,10 @@
 <script lang="ts">
-	let benefits = [
+	interface Strength {
+		name: string;
+		description: string;
+	}
+
+	let strengths: Array<Strength> = [
 		{
 			name: '一位全端工程師',
 			description:
@@ -36,16 +41,16 @@
 	</div>
 	<p class="mx-auto text-lg font-semibold sm:text-xl md:text-2xl">我其實也是 . . .</p>
 	<div class="mx-auto flex w-full max-w-[800px] flex-col gap-20">
-		{#each benefits as benefit, index}
+		{#each strengths as strength, index}
 			<div class="flex gap-6 sm:gap-8">
 				<p class="w-1/5 text-4xl font-semibold text-red-500 sm:text-5xl md:text-6xl">
-					0{index + 1}
+					{(index + 1).toString().padStart(2, '0')}
 				</p>
 				<div class="flex w-4/5 flex-col gap-6 sm:gap-8">
 					<h3 class="text-2xl sm:text-3xl md:text-5xl">
-						{benefit.name}
+						{strength.name}
 					</h3>
-					<p>{benefit.description}</p>
+					<p>{strength.description}</p>
 				</div>
 			</div>
 		{/each}
