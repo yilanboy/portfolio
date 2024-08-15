@@ -1,15 +1,15 @@
 <script lang="ts">
-	export let classList = 'size-6';
+	export let className = 'size-6';
 </script>
 
 <svg
+	class={className}
 	viewBox="0 0 512 512"
 	xmlns="http://www.w3.org/2000/svg"
 	fill-rule="evenodd"
 	clip-rule="evenodd"
 	stroke-linejoin="round"
 	stroke-miterlimit="2"
-	class={classList}
 	><g fill-rule="nonzero"
 		><path
 			d="M52.091 10.225h40.684L50.541 135.361a6.5 6.5 0 01-6.146 4.412H12.732c-3.553 0-6.477-2.923-6.477-6.476 0-.704.115-1.403.34-2.07L45.944 14.638a6.501 6.501 0 016.147-4.415v.002z"

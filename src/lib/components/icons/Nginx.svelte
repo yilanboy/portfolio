@@ -1,8 +1,8 @@
 <script lang="ts">
-	export let classList = 'size-6';
+	export let className = 'size-6';
 </script>
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class={classList}
+<svg class={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
 	><title>file_type_nginx</title><path
 		d="M15.948,2h.065a10.418,10.418,0,0,1,.972.528Q22.414,5.65,27.843,8.774a.792.792,0,0,1,.414.788c-.008,4.389,0,8.777-.005,13.164a.813.813,0,0,1-.356.507q-5.773,3.324-11.547,6.644a.587.587,0,0,1-.657.037Q9.912,26.6,4.143,23.274a.7.7,0,0,1-.4-.666q0-6.582,0-13.163a.693.693,0,0,1,.387-.67Q9.552,5.657,14.974,2.535c.322-.184.638-.379.974-.535"
 		style="fill:#019639"

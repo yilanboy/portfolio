@@ -24,7 +24,7 @@
 				>
 					<button on:click={() => (showModal = false)} type="button" class="absolute right-4 top-4">
 						<AcrossMark
-							classList="size-10 text-gray-400 transition duration-150 hover:text-gray-600"
+							className="size-10 text-gray-400 transition duration-150 hover:text-gray-600"
 						/>
 					</button>
 					<div class="bg-gray-50 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">

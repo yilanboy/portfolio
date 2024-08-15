@@ -86,7 +86,7 @@
 				<div class="mb-4 text-slate-500">{experience.content}</div>
 				<div class="flex gap-4">
 					{#each experience.techIconComponents as techIconComponent}
-						<svelte:component this={techIconComponent} classList="size-10" />
+						<svelte:component this={techIconComponent} className="size-10" />
 					{/each}
 				</div>
 			</div>

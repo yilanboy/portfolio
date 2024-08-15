@@ -41,7 +41,7 @@
 					type="button"
 					class="transition duration-150 hover:scale-125 active:scale-100"
 				>
-					<Aws classList="size-20" />
+					<Aws className="size-20" />
 				</button>
 			</CircularProgressBar>
 
@@ -75,7 +75,7 @@
 					type="button"
 					class="transition duration-150 hover:scale-125 active:scale-100"
 				>
-					<Azure classList="size-20" />
+					<Azure className="size-20" />
 				</button>
 			</CircularProgressBar>
 
@@ -100,7 +100,7 @@
 					type="button"
 					class="transition duration-150 hover:scale-125 active:scale-100"
 				>
-					<Laravel classList="size-20" />
+					<Laravel className="size-20" />
 				</button>
 			</CircularProgressBar>
 
@@ -130,7 +130,7 @@
 					type="button"
 					class="transition duration-150 hover:scale-125 active:scale-100"
 				>
-					<Livewire classList="size-20" />
+					<Livewire className="size-20" />
 				</button>
 			</CircularProgressBar>
 
@@ -156,7 +156,7 @@
 					type="button"
 					class="transition duration-150 hover:scale-125 active:scale-100"
 				>
-					<Svelte classList="size-20" />
+					<Svelte className="size-20" />
 				</button>
 			</CircularProgressBar>
 
@@ -176,7 +176,7 @@
 					type="button"
 					class="transition duration-150 hover:scale-125 active:scale-100"
 				>
-					<TailwindCss classList="size-20" />
+					<TailwindCss className="size-20" />
 				</button>
 
 				<Modal bind:showModal={showTailwindCssExperience}>
@@ -197,7 +197,7 @@
 					type="button"
 					class="transition duration-150 hover:scale-125 active:scale-100"
 				>
-					<Terraform classList="size-20" />
+					<Terraform className="size-20" />
 				</button>
 			</CircularProgressBar>
 
@@ -228,7 +228,7 @@
 					type="button"
 					class="transition duration-150 hover:scale-125 active:scale-100"
 				>
-					<Ansible classList="size-20" />
+					<Ansible className="size-20" />
 				</button>
 			</CircularProgressBar>
 

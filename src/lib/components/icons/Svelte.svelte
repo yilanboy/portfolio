@@ -1,14 +1,14 @@
 <script lang="ts">
-	export let classList = 'size-6';
+	export let className = 'size-6';
 </script>
 
 <svg
+	class={className}
 	xmlns="http://www.w3.org/2000/svg"
 	id="Layer_1"
 	viewBox="0 0 98.1 118"
 	style="enable-background:new 0 0 98.1 118;"
 	xml:space="preserve"
-	class={classList}
 >
 	<path
 		class="st0"

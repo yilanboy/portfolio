@@ -19,11 +19,11 @@
 		class="mx-auto -mt-10 grid place-items-center gap-2 bg-slate-50 px-4 text-5xl duration-200 sm:-mt-12 md:-mt-14 md:text-6xl lg:-mt-16"
 	>
 		{#if step.name === '部落格'}
-			<FileEarmarkRichText classList="size-12" />
+			<FileEarmarkRichText className="size-12" />
 		{:else if step.name === '筆記'}
-			<JournalText classList="size-12" />
+			<JournalText className="size-12" />
 		{:else if step.name === '簡報'}
-			<Easel classList="size-12" />
+			<Easel className="size-12" />
 		{/if}
 	</div>
 
