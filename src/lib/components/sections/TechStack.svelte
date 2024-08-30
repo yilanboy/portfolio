@@ -236,6 +236,7 @@
 				<h3 class="text-xl font-semibold leading-6 text-[#424242]">Ansible</h3>
 				<div class="mt-4 divide-y-2 divide-dashed divide-[#424242]">
 					<p class="p-2 text-lg text-gray-500">使用 Ansible Playbook 來自動化部署 K3s 叢集的流程</p>
+					<p class="p-2 text-lg text-gray-500">在公司內部技術分享會介紹 Ansible 與其使用方式</p>
 				</div>
 			</Modal>
 		</div>
