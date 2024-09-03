@@ -9,8 +9,10 @@
 </script>
 
 <header
-	class={'sticky top-2 z-10 mx-2 flex items-center justify-between rounded-md border border-solid px-6 duration-200' +
-		(y > 0 ? ' border-gray-600 bg-gray-50 py-4' : ' border-transparent bg-transparent py-6')}
+	class={'sticky z-10 mx-2 flex items-center justify-between rounded-md border border-solid px-6 duration-200' +
+		(y > 0
+			? ' top-2 border-gray-600 bg-gray-50 py-4'
+			: ' top-0 border-transparent bg-transparent py-6')}
 >
 	<h1>
 		<b>Allen</b> Jiang
