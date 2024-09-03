@@ -82,7 +82,7 @@
 				'使用 SvelteKit 與 Laravel 實作前後端分離的網站'
 			]
 		},
-		TailwindCss: {
+		'Tailwind CSS': {
 			iconComponent: TailwindCss,
 			progress: '50%',
 			barColor: '#38bdf8',
