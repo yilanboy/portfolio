@@ -9,10 +9,15 @@
 </script>
 
 <header
-	class={'sticky z-10 mx-2 flex items-center justify-between rounded-md border border-solid px-6 duration-200' +
-		(y > 0
-			? ' top-2 border-gray-600 bg-gray-50 py-4'
-			: ' top-0 border-transparent bg-transparent py-6')}
+	class="sticky z-10 mx-2 flex items-center justify-between rounded-md border border-solid px-6 duration-200"
+	class:top-2={y > 0}
+	class:border-gray-600={y > 0}
+	class:bg-gray-50={y > 0}
+	class:py-4={y > 0}
+	class:top-0={y <= 0}
+	class:border-transparent={y <= 0}
+	class:bg-transparent={y <= 0}
+	class:py-6={y <= 0}
 >
 	<h1>
 		<b>Allen</b> Jiang
