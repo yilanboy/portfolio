@@ -131,7 +131,7 @@
 		</h3>
 	</div>
 
-	<div class="grid grid-cols-1 gap-16 lg:grid-cols-4">
+	<div class="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
 		{#each Object.entries(techStacks) as [key, techStack] (key)}
 			<div class="flex items-center justify-center">
 				<CircularProgressBar progress={techStack.progress} barColor={techStack.barColor}>
