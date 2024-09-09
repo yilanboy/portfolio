@@ -16,6 +16,8 @@
 	import Nginx from '$lib/components/icons/Nginx.svelte';
 	import GitHubAction from '$lib/components/icons/GitHubAction.svelte';
 	import Rust from '$lib/components/icons/Rust.svelte';
+	import GoogleCloudPlatform from '$lib/components/icons/GoogleCloudPlatform.svelte';
+	import K3s from '$lib/components/icons/K3s.svelte';
 
 	interface Experience {
 		time: string;
@@ -30,7 +32,16 @@
 			title: '轉換跑道，學習成為一位 DevOps 工程師',
 			content:
 				'因為開發部落格，我接觸到了雲端服務與各種維運工具，並從中發現了 DevOps 魅力。將寫好的程式自動部署到正式環境上並穩定運行，對我來說是一件非常有成就感的事情。某次因緣際會之下，我拿到了 DevOps 工程師的 Offer，於是決定轉換跑道，成為一位 DevOps 工程師。',
-			techIconComponents: [Aws, Azure, Python, Terraform, Ansible, GitHubAction]
+			techIconComponents: [
+				Aws,
+				Azure,
+				GoogleCloudPlatform,
+				K3s,
+				Terraform,
+				Ansible,
+				GitHubAction,
+				Python
+			]
 		},
 		{
 			time: 'Aug, 2020',
