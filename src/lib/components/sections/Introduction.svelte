@@ -39,9 +39,12 @@
 	});
 </script>
 
-<section id="introduction" class="grid grid-cols-1 gap-10 py-20 lg:grid-cols-2">
+<section
+	id="introduction"
+	class="grid grid-cols-1 gap-10 rounded-3xl bg-gray-100 px-10 py-20 lg:grid-cols-2"
+>
 	<div class="flex flex-col gap-6 text-center md:gap-8 lg:justify-center lg:gap-10 lg:text-left">
-		<h2 class="text-5xl font-semibold leading-normal">
+		<h2 class="text-4xl font-semibold leading-normal md:text-5xl">
 			Hi！我是 <span
 				class="inline-block bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent"
 				>Allen</span
@@ -60,7 +63,7 @@
 			。個性就像動態語言般隨興，但渴望做事能像囉嗦的靜態語言那樣嚴謹。
 		</p>
 
-		<p id="typewriter" class="flex items-center gap-4 text-5xl font-bold">
+		<p id="typewriter" class="flex items-center gap-4 text-4xl font-bold md:text-5xl">
 			I Love
 			<span
 				id="dynamicText"
