@@ -1,4 +1,4 @@
-<div class="flex w-full justify-center py-4 text-xl">
+<div class="mb-4 flex w-full justify-center rounded-2xl bg-gray-200/60 py-4 text-xl">
 	本頁面使用
 	<a
 		target="_blank"

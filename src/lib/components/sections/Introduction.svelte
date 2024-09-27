@@ -41,7 +41,7 @@
 
 <section
 	id="introduction"
-	class="grid grid-cols-1 gap-10 rounded-3xl bg-gray-100 px-10 py-20 lg:grid-cols-2"
+	class="grid grid-cols-1 gap-10 rounded-3xl bg-gray-200/60 px-10 py-20 lg:grid-cols-2"
 >
 	<div class="flex flex-col gap-6 text-center md:gap-8 lg:justify-center lg:gap-10 lg:text-left">
 		<h2 class="text-4xl font-semibold leading-normal md:text-5xl">

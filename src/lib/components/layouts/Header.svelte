@@ -32,7 +32,7 @@
 	<a
 		href="https://docfunc.com"
 		target="_blank"
-		class="group relative overflow-hidden rounded-full bg-gray-100 px-5 py-2 text-slate-950"
+		class="group relative overflow-hidden rounded-full bg-gray-200/60 px-5 py-2 text-slate-950"
 	>
 		<div
 			class="absolute right-full top-0 z-0 size-full bg-blue-400 opacity-20 duration-200 group-hover:translate-x-full"
