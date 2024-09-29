@@ -9,7 +9,17 @@
 	import TailwindCss from '$lib/components/icons/TailwindCss.svelte';
 	import Livewire from '$lib/components/icons/Livewire.svelte';
 	import Modal from '$lib/components/Modal.svelte';
-	import type { ComponentType } from 'svelte';
+	import { type ComponentType, onMount } from 'svelte';
+	import { theme } from '$lib/stores';
+
+	let isDarkModeEnabled: boolean;
+
+	theme.subscribe((value) => {
+		isDarkModeEnabled = value === 'dark';
+	});
+
+	$: barBackgroundColor = isDarkModeEnabled ? '#404040' : '#e5e7eb';
+	$: centerBackgroundColor = isDarkModeEnabled ? '#262626' : '#f9fafb';
 
 	type techStack = {
 		iconComponent: ComponentType;
@@ -108,7 +118,7 @@
 		Ansible: {
 			iconComponent: Ansible,
 			progress: '20%',
-			barColor: '#424242',
+			barColor: '#1c1917',
 			showExperience: false,
 			experiences: [
 				'使用 Ansible Playbook 來自動化部署 K3s 叢集的流程',
@@ -116,17 +126,21 @@
 			]
 		}
 	};
+
+	onMount(() => {
+		isDarkModeEnabled = document.documentElement.classList.contains('dark');
+	});
 </script>
 
 <section id="tech-stack" class="flex flex-col gap-24 py-20">
-	<div class="flex flex-col gap-2 text-center">
+	<div class="flex flex-col gap-2 text-center dark:text-neutral-50">
 		<h6 class="font-caveat text-2xl md:text-4xl">Let's see what I'm good at.</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
 			這些是我
 			<span
-				class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-green-500"
+				class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-green-500 dark:before:bg-green-600"
 			>
-				<span class="relative text-gray-50">使用過的技術</span>
+				<span class="relative text-neutral-50">使用過的技術</span>
 			</span>
 		</h3>
 	</div>
@@ -134,7 +148,12 @@
 	<div class="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
 		{#each Object.entries(techStacks) as [key, techStack] (key)}
 			<div class="flex items-center justify-center">
-				<CircularProgressBar progress={techStack.progress} barColor={techStack.barColor}>
+				<CircularProgressBar
+					progress={techStack.progress}
+					barColor={techStack.barColor}
+					bind:barBackgroundColor
+					bind:centerBackgroundColor
+				>
 					<button
 						on:click={() => (techStack.showExperience = true)}
 						type="button"
@@ -145,10 +164,12 @@
 				</CircularProgressBar>
 
 				<Modal bind:showModal={techStack.showExperience}>
-					<h3 class="text-xl font-semibold leading-6 text-gray-900">{key}</h3>
-					<div class="mt-4 divide-y-2 divide-dashed divide-gray-300">
+					<h3 class="text-xl font-semibold leading-6 text-neutral-900 dark:text-neutral-50">
+						{key}
+					</h3>
+					<div class="mt-4 divide-y-2 divide-dashed divide-neutral-300 dark:divide-neutral-700">
 						{#each techStack.experiences as experience (experience)}
-							<p class="p-2 text-lg text-gray-500">{experience}</p>
+							<p class="p-2 text-lg text-neutral-500 dark:text-neutral-400">{experience}</p>
 						{/each}
 					</div>
 				</Modal>

@@ -13,7 +13,7 @@
 	}
 </script>
 
-<div class="bg-gray-50 text-gray-900">
+<div class="bg-neutral-50 text-neutral-900 dark:bg-neutral-800">
 	<div class="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col text-sm sm:text-base">
 		<div
 			class={'fixed bottom-0 right-0 z-10 flex p-10 duration-200' +
@@ -21,7 +21,7 @@
 		>
 			<button
 				on:click={goTop}
-				class="ml-auto grid aspect-square cursor-pointer place-items-center rounded-full bg-slate-900 px-3 text-gray-50 hover:bg-slate-800 sm:px-4"
+				class="ml-auto grid aspect-square cursor-pointer place-items-center rounded-full bg-slate-900 px-3 text-neutral-50 transition duration-200 hover:bg-slate-700 sm:px-4 dark:bg-slate-600 dark:hover:bg-slate-500"
 			>
 				<ArrowUp />
 			</button>

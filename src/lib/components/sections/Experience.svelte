@@ -68,13 +68,13 @@
 </script>
 
 <section id="experience" class="flex flex-col gap-24 py-20">
-	<div class="flex flex-col gap-2 text-center">
+	<div class="flex flex-col gap-2 text-center dark:text-neutral-50">
 		<h6 class="font-caveat text-2xl md:text-4xl">The past has made me who I am now</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
 			<span
-				class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-yellow-500"
+				class="dark:before-bg-yellow-600 relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-yellow-500"
 			>
-				<span class="relative text-gray-50">過往的經歷</span>
+				<span class="relative text-neutral-50">過往的經歷</span>
 			</span>
 			成就現在的我
 		</h3>
@@ -85,19 +85,23 @@
 			<div class="group relative py-6 pl-8 sm:pl-32">
 				<!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
 				<div
-					class="mb-4 flex flex-col items-start before:absolute before:left-2 before:h-full before:-translate-x-1/2 before:translate-y-3 before:self-start before:bg-slate-300 before:px-px after:absolute after:left-2 after:box-content after:h-2 after:w-2 after:-translate-x-1/2 after:translate-y-1.5 after:rounded-full after:border-4 after:border-slate-50 after:bg-yellow-600 group-last:before:hidden sm:flex-row sm:before:left-0 sm:before:ml-[6.5rem] sm:after:left-0 sm:after:ml-[6.5rem]"
+					class="mb-4 flex flex-col items-start before:absolute before:left-2 before:h-full before:-translate-x-1/2 before:translate-y-3 before:self-start before:bg-neutral-300 before:px-px after:absolute after:left-2 after:box-content after:h-2 after:w-2 after:-translate-x-1/2 after:translate-y-1.5 after:rounded-full after:border-8 after:border-neutral-50 after:bg-yellow-500 group-last:before:hidden sm:flex-row sm:before:left-0 sm:before:ml-[6.5rem] sm:after:left-0 sm:after:ml-[6.5rem] dark:before:bg-neutral-700 dark:after:border-neutral-800 dark:after:bg-yellow-600"
 				>
 					<time
-						class="left-0 mb-3 inline-flex h-6 w-20 translate-y-0.5 items-center justify-center rounded-full bg-emerald-100 text-xs font-semibold uppercase text-emerald-600 sm:absolute sm:mb-0"
+						class="left-0 mb-3 inline-flex h-6 w-20 translate-y-0.5 items-center justify-center rounded-full bg-emerald-100 text-xs font-semibold uppercase text-emerald-600 sm:absolute sm:mb-0 dark:bg-emerald-700 dark:text-emerald-50"
 						>{experience.time}</time
 					>
-					<div class="text-xl font-bold text-slate-900">{experience.title}</div>
+					<div class="text-xl font-bold dark:text-neutral-50">{experience.title}</div>
 				</div>
 				<!-- Content -->
-				<div class="mb-4 text-slate-500">{experience.content}</div>
+				<div class="mb-4 text-neutral-500 dark:text-neutral-400">{experience.content}</div>
 				<div class="flex gap-4">
 					{#each experience.techIconComponents as techIconComponent}
-						<svelte:component this={techIconComponent} className="size-10" />
+						<div
+							class="flex size-16 items-center justify-center rounded-full bg-neutral-200/60 dark:bg-neutral-700/60"
+						>
+							<svelte:component this={techIconComponent} className="size-10" />
+						</div>
 					{/each}
 				</div>
 			</div>

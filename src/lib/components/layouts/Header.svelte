@@ -1,30 +1,65 @@
 <script lang="ts">
+	import Toggle from '$lib/components/Toggle.svelte';
+	import { onMount } from 'svelte';
+	import { theme } from '$lib/stores';
+
 	export let y: number;
+
+	let isDarkModeEnabled = false;
 
 	let tabs = [
 		{ name: '專案', link: '#projects' },
 		{ name: '經歷', link: '#experience' },
 		{ name: '關於', link: '#about' }
 	];
+
+	function toggleTheme() {
+		if (document.documentElement.classList.contains('dark')) {
+			localStorage.theme = 'light';
+			document.documentElement.classList.remove('dark');
+			theme.update(() => 'light');
+		} else {
+			localStorage.theme = 'dark';
+			document.documentElement.classList.add('dark');
+			theme.update(() => 'dark');
+		}
+	}
+
+	onMount(() => {
+		if (document.documentElement.classList.contains('dark')) {
+			isDarkModeEnabled = true;
+			theme.update(() => 'dark');
+		} else {
+			isDarkModeEnabled = false;
+			theme.update(() => 'light');
+		}
+	});
 </script>
 
 <header
-	class="sticky z-10 mx-2 flex items-center justify-between rounded-md border border-solid px-6 duration-200"
+	class="sticky z-10 mx-2 flex items-center justify-between rounded-md border border-solid px-6 duration-200 dark:bg-neutral-800"
 	class:top-2={y > 0}
-	class:border-gray-600={y > 0}
-	class:bg-gray-50={y > 0}
+	class:border-neutral-600={y > 0}
+	class:bg-neutral-50={y > 0}
 	class:py-4={y > 0}
 	class:top-0={y <= 0}
 	class:border-transparent={y <= 0}
 	class:bg-transparent={y <= 0}
 	class:py-6={y <= 0}
 >
-	<h1>
+	<h1 class="dark:text-neutral-50">
 		<b>Allen</b> Jiang
 	</h1>
 	<div class="ml-auto hidden items-center gap-6 pr-4 sm:flex">
+		<div class="flex items-center justify-center gap-2">
+			<Toggle isEnabled={isDarkModeEnabled} on:click={() => toggleTheme()} />
+		</div>
+
 		{#each tabs as tab (tab.name)}
-			<a href={tab.link} class="hover:text-gray-600">
+			<a
+				href={tab.link}
+				class="hover:text-neutral-600 dark:text-neutral-50 dark:hover:text-neutral-200"
+			>
 				<p>{tab.name}</p>
 			</a>
 		{/each}
@@ -32,7 +67,7 @@
 	<a
 		href="https://docfunc.com"
 		target="_blank"
-		class="group relative overflow-hidden rounded-full bg-gray-200/60 px-5 py-2 text-slate-950"
+		class="group relative overflow-hidden rounded-full bg-neutral-200/60 px-5 py-2 text-slate-950 dark:bg-neutral-700/60 dark:text-neutral-50"
 	>
 		<div
 			class="absolute right-full top-0 z-0 size-full bg-blue-400 opacity-20 duration-200 group-hover:translate-x-full"

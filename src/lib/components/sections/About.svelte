@@ -27,20 +27,22 @@
 	id="about"
 	class="relative flex flex-col gap-16 py-20 pt-10 sm:gap-20 md:gap-24 lg:py-32 lg:pt-16"
 >
-	<div class="flex flex-col gap-2 text-center">
+	<div class="flex flex-col gap-2 text-center dark:text-neutral-50">
 		<h6 class="font-caveat text-2xl md:text-4xl">Want to know more about me?</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
 			想知道更多
 			<span
-				class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-red-500"
+				class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-red-500 dark:bg-red-600"
 			>
-				<span class="relative text-gray-50">關於我</span>
+				<span class="relative text-neutral-50">關於我</span>
 			</span>
 			的事情嗎？
 		</h3>
 	</div>
-	<p class="mx-auto text-lg font-semibold sm:text-xl md:text-2xl">我其實也是 . . .</p>
-	<div class="mx-auto flex w-full max-w-[800px] flex-col gap-20">
+	<p class="mx-auto text-lg font-semibold text-neutral-50 sm:text-xl md:text-2xl">
+		我其實也是 . . .
+	</p>
+	<div class="mx-auto flex w-full max-w-[800px] flex-col gap-20 dark:text-neutral-50">
 		{#each strengths as strength, index}
 			<div class="flex gap-6 sm:gap-8">
 				<p class="w-1/5 text-4xl font-semibold text-red-500 sm:text-5xl md:text-6xl">
@@ -50,7 +52,7 @@
 					<h3 class="text-2xl sm:text-3xl md:text-5xl">
 						{strength.name}
 					</h3>
-					<p>{strength.description}</p>
+					<p class="text-neutral-500 dark:text-neutral-400">{strength.description}</p>
 				</div>
 			</div>
 		{/each}
