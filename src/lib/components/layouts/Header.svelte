@@ -2,6 +2,8 @@
 	import Toggle from '$lib/components/Toggle.svelte';
 	import { onMount } from 'svelte';
 	import { theme } from '$lib/stores';
+	import Sun from '$lib/components/icons/Sun.svelte';
+	import Moon from '$lib/components/icons/Moon.svelte';
 
 	export let y: number;
 
@@ -52,7 +54,10 @@
 	</h1>
 	<div class="ml-auto hidden items-center gap-6 pr-4 sm:flex">
 		<div class="flex items-center justify-center gap-2">
-			<Toggle isEnabled={isDarkModeEnabled} on:click={() => toggleTheme()} />
+			<Toggle isEnabled={isDarkModeEnabled} on:click={() => toggleTheme()}>
+				<Sun className="size-3" slot="iconShowOnDisabled" />
+				<Moon className="size-3 text-indigo-600" slot="iconShowOnEnabled" />
+			</Toggle>
 		</div>
 
 		{#each tabs as tab (tab.name)}
