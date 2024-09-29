@@ -118,7 +118,7 @@
 		Ansible: {
 			iconComponent: Ansible,
 			progress: '20%',
-			barColor: '#1c1917',
+			barColor: '#5d5d5d',
 			showExperience: false,
 			experiences: [
 				'使用 Ansible Playbook 來自動化部署 K3s 叢集的流程',

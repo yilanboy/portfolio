@@ -41,11 +41,11 @@
 
 <section
 	id="introduction"
-	class="grid grid-cols-1 gap-10 rounded-3xl bg-neutral-200/60 px-10 py-20 lg:grid-cols-2 dark:bg-neutral-700/60"
+	class="grid grid-cols-1 gap-10 rounded-3xl bg-neutral-200/60 px-10 py-20 dark:bg-neutral-700/60 lg:grid-cols-2"
 >
 	<div class="flex flex-col gap-6 text-center md:gap-8 lg:justify-center lg:gap-10 lg:text-left">
 		<div class="flex flex-col gap-0">
-			<h2 class="text-4xl font-semibold md:text-5xl dark:text-neutral-50">
+			<h2 class="text-4xl font-semibold dark:text-neutral-50 md:text-5xl">
 				Hi！我是
 				<span
 					class="inline-block bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text leading-normal text-transparent"
@@ -65,7 +65,7 @@
 			</h2>
 		</div>
 
-		<p class="inline-block text-base sm:text-lg md:text-xl dark:text-neutral-50">
+		<p class="inline-block text-base dark:text-neutral-50 sm:text-lg md:text-xl">
 			後端打工仔。擅長各類<span class="text-green-500 dark:text-green-400">維運技能</span>與<span
 				class="text-green-500 dark:text-green-400">雲端服務</span
 			>，下班後喜歡不務正業的研究<span class="text-green-500 dark:text-green-400">前後端技術</span>
@@ -74,12 +74,12 @@
 
 		<p
 			id="typewriter"
-			class="flex items-center gap-4 text-4xl font-bold md:text-5xl dark:text-neutral-50"
+			class="flex items-center gap-4 text-4xl font-bold dark:text-neutral-50 md:text-5xl"
 		>
 			I Love
 			<span
 				id="dynamicText"
-				class="relative inline-block h-full text-indigo-500 before:absolute before:-bottom-2 before:-right-8 before:h-1.5 before:w-8 before:animate-blink before:bg-indigo-500 before:contain-none dark:text-indigo-400 dark:before:bg-indigo-400"
+				class="relative inline-block h-full text-indigo-500 before:absolute before:-bottom-2 before:-right-8 before:h-1.5 before:w-8 before:animate-blink before:bg-indigo-500 before:contain-none"
 				bind:this={dynamicText}
 			></span>
 		</p>
