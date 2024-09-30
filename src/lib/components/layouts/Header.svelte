@@ -57,7 +57,7 @@
 		<div class="flex items-center justify-center gap-2">
 			<Toggle isEnabled={isDarkModeEnabled} on:click={() => toggleTheme()}>
 				<Sun className="size-3" slot="iconShowOnDisabled" />
-				<Moon className="size-3 text-indigo-600" slot="iconShowOnEnabled" />
+				<Moon className="size-3 text-violet-500" slot="iconShowOnEnabled" />
 			</Toggle>
 		</div>
 
