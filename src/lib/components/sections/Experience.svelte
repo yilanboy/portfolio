@@ -80,7 +80,7 @@
 		</h3>
 	</div>
 
-	<div class="mx-auto max-w-[800px]">
+	<div class="mx-auto max-w-3xl">
 		{#each experiences as experience (experience.title)}
 			<div class="group relative py-6 pl-8 sm:pl-32">
 				<!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->

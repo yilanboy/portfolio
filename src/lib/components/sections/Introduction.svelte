@@ -87,7 +87,11 @@
 
 	<div class="flex justify-center">
 		<div class="relative z-0 flex">
-			<img class="z-20 w-[28rem] rounded-full" src={'images/profile.jpg'} alt="Profile" />
+			<img
+				class="z-20 w-[28rem] rounded-full border-8 border-neutral-50"
+				src={'images/profile.jpg'}
+				alt="Profile"
+			/>
 			<div
 				class="green-spot-floating absolute right-0 top-0 z-30 size-32 rounded-full border-8 border-neutral-50 bg-green-500"
 			></div>
