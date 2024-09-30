@@ -74,7 +74,7 @@
 
 		<p
 			id="typewriter"
-			class="flex items-center gap-4 text-4xl font-bold dark:text-neutral-50 md:text-5xl"
+			class="flex items-center gap-4 text-3xl font-bold dark:text-neutral-50 md:text-5xl"
 		>
 			I Love
 			<span

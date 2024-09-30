@@ -6,7 +6,7 @@
 	import TechStack from '$lib/components/sections/TechStack.svelte';
 </script>
 
-<main class="flex flex-1 flex-col px-6 font-sans-poppins">
+<main class="flex flex-1 flex-col px-2 font-sans-poppins md:px-6">
 	<Introduction />
 
 	<Projects />

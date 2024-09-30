@@ -95,7 +95,7 @@
 				</div>
 				<!-- Content -->
 				<div class="mb-4 text-neutral-500 dark:text-neutral-400">{experience.content}</div>
-				<div class="flex gap-4">
+				<div class="flex flex-wrap gap-4">
 					{#each experience.techIconComponents as techIconComponent}
 						<div
 							class="flex size-16 items-center justify-center rounded-full bg-neutral-200/60 dark:bg-neutral-700/60"
