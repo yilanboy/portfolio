@@ -21,7 +21,7 @@
 		>
 			<button
 				on:click={goTop}
-				class="ml-auto grid aspect-square cursor-pointer place-items-center rounded-full bg-slate-900 px-3 text-neutral-50 transition duration-200 hover:bg-slate-700 sm:px-4 dark:bg-slate-600 dark:hover:bg-slate-500"
+				class="ml-auto grid aspect-square cursor-pointer place-items-center rounded-full bg-slate-900 px-3 text-neutral-50 transition duration-200 hover:bg-slate-700 dark:bg-slate-600 dark:hover:bg-slate-500 sm:px-4"
 			>
 				<ArrowUp />
 			</button>
@@ -36,6 +36,18 @@
 </div>
 
 <svelte:head>
+	<!-- dark mode	-->
+	<script defer>
+		if (
+			localStorage.theme === 'dark' ||
+			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	</script>
+
 	<!-- font	-->
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />

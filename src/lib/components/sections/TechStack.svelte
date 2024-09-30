@@ -11,11 +11,12 @@
 	import Modal from '$lib/components/Modal.svelte';
 	import { type ComponentType, onMount } from 'svelte';
 	import { theme } from '$lib/stores';
+	import { Themes } from '$lib/enums';
 
 	let isDarkModeEnabled: boolean;
 
 	theme.subscribe((value) => {
-		isDarkModeEnabled = value === 'dark';
+		isDarkModeEnabled = value === Themes.Dark;
 	});
 
 	$: barBackgroundColor = isDarkModeEnabled ? '#404040' : '#e5e7eb';

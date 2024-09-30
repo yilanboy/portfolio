@@ -4,6 +4,7 @@
 	import { theme } from '$lib/stores';
 	import Sun from '$lib/components/icons/Sun.svelte';
 	import Moon from '$lib/components/icons/Moon.svelte';
+	import { Themes } from '$lib/enums';
 
 	export let y: number;
 
@@ -16,24 +17,24 @@
 	];
 
 	function toggleTheme() {
-		if (document.documentElement.classList.contains('dark')) {
-			localStorage.theme = 'light';
-			document.documentElement.classList.remove('dark');
-			theme.update(() => 'light');
+		if (document.documentElement.classList.contains(Themes.Dark)) {
+			theme.update(() => Themes.Light);
+			localStorage.theme = Themes.Light;
+			document.documentElement.classList.remove(Themes.Dark);
 		} else {
-			localStorage.theme = 'dark';
-			document.documentElement.classList.add('dark');
-			theme.update(() => 'dark');
+			theme.update(() => Themes.Dark);
+			localStorage.theme = Themes.Dark;
+			document.documentElement.classList.add(Themes.Dark);
 		}
 	}
 
 	onMount(() => {
-		if (document.documentElement.classList.contains('dark')) {
+		if (document.documentElement.classList.contains(Themes.Dark)) {
+			theme.update(() => Themes.Dark);
 			isDarkModeEnabled = true;
-			theme.update(() => 'dark');
 		} else {
+			theme.update(() => Themes.Light);
 			isDarkModeEnabled = false;
-			theme.update(() => 'light');
 		}
 	});
 </script>
