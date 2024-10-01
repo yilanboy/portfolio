@@ -22,7 +22,7 @@
 	$: barBackgroundColor = isDarkModeEnabled ? '#404040' : '#e5e7eb';
 	$: centerBackgroundColor = isDarkModeEnabled ? '#262626' : '#f9fafb';
 
-	type techStack = {
+	type skillStack = {
 		iconComponent: ComponentType;
 		progress: string;
 		barColor: string;
@@ -30,7 +30,7 @@
 		experiences: string[];
 	};
 
-	let techStacks: { [Name: string]: techStack } = {
+	let skillStacks: { [Name: string]: skillStack } = {
 		AWS: {
 			iconComponent: Aws,
 			progress: '65%',
@@ -133,7 +133,7 @@
 	});
 </script>
 
-<section id="tech-stack" class="flex flex-col gap-24 py-20">
+<section id="skill-stack" class="flex flex-col gap-24 py-20">
 	<div class="flex flex-col gap-2 text-center dark:text-neutral-50">
 		<h6 class="font-caveat text-2xl md:text-4xl">Let's see what I'm good at.</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
@@ -147,29 +147,29 @@
 	</div>
 
 	<div class="mx-auto grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
-		{#each Object.entries(techStacks) as [key, techStack] (key)}
+		{#each Object.entries(skillStacks) as [key, skillStack] (key)}
 			<div class="flex items-center justify-center">
 				<CircularProgressBar
-					progress={techStack.progress}
-					barColor={techStack.barColor}
+					progress={skillStack.progress}
+					barColor={skillStack.barColor}
 					bind:barBackgroundColor
 					bind:centerBackgroundColor
 				>
 					<button
-						on:click={() => (techStack.showExperience = true)}
+						on:click={() => (skillStack.showExperience = true)}
 						type="button"
 						class="transition duration-150 hover:scale-125 active:scale-100"
 					>
-						<svelte:component this={techStack.iconComponent} className="size-20" />
+						<svelte:component this={skillStack.iconComponent} className="size-20" />
 					</button>
 				</CircularProgressBar>
 
-				<Modal bind:showModal={techStack.showExperience}>
+				<Modal bind:showModal={skillStack.showExperience}>
 					<h3 class="text-xl font-semibold leading-6 text-neutral-900 dark:text-neutral-50">
 						{key}
 					</h3>
 					<div class="mt-4 divide-y-2 divide-dashed divide-neutral-300 dark:divide-neutral-700">
-						{#each techStack.experiences as experience (experience)}
+						{#each skillStack.experiences as experience (experience)}
 							<p class="p-2 text-lg text-neutral-500 dark:text-neutral-400">{experience}</p>
 						{/each}
 					</div>

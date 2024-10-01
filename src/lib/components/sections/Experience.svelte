@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ComponentType } from 'svelte';
+	import { type ComponentType, onMount } from 'svelte';
 	import Laravel from '$lib/components/icons/Laravel.svelte';
 	import Terraform from '$lib/components/icons/Terraform.svelte';
 	import Livewire from '$lib/components/icons/Livewire.svelte';
@@ -65,6 +65,47 @@
 			techIconComponents: [Php, Laravel, MySql, Python]
 		}
 	];
+
+	onMount(() => {
+		const allSkillList = document.querySelectorAll('.skill-list');
+		const skillItems = document.querySelectorAll('.skill-list .skill-item');
+
+		function resetScale() {
+			for (let i = 0; i < skillItems.length; i++) {
+				(skillItems[i] as HTMLDivElement).style.setProperty('--scale', '1');
+			}
+		}
+
+		for (let i = 0; i < skillItems.length; i++) {
+			(skillItems[i] as HTMLDivElement).addEventListener('mousemove', (event: MouseEvent) => {
+				const itemRect = skillItems[i].getBoundingClientRect();
+				const offset = Math.abs(event.clientX - itemRect.left) / itemRect.width;
+
+				const prev = (skillItems[i].previousElementSibling as HTMLElement) || null;
+				const next = (skillItems[i].nextElementSibling as HTMLElement) || null;
+
+				const scale = 0.4;
+
+				resetScale();
+
+				if (prev) {
+					prev.style.setProperty('--scale', String(1 + scale * Math.abs(offset - 1)));
+				}
+
+				(skillItems[i] as HTMLElement).style.setProperty('--scale', String(1 + scale));
+
+				if (next) {
+					next.style.setProperty('--scale', String(1 + scale * offset));
+				}
+			});
+		}
+
+		for (let i = 0; i < allSkillList.length; i++) {
+			allSkillList[i].addEventListener('mouseleave', () => {
+				resetScale();
+			});
+		}
+	});
 </script>
 
 <section id="experience" class="flex flex-col gap-24 py-20">
@@ -95,10 +136,10 @@
 				</div>
 				<!-- Content -->
 				<div class="mb-4 text-neutral-500 dark:text-neutral-400">{experience.content}</div>
-				<div class="flex flex-wrap gap-4">
+				<div class="skill-list flex flex-wrap gap-4">
 					{#each experience.techIconComponents as techIconComponent}
 						<div
-							class="flex size-16 items-center justify-center rounded-full bg-neutral-200/60 dark:bg-neutral-700/60"
+							class="skill-item flex size-16 items-center justify-center rounded-full bg-neutral-200/60 dark:bg-neutral-700/60"
 						>
 							<svelte:component this={techIconComponent} className="size-10" />
 						</div>
@@ -108,3 +149,14 @@
 		{/each}
 	</div>
 </section>
+
+<style>
+	.skill-list {
+		--scale: 1;
+	}
+
+	.skill-list .skill-item {
+		transform: scale(var(--scale));
+		transition: 100ms all ease-out;
+	}
+</style>
