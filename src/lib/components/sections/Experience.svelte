@@ -29,6 +29,8 @@
 		}>;
 	}
 
+	const scaleRange = 0.4;
+
 	let experiences: Array<Experience> = [
 		{
 			time: 'Jul, 2022',
@@ -107,18 +109,16 @@
 				const prev = (skillItems[i].previousElementSibling as HTMLElement) || null;
 				const next = (skillItems[i].nextElementSibling as HTMLElement) || null;
 
-				const scale = 0.4;
-
 				resetScale();
 
 				if (prev) {
-					prev.style.setProperty('--scale', String(1 + scale * Math.abs(offset - 1)));
+					prev.style.setProperty('--scale', String(1 + scaleRange * Math.abs(offset - 1)));
 				}
 
-				(skillItems[i] as HTMLElement).style.setProperty('--scale', String(1 + scale));
+				(skillItems[i] as HTMLElement).style.setProperty('--scale', String(1 + scaleRange));
 
 				if (next) {
-					next.style.setProperty('--scale', String(1 + scale * offset));
+					next.style.setProperty('--scale', String(1 + scaleRange * offset));
 				}
 			});
 		}
@@ -166,7 +166,7 @@
 						>
 							<svelte:component this={skill.iconComponent} className="size-10" />
 							<div
-								class="absolute inset-0 z-10 flex size-16 items-center justify-center rounded-full opacity-0 backdrop-blur-sm hover:opacity-100"
+								class="absolute inset-0 z-10 flex size-16 items-center justify-center rounded-full bg-neutral-200/60 opacity-0 backdrop-blur-sm transition-all duration-150 hover:opacity-100 dark:bg-neutral-700/60"
 							>
 								<span class="text-xs dark:text-neutral-50">
 									{skill.name}
@@ -181,8 +181,10 @@
 </section>
 
 <style>
-	.skill-list {
-		--scale: 1;
+	@property --scale {
+		syntax: '<number>';
+		inherits: false;
+		initial-value: 1;
 	}
 
 	.skill-list .skill-item {
