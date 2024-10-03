@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type ComponentType, onMount } from 'svelte';
+	import { type Component, onMount } from 'svelte';
 	import Laravel from '$lib/components/icons/Laravel.svelte';
 	import Terraform from '$lib/components/icons/Terraform.svelte';
 	import Livewire from '$lib/components/icons/Livewire.svelte';
@@ -25,7 +25,7 @@
 		content: string;
 		skills: Array<{
 			name: string;
-			iconComponent: ComponentType;
+			iconComponent: Component;
 		}>;
 	}
 
@@ -92,22 +92,24 @@
 	];
 
 	onMount(() => {
-		const allSkillList = document.querySelectorAll('.skill-list');
-		const skillItems = document.querySelectorAll('.skill-list .skill-item');
+		const allSkillList = document.querySelectorAll('.skill-list') as NodeListOf<HTMLDivElement>;
+		const skillItems = document.querySelectorAll(
+			'.skill-list .skill-item'
+		) as NodeListOf<HTMLDivElement>;
 
 		function resetScale() {
 			for (let i = 0; i < skillItems.length; i++) {
-				(skillItems[i] as HTMLDivElement).style.setProperty('--scale', '1');
+				skillItems[i].style.setProperty('--scale', '1');
 			}
 		}
 
 		for (let i = 0; i < skillItems.length; i++) {
-			(skillItems[i] as HTMLDivElement).addEventListener('mousemove', (event: MouseEvent) => {
+			skillItems[i].addEventListener('mousemove', (event: MouseEvent) => {
 				const itemRect = skillItems[i].getBoundingClientRect();
 				const offset = Math.abs(event.clientX - itemRect.left) / itemRect.width;
 
-				const prev = (skillItems[i].previousElementSibling as HTMLElement) || null;
-				const next = (skillItems[i].nextElementSibling as HTMLElement) || null;
+				const prev = (skillItems[i].previousElementSibling as HTMLDivElement) || null;
+				const next = (skillItems[i].nextElementSibling as HTMLDivElement) || null;
 
 				resetScale();
 
@@ -115,7 +117,7 @@
 					prev.style.setProperty('--scale', String(1 + scaleRange * Math.abs(offset - 1)));
 				}
 
-				(skillItems[i] as HTMLElement).style.setProperty('--scale', String(1 + scaleRange));
+				skillItems[i].style.setProperty('--scale', String(1 + scaleRange));
 
 				if (next) {
 					next.style.setProperty('--scale', String(1 + scaleRange * offset));
@@ -164,7 +166,8 @@
 						<div
 							class="skill-item relative flex size-16 items-center justify-center rounded-full bg-neutral-200/60 dark:bg-neutral-700/60"
 						>
-							<svelte:component this={skill.iconComponent} className="size-10" />
+							<skill.iconComponent className="size-10" />
+
 							<div
 								class="absolute inset-0 z-10 flex size-16 items-center justify-center rounded-full bg-neutral-200/60 opacity-0 backdrop-blur-sm transition-all duration-150 hover:opacity-100 dark:bg-neutral-700/60"
 							>

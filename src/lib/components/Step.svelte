@@ -1,9 +1,15 @@
 <script lang="ts">
-	export let step: {
-		name: string;
-		href: string;
-		description: string;
-	};
+	interface Props {
+		step: {
+			name: string;
+			href: string;
+			description: string;
+		};
+		icon?: import('svelte').Snippet;
+		content?: import('svelte').Snippet;
+	}
+
+	let { step, icon, content }: Props = $props();
 </script>
 
 <a
@@ -14,12 +20,12 @@
 	<div
 		class="mx-auto -mt-10 grid place-items-center gap-2 bg-neutral-50 px-4 text-5xl duration-200 dark:bg-neutral-800 sm:-mt-12 md:-mt-14 md:text-6xl lg:-mt-16"
 	>
-		<slot name="icon" />
+		{@render icon?.()}
 	</div>
 
 	<h3 class="text-xl font-medium sm:text-2xl md:text-3xl">{step.name}</h3>
 
-	<slot name="content" />
+	{@render content?.()}
 
 	<div class="relative flex flex-1 items-end justify-end">
 		<p

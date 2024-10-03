@@ -1,5 +1,19 @@
 <script lang="ts">
-	export let isEnabled = false;
+	interface Props {
+		isEnabled?: boolean;
+		clickEvent?: () => void;
+		iconShowOnDisabled?: import('svelte').Snippet;
+		iconShowOnEnabled?: import('svelte').Snippet;
+	}
+
+	let {
+		isEnabled = $bindable(false),
+		clickEvent = () => {
+			isEnabled = !isEnabled;
+		},
+		iconShowOnDisabled,
+		iconShowOnEnabled
+	}: Props = $props();
 </script>
 
 <button
@@ -9,8 +23,7 @@
 	class:bg-gray-200={!isEnabled}
 	role="switch"
 	aria-checked="false"
-	on:click={() => (isEnabled = !isEnabled)}
-	on:click
+	onclick={clickEvent}
 >
 	<span class="sr-only">Use setting</span>
 	<!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
@@ -29,7 +42,7 @@
 			class:ease-in={!isEnabled}
 			aria-hidden="true"
 		>
-			<slot name="iconShowOnDisabled" />
+			{@render iconShowOnDisabled?.()}
 		</span>
 		<span
 			class="absolute inset-0 flex h-full w-full items-center justify-center opacity-0 transition-opacity duration-100 ease-out"
@@ -41,7 +54,7 @@
 			class:ease-out={!isEnabled}
 			aria-hidden="true"
 		>
-			<slot name="iconShowOnEnabled" />
+			{@render iconShowOnEnabled?.()}
 		</span>
 	</span>
 </button>

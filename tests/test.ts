@@ -30,7 +30,7 @@ test('visitor can see experience section', async ({ page }) => {
 
 test('visitor can see tech-stack section', async ({ page }) => {
 	await page.goto('/');
-	const section = await page.$('#tech-stack');
+	const section = await page.$('#skill-stack');
 	expect(section).not.toBeNull();
 });
 

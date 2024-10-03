@@ -6,9 +6,13 @@
 	import Moon from '$lib/components/icons/Moon.svelte';
 	import { Themes } from '$lib/enums';
 
-	export let y: number;
+	interface Props {
+		y: number;
+	}
 
-	let isDarkModeEnabled = false;
+	let { y }: Props = $props();
+
+	let isDarkModeEnabled = $state(false);
 
 	let tabs = [
 		{ name: '專案', link: '#projects' },
@@ -18,10 +22,12 @@
 
 	function toggleTheme() {
 		if (document.documentElement.classList.contains(Themes.Dark)) {
+			isDarkModeEnabled = false;
 			theme.update(() => Themes.Light);
 			localStorage.theme = Themes.Light;
 			document.documentElement.classList.remove(Themes.Dark);
 		} else {
+			isDarkModeEnabled = true;
 			theme.update(() => Themes.Dark);
 			localStorage.theme = Themes.Dark;
 			document.documentElement.classList.add(Themes.Dark);
@@ -56,9 +62,14 @@
 	</h1>
 	<div class="ml-auto hidden items-center gap-6 pr-4 sm:flex">
 		<div class="flex items-center justify-center gap-2">
-			<Toggle isEnabled={isDarkModeEnabled} on:click={() => toggleTheme()}>
-				<Sun className="size-3" slot="iconShowOnDisabled" />
-				<Moon className="size-3 text-violet-500" slot="iconShowOnEnabled" />
+			<Toggle bind:isEnabled={isDarkModeEnabled} clickEvent={toggleTheme}>
+				{#snippet iconShowOnDisabled()}
+					<Sun className="size-3" />
+				{/snippet}
+
+				{#snippet iconShowOnEnabled()}
+					<Moon className="size-3 text-violet-500" />
+				{/snippet}
 			</Toggle>
 		</div>
 

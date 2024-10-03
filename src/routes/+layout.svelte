@@ -3,10 +3,15 @@
 	import Header from '$lib/components/layouts/Header.svelte';
 	import Footer from '$lib/components/layouts/Footer.svelte';
 	import ArrowUp from '$lib/components/icons/ArrowUp.svelte';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
 
-	let y = 0;
-	let innerHeight = 0;
-	let innerWidth = 0;
+	let { children }: Props = $props();
+
+	let y = $state(0);
+	let innerHeight = $state(0);
+	let innerWidth = $state(0);
 
 	function goTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -20,7 +25,7 @@
 				(y > 0 ? ' opacity-full pointer-events-auto' : ' pointer-events-none opacity-0')}
 		>
 			<button
-				on:click={goTop}
+				onclick={goTop}
 				class="ml-auto grid aspect-square cursor-pointer place-items-center rounded-full bg-slate-900 px-3 text-neutral-50 transition duration-200 hover:bg-slate-700 dark:bg-slate-600 dark:hover:bg-slate-500 sm:px-4"
 			>
 				<ArrowUp />
@@ -29,7 +34,7 @@
 
 		<Header {y} />
 
-		<slot />
+		{@render children?.()}
 
 		<Footer />
 	</div>

@@ -23,37 +23,49 @@
 			</span>
 		</h3>
 	</div>
-	<div class="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-10 dark:text-neutral-50">
+	<div class="grid grid-cols-1 gap-12 dark:text-neutral-50 lg:grid-cols-3 lg:gap-10">
 		<Step step={steps[0]}>
-			<FileEarmarkRichText className="size-12" slot="icon" />
+			{#snippet icon()}
+				<FileEarmarkRichText className="size-12" />
+			{/snippet}
 
-			<p class="text-left" slot="content">
-				這是我用 <span class="text-blue-500 dark:text-blue-400">Tailwind CSS</span>、<span
-					class="text-blue-500 dark:text-blue-400">Alpine.js</span
-				>、<span class="text-blue-500 dark:text-blue-400">Laravel</span> 與
-				<span class="text-blue-500 dark:text-blue-400">Livewire</span>
-				所打造的簡易部落格，用來記錄我在生活中的大小事。無論是工作上遇到的技術難題、最近玩過的電玩遊戲，或是生活中發生的趣事，都會寫在這邊與大家分享。
-			</p>
+			{#snippet content()}
+				<p class="text-left">
+					這是我用 <span class="text-blue-500 dark:text-blue-400">Tailwind CSS</span>、<span
+						class="text-blue-500 dark:text-blue-400">Alpine.js</span
+					>、<span class="text-blue-500 dark:text-blue-400">Laravel</span> 與
+					<span class="text-blue-500 dark:text-blue-400">Livewire</span>
+					所打造的簡易部落格，用來記錄我在生活中的大小事。無論是工作上遇到的技術難題、最近玩過的電玩遊戲，或是生活中發生的趣事，都會寫在這邊與大家分享。
+				</p>
+			{/snippet}
 		</Step>
 
 		<Step step={steps[1]}>
-			<JournalText className="size-12" slot="icon" />
+			{#snippet icon()}
+				<JournalText className="size-12" />
+			{/snippet}
 
-			<p class="text-left" slot="content">
-				<span class="text-blue-500 dark:text-blue-400"
-					>這裡是我用來記錄學習新技術時的心得與筆記</span
-				>。無論是學習新的維運技術，或是研究新的程式語言，都會在這裡記錄下來。希望能夠幫助到有需要的人，也歡迎大家提供意見與建議！
-			</p>
+			{#snippet content()}
+				<p class="text-left">
+					<span class="text-blue-500 dark:text-blue-400"
+						>這裡是我用來記錄學習新技術時的心得與筆記</span
+					>。無論是學習新的維運技術，或是研究新的程式語言，都會在這裡記錄下來。希望能夠幫助到有需要的人，也歡迎大家提供意見與建議！
+				</p>
+			{/snippet}
 		</Step>
 
 		<Step step={steps[2]}>
-			<Easel className="size-12" slot="icon" />
+			{#snippet icon()}
+				<Easel className="size-12" />
+			{/snippet}
 
-			<p class="text-left" slot="content">
-				研究完技術後，<span class="text-blue-500 dark:text-blue-400"
-					>沒有什麼比與他人分享新知識更有趣的事情了</span
-				>。我時常與一群志同道合的朋友一起分享各種技術與知識，並從中學習。歡迎大家來看看！
-			</p>
+			{#snippet content()}
+				<p class="text-left">
+					研究完技術後，<span class="text-blue-500 dark:text-blue-400"
+						>沒有什麼比與他人分享新知識更有趣的事情了</span
+					>。我時常與一群志同道合的朋友一起分享各種技術與知識，並從中學習。歡迎大家來看看！
+				</p>
+			{/snippet}
 		</Step>
 	</div>
 </section>

@@ -1,10 +1,22 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	export let barColor = '#111827';
-	export let barBackgroundColor = '#e5e7eb';
-	export let progress = '3%';
-	export let centerBackgroundColor = '#f9fafb';
+	interface Props {
+		barColor?: string;
+		barBackgroundColor?: string;
+		progress?: string;
+		centerBackgroundColor?: string;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		barColor = '#111827',
+		barBackgroundColor = '#e5e7eb',
+		progress = '3%',
+		centerBackgroundColor = '#f9fafb',
+		children
+	}: Props = $props();
+
 	let bar: HTMLDivElement;
 
 	onMount(() => {
@@ -35,7 +47,7 @@
 		style:--center-background-color={centerBackgroundColor}
 		class="m-auto flex size-[85%] items-center justify-center rounded-full text-xl text-black"
 	>
-		<slot />
+		{@render children?.()}
 	</div>
 </div>
 

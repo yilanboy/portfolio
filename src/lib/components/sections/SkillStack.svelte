@@ -9,28 +9,28 @@
 	import TailwindCss from '$lib/components/icons/TailwindCss.svelte';
 	import Livewire from '$lib/components/icons/Livewire.svelte';
 	import Modal from '$lib/components/Modal.svelte';
-	import { type ComponentType, onMount } from 'svelte';
+	import { type Component, onMount } from 'svelte';
 	import { theme } from '$lib/stores';
 	import { Themes } from '$lib/enums';
 
-	let isDarkModeEnabled: boolean;
+	let isDarkModeEnabled: boolean = $state(false);
 
 	theme.subscribe((value) => {
 		isDarkModeEnabled = value === Themes.Dark;
 	});
 
-	$: barBackgroundColor = isDarkModeEnabled ? '#404040' : '#e5e7eb';
-	$: centerBackgroundColor = isDarkModeEnabled ? '#262626' : '#f9fafb';
+	let barBackgroundColor = $derived(isDarkModeEnabled ? '#404040' : '#e5e7eb');
+	let centerBackgroundColor = $derived(isDarkModeEnabled ? '#262626' : '#f9fafb');
 
 	type skillStack = {
-		iconComponent: ComponentType;
+		iconComponent: Component;
 		progress: string;
 		barColor: string;
 		showExperience: boolean;
 		experiences: string[];
 	};
 
-	let skillStacks: { [Name: string]: skillStack } = {
+	let skillStacks: { [Name: string]: skillStack } = $state({
 		AWS: {
 			iconComponent: Aws,
 			progress: '65%',
@@ -126,7 +126,7 @@
 				'在公司內部技術分享會介紹 Ansible 與其使用方式'
 			]
 		}
-	};
+	});
 
 	onMount(() => {
 		isDarkModeEnabled = document.documentElement.classList.contains('dark');
@@ -152,15 +152,15 @@
 				<CircularProgressBar
 					progress={skillStack.progress}
 					barColor={skillStack.barColor}
-					bind:barBackgroundColor
-					bind:centerBackgroundColor
+					{barBackgroundColor}
+					{centerBackgroundColor}
 				>
 					<button
-						on:click={() => (skillStack.showExperience = true)}
+						onclick={() => (skillStack.showExperience = true)}
 						type="button"
 						class="transition duration-150 hover:scale-125 active:scale-100"
 					>
-						<svelte:component this={skillStack.iconComponent} className="size-20" />
+						<skillStack.iconComponent className="size-20" />
 					</button>
 				</CircularProgressBar>
 
