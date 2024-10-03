@@ -62,7 +62,7 @@
 	</h1>
 	<div class="ml-auto hidden items-center gap-6 pr-4 sm:flex">
 		<div class="flex items-center justify-center gap-2">
-			<Toggle bind:isEnabled={isDarkModeEnabled} clickEvent={toggleTheme}>
+			<Toggle bind:isEnabled={isDarkModeEnabled} onclick={toggleTheme}>
 				{#snippet iconShowOnDisabled()}
 					<Sun className="size-3" />
 				{/snippet}

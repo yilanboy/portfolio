@@ -1,14 +1,14 @@
 <script lang="ts">
 	interface Props {
 		isEnabled?: boolean;
-		clickEvent?: () => void;
+		onclick?: () => void;
 		iconShowOnDisabled?: import('svelte').Snippet;
 		iconShowOnEnabled?: import('svelte').Snippet;
 	}
 
 	let {
 		isEnabled = $bindable(false),
-		clickEvent = () => {
+		onclick = () => {
 			isEnabled = !isEnabled;
 		},
 		iconShowOnDisabled,
@@ -23,7 +23,7 @@
 	class:bg-gray-200={!isEnabled}
 	role="switch"
 	aria-checked="false"
-	onclick={clickEvent}
+	{onclick}
 >
 	<span class="sr-only">Use setting</span>
 	<!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
