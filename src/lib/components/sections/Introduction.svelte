@@ -1,7 +1,21 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { locale } from '$lib/stores';
+	import { get } from 'svelte/store';
+	import { Locale } from '$lib/enums';
+	import chineseIntroduction from '$lang/zh_TW/introduction.json';
+	import englishIntroduction from '$lang/en/introduction.json';
 
 	let dynamicText: HTMLElement;
+	let currentLanguage = $state(englishIntroduction);
+
+	locale.subscribe(() => {
+		if (get(locale) === Locale.Chinese) {
+			currentLanguage = chineseIntroduction;
+		} else {
+			currentLanguage = englishIntroduction;
+		}
+	});
 
 	const words = ['Operation', 'Coding', 'Sharing'];
 
@@ -46,7 +60,7 @@
 	<div class="flex flex-col gap-6 text-center md:gap-8 lg:justify-center lg:gap-10 lg:text-left">
 		<div class="flex flex-col gap-0">
 			<h2 class="text-4xl font-semibold dark:text-neutral-50 md:text-5xl">
-				Hi！我是
+				{currentLanguage.i_am}
 				<span
 					class="inline-block bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text leading-normal text-transparent"
 				>
@@ -55,21 +69,18 @@
 
 				<br />
 
-				是一位
+				{currentLanguage.a}
 				<span
 					class="inline-block bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text leading-normal text-transparent"
 				>
 					DevOps
 				</span>
-				工程師
+				{currentLanguage.occupation}
 			</h2>
 		</div>
 
 		<p class="inline-block text-base dark:text-neutral-50 sm:text-lg md:text-xl">
-			後端打工仔。擅長各類<span class="text-green-500 dark:text-green-400">維運技能</span>與<span
-				class="text-green-500 dark:text-green-400">雲端服務</span
-			>，下班後喜歡不務正業的研究<span class="text-green-500 dark:text-green-400">前後端技術</span>
-			。個性就像動態語言般隨興，但渴望做事能像囉嗦的靜態語言那樣嚴謹。
+			{currentLanguage.introduction}
 		</p>
 
 		<p

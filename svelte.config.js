@@ -10,8 +10,11 @@ const config = {
 			routes: {
 				include: ['/*'],
 				exclude: ['<all>']
-			},
-		})
+			}
+		}),
+		alias: {
+			$lang: './src/lang/'
+		}
 	}
 };
 
