@@ -7,16 +7,17 @@
 	import chinese from '$lib/lang/zh_TW/project';
 	import { locale } from '$lib/stores';
 	import { get } from 'svelte/store';
-	import { Locale } from '$lib/enums';
+	import type { Locale } from '$lib/enums';
+
+	let translations = {
+		english: english,
+		chinese: chinese
+	};
 
 	let currentTranslation = $state(english);
 
 	locale.subscribe(() => {
-		if (get(locale) === Locale.Chinese) {
-			currentTranslation = chinese;
-		} else {
-			currentTranslation = english;
-		}
+		currentTranslation = translations[get(locale) as Locale];
 	});
 
 	let steps = $derived({

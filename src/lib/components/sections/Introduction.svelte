@@ -2,20 +2,22 @@
 	import { onMount } from 'svelte';
 	import { locale } from '$lib/stores';
 	import { get } from 'svelte/store';
-	import { Locale } from '$lib/enums';
 	import chinese from '$lib/lang/zh_TW/introduction';
 	import english from '$lib/lang/en/introduction';
+	import type { Locale } from '$lib/enums';
+
+	let translations = {
+		english: english,
+		chinese: chinese
+	};
 
 	let currentTranslation = $state(english);
-	let dynamicText: HTMLElement;
 
 	locale.subscribe(() => {
-		if (get(locale) === Locale.Chinese) {
-			currentTranslation = chinese;
-		} else {
-			currentTranslation = english;
-		}
+		currentTranslation = translations[get(locale) as Locale];
 	});
+
+	let dynamicText: HTMLElement;
 
 	const words = ['Operation', 'Coding', 'Sharing'];
 

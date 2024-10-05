@@ -1,9 +1,9 @@
-export const Themes = {
-	Light: 'light',
-	Dark: 'dark'
-};
+export enum Themes {
+	Light = 'light',
+	Dark = 'dark'
+}
 
-export const Locale = {
-	Chinese: 'chinese',
-	English: 'english'
-};
+export enum Locale {
+	Chinese = 'chinese',
+	English = 'english'
+}
