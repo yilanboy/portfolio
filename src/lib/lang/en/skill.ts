@@ -1,8 +1,7 @@
 export default {
-	section_title_html:
-		'<span class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-green-500 dark:before:bg-green-600">' +
-		'<span class="relative text-neutral-50">The skills</span>' +
-		'</span> I Specialize In',
+	section_title_prefix: '',
+	section_title_highlight: 'The Skills',
+	section_title_suffix: 'I Specialize In',
 	aws_experiences: [
 		'AWS Solution Architecture Associate certification',
 		'Build LEMP to run Laravel application using EC2, RDS and ElastiCache',

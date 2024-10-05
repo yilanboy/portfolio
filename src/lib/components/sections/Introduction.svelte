@@ -82,8 +82,22 @@
 		</div>
 
 		<p class="inline-block text-base dark:text-neutral-50 sm:text-lg md:text-xl">
-			<!-- eslint-disable-next-line -->
-			{@html currentTranslation.introduction_html}
+			{currentTranslation.introduction_part_1}
+			<span class="text-green-500 dark:text-green-400">
+				{currentTranslation.introduction_highlight_part_1}
+			</span>
+			{currentTranslation.introduction_part_2}
+			<span class="text-green-500 dark:text-green-400">
+				{currentTranslation.introduction_highlight_part_2}
+			</span>
+			{currentTranslation.introduction_part_3}
+			<span class="text-green-500 dark:text-green-400">
+				{currentTranslation.introduction_highlight_part_3}
+			</span>
+			{currentTranslation.introduction_part_4}
+			<span class="text-green-500 dark:text-green-400">
+				{currentTranslation.introduction_highlight_part_4}
+			</span>
 		</p>
 
 		<p

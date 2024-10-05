@@ -125,8 +125,15 @@
 	<div class="flex flex-col gap-2 text-center dark:text-neutral-50">
 		<h6 class="font-caveat text-2xl md:text-4xl">These stuff are so cool!</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
-			<!-- eslint-disable-next-line -->
-			{@html currentTranslation.section_title_html}
+			{currentTranslation.section_title_prefix}
+			<span
+				class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-green-500 dark:before:bg-green-600"
+			>
+				<span class="relative text-neutral-50">
+					{currentTranslation.section_title_highlight}
+				</span>
+			</span>
+			{currentTranslation.section_title_suffix}
 		</h3>
 	</div>
 

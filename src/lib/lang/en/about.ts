@@ -1,9 +1,7 @@
 export default {
-	section_title_html:
-		'What to Know More ' +
-		'<span class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-red-500 dark:before:bg-red-600">' +
-		'<span class="relative text-neutral-50">About Me</span>' +
-		'</span> ?',
+	section_title_prefix: 'What to Know More',
+	section_title_highlight: 'About Me',
+	section_title_suffix: '?',
 	I_am_also: 'In fact, I am also...',
 	strengths: [
 		{

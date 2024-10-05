@@ -2,11 +2,13 @@ export default {
 	i_am: "Hi! I'm",
 	a: 'A',
 	occupation: 'Engineer',
-	introduction_html:
-		'Experienced backend developer who is skilled in ' +
-		'<span class="text-green-500 dark:text-green-400">operations</span> and ' +
-		'<span class="text-green-500 dark:text-green-400">cloud services</span>. ' +
-		'Passionate about exploring both ' +
-		'<span class="text-green-500 dark:text-green-400">frontend and backend</span> ' +
-		'technologies in my free time. My work style is adaptable, but I strive for precision and rigor.'
+	introduction_part_1: 'Experienced backend developer who is skilled in ',
+	introduction_highlight_part_1: 'operations',
+	introduction_part_2: ' and ',
+	introduction_highlight_part_2: 'cloud services',
+	introduction_part_3: '. Passionate about exploring both ',
+	introduction_highlight_part_3: 'frontend and backend',
+	introduction_part_4:
+		'technologies in my free time. My work style is adaptable, but I strive for precision and rigor.',
+	introduction_highlight_part_4: ''
 };

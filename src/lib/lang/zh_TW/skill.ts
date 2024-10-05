@@ -1,9 +1,7 @@
 export default {
-	section_title_html:
-		'這些是我 ' +
-		'<span class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-green-500 dark:before:bg-green-600">' +
-		'<span class="relative text-neutral-50">使用過的技術</span>' +
-		'</span>',
+	section_title_prefix: '這些是我',
+	section_title_highlight: '使用過的技術',
+	section_title_suffix: '',
 	aws_experiences: [
 		'擁有 AWS Solution Architecture Associate 認證',
 		'使用 EC2、RDS 與 ElastiCache 搭建 LEMP 來運行自己的 Laravel 應用程式',

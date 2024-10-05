@@ -1,8 +1,7 @@
 export default {
-	section_title_html:
-		'<span class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-yellow-500 dark:before:bg-yellow-600">' +
-		'<span class="relative text-neutral-50">My Past</span>' +
-		'</span> Made Me',
+	section_title_prefix: '',
+	section_title_highlight: 'My Past',
+	section_title_suffix: 'Made Me',
 	experience_1: {
 		title: 'Newcomers to Information Security',
 		content:

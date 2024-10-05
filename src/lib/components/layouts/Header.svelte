@@ -32,7 +32,7 @@
 	});
 
 	let tabs = $derived([
-		{ name: currentTranslation.projects, link: '#projects' },
+		{ name: currentTranslation.project, link: '#project' },
 		{ name: currentTranslation.experiences, link: '#experience' },
 		{ name: currentTranslation.about, link: '#about' }
 	]);
