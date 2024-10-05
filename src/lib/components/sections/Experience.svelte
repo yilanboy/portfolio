@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type Component } from 'svelte';
+	import { type Component, onMount } from 'svelte';
 	import Laravel from '$lib/components/icons/Laravel.svelte';
 	import Terraform from '$lib/components/icons/Terraform.svelte';
 	import Livewire from '$lib/components/icons/Livewire.svelte';
@@ -143,8 +143,7 @@
 		}
 	}
 
-	$effect(() => {
-		currentTranslation = currentTranslation;
+	onMount(() => {
 		addDockAnimation();
 	});
 </script>
