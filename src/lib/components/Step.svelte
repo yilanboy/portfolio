@@ -7,9 +7,10 @@
 		};
 		icon?: import('svelte').Snippet;
 		content?: import('svelte').Snippet;
+		forwardText: string;
 	}
 
-	let { step, icon, content }: Props = $props();
+	let { step, icon, content, forwardText = $bindable('Go') }: Props = $props();
 </script>
 
 <a
@@ -31,7 +32,7 @@
 		<p
 			class="relative bottom-0 right-5 rounded-full bg-neutral-200/60 px-4 py-2 opacity-0 transition-all duration-300 group-hover:right-0 group-hover:opacity-100 dark:bg-neutral-700/60"
 		>
-			前往 &rarr;
+			{forwardText} &rarr;
 		</p>
 	</div>
 </a>

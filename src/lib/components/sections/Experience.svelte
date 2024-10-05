@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type Component, onMount } from 'svelte';
+	import { type Component } from 'svelte';
 	import Laravel from '$lib/components/icons/Laravel.svelte';
 	import Terraform from '$lib/components/icons/Terraform.svelte';
 	import Livewire from '$lib/components/icons/Livewire.svelte';
@@ -18,11 +18,24 @@
 	import Rust from '$lib/components/icons/Rust.svelte';
 	import GoogleCloudPlatform from '$lib/components/icons/GoogleCloudPlatform.svelte';
 	import K3s from '$lib/components/icons/K3s.svelte';
+	import { locale } from '$lib/stores';
+	import { get } from 'svelte/store';
+	import { Locale } from '$lib/enums';
+	import english from '$lib/lang/en/experiences';
+	import chinese from '$lib/lang/zh_TW/experiences';
+
+	let currentLanguage = $state(english);
+
+	locale.subscribe(() => {
+		if (get(locale) === Locale.Chinese) {
+			currentLanguage = chinese;
+		} else {
+			currentLanguage = english;
+		}
+	});
 
 	interface Experience {
 		time: string;
-		title: string;
-		content: string;
 		skills: Array<{
 			name: string;
 			iconComponent: Component;
@@ -31,12 +44,9 @@
 
 	const scaleRange = 0.4;
 
-	let experiences: Array<Experience> = [
-		{
+	let experiences: { [Name: string]: Experience } = {
+		experience4: {
 			time: 'Jul, 2022',
-			title: '轉換跑道，學習成為一位 DevOps 工程師',
-			content:
-				'因為開發部落格，我接觸到了雲端服務與各種維運工具，並從中發現了 DevOps 魅力。如何確保程式碼的品質並自動部署到正式環境上穩定運行，對我來說是一件非常有趣的事情。在某次因緣際會之下，我拿到了 DevOps 工程師的 Offer，於是決定轉換跑道，成為一位 DevOps 工程師。',
 			skills: [
 				{ name: 'AWS', iconComponent: Aws },
 				{ name: 'Azure', iconComponent: Azure },
@@ -48,11 +58,8 @@
 				{ name: 'Python', iconComponent: Python }
 			]
 		},
-		{
+		experience3: {
 			time: 'Aug, 2020',
-			title: '學習前端技能並開始寫部落格，紀錄並分享所學的技術',
-			content:
-				'在前輩的建議下，我花費了數月來開發自己的部落格，並將其搭建在雲端服務上。我將自己對技術的熱情以及在工作中遇到的挑戰，透過文章分享在部落格上，希望能幫助到跟我遇到相同問題的人。寫文章讓我受益良多，不只幫助自己加深記憶，也讓我結識了許多志同道合的夥伴。',
 			skills: [
 				{ name: 'PHP', iconComponent: Php },
 				{ name: 'Rust', iconComponent: Rust },
@@ -64,11 +71,8 @@
 				{ name: 'AWS', iconComponent: Aws }
 			]
 		},
-		{
+		experience2: {
 			time: 'Feb, 2020',
-			title: '接觸後端開發，深耕後端領域',
-			content:
-				'因為在工作期間對網頁開發產生了相當濃厚的興趣，我決定成為後端工程師。雖然我起步相對較晚，但在同事的幫助與自身的努力下，我逐漸成長為一位合格的後端工程師，並漸漸的在後端領域積累了豐富的經驗。',
 			skills: [
 				{ name: 'PHP', iconComponent: Php },
 				{ name: 'Laravel', iconComponent: Laravel },
@@ -77,11 +81,8 @@
 				{ name: 'Nginx', iconComponent: Nginx }
 			]
 		},
-		{
+		experience1: {
 			time: 'Feb, 2017',
-			title: '新人初出茅廬，進入資安領域',
-			content:
-				'剛踏入職場時，我在因緣際會下進入了資安領域。工作上除了協助資安工具的開發，我還協助了資安課程的設計，靶機環境的準備與教材的編寫。這在份工作中，我學習到很多資安相關的基礎知識，也成功拿到一張基礎的 CEH 資安認證。',
 			skills: [
 				{ name: 'PHP', iconComponent: Php },
 				{ name: 'Laravel', iconComponent: Laravel },
@@ -89,9 +90,16 @@
 				{ name: 'Python', iconComponent: Python }
 			]
 		}
-	];
+	};
 
-	onMount(() => {
+	let experienceDescriptions: { [Name: string]: { title: string; content: string } } = $derived({
+		experience4: currentLanguage.experience_4,
+		experience3: currentLanguage.experience_3,
+		experience2: currentLanguage.experience_2,
+		experience1: currentLanguage.experience_1
+	});
+
+	function addDockAnimation() {
 		const allSkillList = document.querySelectorAll('.skill-list') as NodeListOf<HTMLDivElement>;
 		const skillItems = document.querySelectorAll(
 			'.skill-list .skill-item'
@@ -130,24 +138,25 @@
 				resetScale();
 			});
 		}
+	}
+
+	$effect(() => {
+		currentLanguage = currentLanguage;
+		addDockAnimation();
 	});
 </script>
 
 <section id="experience" class="flex flex-col gap-24 py-20">
 	<div class="flex flex-col gap-2 text-center dark:text-neutral-50">
-		<h6 class="font-caveat text-2xl md:text-4xl">The past has made me who I am now</h6>
+		<h6 class="font-caveat text-2xl md:text-4xl">From Dev to DevOps</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
-			<span
-				class="dark:before-bg-yellow-600 relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-yellow-500"
-			>
-				<span class="relative text-neutral-50">過往的經歷</span>
-			</span>
-			成就現在的我
+			<!-- eslint-disable-next-line -->
+			{@html currentLanguage.title_html}
 		</h3>
 	</div>
 
 	<div class="mx-auto max-w-3xl">
-		{#each experiences as experience (experience.title)}
+		{#each Object.entries(experiences) as [key, experience] (key)}
 			<div class="group relative py-6 pl-8 sm:pl-32">
 				<!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
 				<div
@@ -157,10 +166,14 @@
 						class="left-0 mb-3 inline-flex h-6 w-20 translate-y-0.5 items-center justify-center rounded-full bg-yellow-200 text-xs font-semibold uppercase text-yellow-700 dark:bg-yellow-600 dark:text-yellow-50 sm:absolute sm:mb-0"
 						>{experience.time}</time
 					>
-					<div class="text-xl font-bold dark:text-neutral-50">{experience.title}</div>
+					<div class="text-xl font-bold dark:text-neutral-50">
+						{experienceDescriptions[key].title}
+					</div>
 				</div>
 				<!-- Content -->
-				<div class="mb-4 text-neutral-500 dark:text-neutral-400">{experience.content}</div>
+				<div class="mb-4 text-neutral-500 dark:text-neutral-400">
+					{experienceDescriptions[key].content}
+				</div>
 				<div class="skill-list flex flex-wrap gap-4">
 					{#each experience.skills as skill}
 						<div

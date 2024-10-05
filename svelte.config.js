@@ -11,10 +11,7 @@ const config = {
 				include: ['/*'],
 				exclude: ['<all>']
 			}
-		}),
-		alias: {
-			$lang: './src/lang/'
-		}
+		})
 	}
 };
 

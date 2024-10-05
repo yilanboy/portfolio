@@ -6,8 +6,8 @@
 	import Moon from '$lib/components/icons/Moon.svelte';
 	import { Themes, Locale } from '$lib/enums';
 	import Language from '$lib/components/icons/Language.svelte';
-	import englishHeader from '$lang/en/header.json';
-	import chineseHeader from '$lang/zh_TW/header.json';
+	import englishHeader from '$lib/lang/en/header';
+	import chineseHeader from '$lib/lang/zh_TW/header';
 	import { get } from 'svelte/store';
 
 	interface Props {
@@ -129,12 +129,12 @@
 					<!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
 					<button
 						type="button"
-						class="block w-full px-4 py-2 text-sm text-gray-700 dark:text-neutral-50"
+						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-gray-600"
 						onclick={switchToEnglish}>English</button
 					>
 					<button
 						type="button"
-						class="block w-full px-4 py-2 text-sm text-gray-700 dark:text-neutral-50"
+						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-gray-600"
 						onclick={switchToChinese}>繁體中文</button
 					>
 				</div>

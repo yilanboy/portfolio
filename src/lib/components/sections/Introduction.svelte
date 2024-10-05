@@ -3,17 +3,17 @@
 	import { locale } from '$lib/stores';
 	import { get } from 'svelte/store';
 	import { Locale } from '$lib/enums';
-	import chineseIntroduction from '$lang/zh_TW/introduction.json';
-	import englishIntroduction from '$lang/en/introduction.json';
+	import chinese from '$lib/lang/zh_TW/introduction';
+	import english from '$lib/lang/en/introduction';
 
+	let currentLanguage = $state(english);
 	let dynamicText: HTMLElement;
-	let currentLanguage = $state(englishIntroduction);
 
 	locale.subscribe(() => {
 		if (get(locale) === Locale.Chinese) {
-			currentLanguage = chineseIntroduction;
+			currentLanguage = chinese;
 		} else {
-			currentLanguage = englishIntroduction;
+			currentLanguage = english;
 		}
 	});
 
@@ -80,7 +80,8 @@
 		</div>
 
 		<p class="inline-block text-base dark:text-neutral-50 sm:text-lg md:text-xl">
-			{currentLanguage.introduction}
+			<!-- eslint-disable-next-line -->
+			{@html currentLanguage.introduction_html}
 		</p>
 
 		<p
