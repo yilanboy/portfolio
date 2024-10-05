@@ -24,13 +24,13 @@
 	import english from '$lib/lang/en/experiences';
 	import chinese from '$lib/lang/zh_TW/experiences';
 
-	let currentLanguage = $state(english);
+	let currentTranslation = $state(english);
 
 	locale.subscribe(() => {
 		if (get(locale) === Locale.Chinese) {
-			currentLanguage = chinese;
+			currentTranslation = chinese;
 		} else {
-			currentLanguage = english;
+			currentTranslation = english;
 		}
 	});
 
@@ -93,10 +93,10 @@
 	};
 
 	let experienceDescriptions: { [Name: string]: { title: string; content: string } } = $derived({
-		experience4: currentLanguage.experience_4,
-		experience3: currentLanguage.experience_3,
-		experience2: currentLanguage.experience_2,
-		experience1: currentLanguage.experience_1
+		experience4: currentTranslation.experience_4,
+		experience3: currentTranslation.experience_3,
+		experience2: currentTranslation.experience_2,
+		experience1: currentTranslation.experience_1
 	});
 
 	function addDockAnimation() {
@@ -141,7 +141,7 @@
 	}
 
 	$effect(() => {
-		currentLanguage = currentLanguage;
+		currentTranslation = currentTranslation;
 		addDockAnimation();
 	});
 </script>
@@ -151,7 +151,7 @@
 		<h6 class="font-caveat text-2xl md:text-4xl">From Dev to DevOps</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
 			<!-- eslint-disable-next-line -->
-			{@html currentLanguage.title_html}
+			{@html currentTranslation.title_html}
 		</h3>
 	</div>
 

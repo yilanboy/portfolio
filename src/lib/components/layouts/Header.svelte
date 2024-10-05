@@ -18,20 +18,23 @@
 
 	let isDarkModeEnabled = $state(false);
 	let showLanguageDropdown = $state(false);
-	let currentLanguage = $state(englishHeader);
+	let currentLocale = $state(Locale.English);
+	let currentTranslation = $state(englishHeader);
 
 	locale.subscribe(() => {
 		if (get(locale) === Locale.Chinese) {
-			currentLanguage = chineseHeader;
+			currentTranslation = chineseHeader;
+			currentLocale = Locale.Chinese;
 		} else {
-			currentLanguage = englishHeader;
+			currentTranslation = englishHeader;
+			currentLocale = Locale.English;
 		}
 	});
 
 	let tabs = $derived([
-		{ name: currentLanguage.projects, link: '#projects' },
-		{ name: currentLanguage.experiences, link: '#experience' },
-		{ name: currentLanguage.about, link: '#about' }
+		{ name: currentTranslation.projects, link: '#projects' },
+		{ name: currentTranslation.experiences, link: '#experience' },
+		{ name: currentTranslation.about, link: '#about' }
 	]);
 
 	function switchToEnglish() {
@@ -125,16 +128,19 @@
 				aria-labelledby="menu-button"
 				tabindex="-1"
 			>
-				<div class="py-1">
-					<!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+				<div class="space-y-1 py-1">
 					<button
 						type="button"
-						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-gray-600"
+						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
+						class:bg-neutral-200={currentLocale === Locale.English}
+						class:dark:bg-neutral-600={currentLocale === Locale.English}
 						onclick={switchToEnglish}>English</button
 					>
 					<button
 						type="button"
-						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-gray-600"
+						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
+						class:bg-neutral-200={currentLocale === Locale.Chinese}
+						class:dark:bg-neutral-600={currentLocale === Locale.Chinese}
 						onclick={switchToChinese}>繁體中文</button
 					>
 				</div>
@@ -170,6 +176,6 @@
 		<div
 			class="absolute right-full top-0 z-0 size-full bg-blue-400 opacity-20 duration-200 group-hover:translate-x-full"
 		></div>
-		<h4 class="z-9 relative">{currentLanguage.check_my_blog} &rarr;</h4>
+		<h4 class="z-9 relative">{currentTranslation.check_my_blog} &rarr;</h4>
 	</a>
 </header>

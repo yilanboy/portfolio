@@ -6,14 +6,14 @@
 	import chinese from '$lib/lang/zh_TW/introduction';
 	import english from '$lib/lang/en/introduction';
 
-	let currentLanguage = $state(english);
+	let currentTranslation = $state(english);
 	let dynamicText: HTMLElement;
 
 	locale.subscribe(() => {
 		if (get(locale) === Locale.Chinese) {
-			currentLanguage = chinese;
+			currentTranslation = chinese;
 		} else {
-			currentLanguage = english;
+			currentTranslation = english;
 		}
 	});
 
@@ -60,7 +60,7 @@
 	<div class="flex flex-col gap-6 text-center md:gap-8 lg:justify-center lg:gap-10 lg:text-left">
 		<div class="flex flex-col gap-0">
 			<h2 class="text-4xl font-semibold dark:text-neutral-50 md:text-5xl">
-				{currentLanguage.i_am}
+				{currentTranslation.i_am}
 				<span
 					class="inline-block bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text leading-normal text-transparent"
 				>
@@ -69,19 +69,19 @@
 
 				<br />
 
-				{currentLanguage.a}
+				{currentTranslation.a}
 				<span
 					class="inline-block bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text leading-normal text-transparent"
 				>
 					DevOps
 				</span>
-				{currentLanguage.occupation}
+				{currentTranslation.occupation}
 			</h2>
 		</div>
 
 		<p class="inline-block text-base dark:text-neutral-50 sm:text-lg md:text-xl">
 			<!-- eslint-disable-next-line -->
-			{@html currentLanguage.introduction_html}
+			{@html currentTranslation.introduction_html}
 		</p>
 
 		<p

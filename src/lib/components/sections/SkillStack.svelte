@@ -18,13 +18,13 @@
 	import english from '$lib/lang/en/skill-stack';
 	import chinese from '$lib/lang/zh_TW/skill-stack';
 
-	let currentLanguage = $state(english);
+	let currentTranslation = $state(english);
 
 	locale.subscribe(() => {
 		if (get(locale) === Locale.Chinese) {
-			currentLanguage = chinese;
+			currentTranslation = chinese;
 		} else {
-			currentLanguage = english;
+			currentTranslation = english;
 		}
 	});
 
@@ -105,14 +105,14 @@
 	});
 
 	let skillExperiences: { [Name: string]: Array<string> } = $derived({
-		aws: currentLanguage.aws_experiences,
-		azure: currentLanguage.azure_experiences,
-		laravel: currentLanguage.laravel_experiences,
-		livewire: currentLanguage.livewire_experiences,
-		svelte: currentLanguage.svelte_experiences,
-		tailwindCSS: currentLanguage.tailwind_css_experiences,
-		terraform: currentLanguage.terraform_experiences,
-		ansible: currentLanguage.ansible_experiences
+		aws: currentTranslation.aws_experiences,
+		azure: currentTranslation.azure_experiences,
+		laravel: currentTranslation.laravel_experiences,
+		livewire: currentTranslation.livewire_experiences,
+		svelte: currentTranslation.svelte_experiences,
+		tailwindCSS: currentTranslation.tailwind_css_experiences,
+		terraform: currentTranslation.terraform_experiences,
+		ansible: currentTranslation.ansible_experiences
 	});
 
 	onMount(() => {
@@ -125,7 +125,7 @@
 		<h6 class="font-caveat text-2xl md:text-4xl">These stuff are so cool!</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
 			<!-- eslint-disable-next-line -->
-			{@html currentLanguage.title_html}
+			{@html currentTranslation.title_html}
 		</h3>
 	</div>
 

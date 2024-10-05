@@ -5,13 +5,13 @@
 	import english from '$lib/lang/en/about';
 	import chinese from '$lib/lang/zh_TW/about';
 
-	let currentLanguage = $state(english);
+	let currentTranslation = $state(english);
 
 	locale.subscribe(() => {
 		if (get(locale) === Locale.Chinese) {
-			currentLanguage = chinese;
+			currentTranslation = chinese;
 		} else {
-			currentLanguage = english;
+			currentTranslation = english;
 		}
 	});
 
@@ -20,7 +20,7 @@
 		description: string;
 	}
 
-	let strengths: Array<Strength> = $derived(currentLanguage.strengths);
+	let strengths: Array<Strength> = $derived(currentTranslation.strengths);
 </script>
 
 <section
@@ -31,11 +31,11 @@
 		<h6 class="font-caveat text-2xl md:text-4xl">Hey! my friends</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
 			<!-- eslint-disable-next-line -->
-			{@html currentLanguage.section_title_html}
+			{@html currentTranslation.section_title_html}
 		</h3>
 	</div>
 	<p class="mx-auto text-lg font-semibold dark:text-neutral-50 sm:text-xl md:text-2xl">
-		{currentLanguage.I_am_also}
+		{currentTranslation.I_am_also}
 	</p>
 	<div class="mx-auto flex w-full max-w-3xl flex-col gap-20 dark:text-neutral-50">
 		{#each strengths as strength, index}

@@ -9,27 +9,31 @@
 	import { get } from 'svelte/store';
 	import { Locale } from '$lib/enums';
 
-	let currentLanguage = $state(english);
+	let currentTranslation = $state(english);
 
 	locale.subscribe(() => {
 		if (get(locale) === Locale.Chinese) {
-			currentLanguage = chinese;
+			currentTranslation = chinese;
 		} else {
-			currentLanguage = english;
+			currentTranslation = english;
 		}
 	});
 
 	let steps = $derived([
-		{ name: currentLanguage.blog, href: 'https://docfunc.com', description: currentLanguage.blog },
 		{
-			name: currentLanguage.note,
-			href: 'https://github.com/YilanBoy/note',
-			description: currentLanguage.note
+			name: currentTranslation.blog,
+			href: 'https://docfunc.com',
+			description: currentTranslation.blog
 		},
 		{
-			name: currentLanguage.slide,
+			name: currentTranslation.note,
+			href: 'https://github.com/YilanBoy/note',
+			description: currentTranslation.note
+		},
+		{
+			name: currentTranslation.slide,
 			href: 'https://github.com/YilanBoy/slide',
-			description: currentLanguage.slide
+			description: currentTranslation.slide
 		}
 	]);
 </script>
@@ -39,40 +43,40 @@
 		<h6 class="font-caveat text-2xl md:text-4xl">Love sharing!</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
 			<!-- eslint-disable-next-line -->
-			{@html currentLanguage.title_html}
+			{@html currentTranslation.title_html}
 		</h3>
 	</div>
 	<div class="grid grid-cols-1 gap-12 dark:text-neutral-50 lg:grid-cols-3 lg:gap-10">
-		<Step step={steps[0]} bind:forwardText={currentLanguage.go}>
+		<Step step={steps[0]} bind:forwardText={currentTranslation.go}>
 			{#snippet icon()}
 				<FileEarmarkRichText className="size-12" />
 			{/snippet}
 
 			{#snippet content()}
 				<!-- eslint-disable-next-line -->
-				<p class="text-left">{@html currentLanguage.blog_description_html}</p>
+				<p class="text-left">{@html currentTranslation.blog_description_html}</p>
 			{/snippet}
 		</Step>
 
-		<Step step={steps[1]} bind:forwardText={currentLanguage.go}>
+		<Step step={steps[1]} bind:forwardText={currentTranslation.go}>
 			{#snippet icon()}
 				<JournalText className="size-12" />
 			{/snippet}
 
 			{#snippet content()}
 				<!-- eslint-disable-next-line -->
-				<p class="text-left">{@html currentLanguage.note_description_html}</p>
+				<p class="text-left">{@html currentTranslation.note_description_html}</p>
 			{/snippet}
 		</Step>
 
-		<Step step={steps[2]} bind:forwardText={currentLanguage.go}>
+		<Step step={steps[2]} bind:forwardText={currentTranslation.go}>
 			{#snippet icon()}
 				<Easel className="size-12" />
 			{/snippet}
 
 			{#snippet content()}
 				<!-- eslint-disable-next-line -->
-				<p class="text-left">{@html currentLanguage.slide_description_html}</p>
+				<p class="text-left">{@html currentTranslation.slide_description_html}</p>
 			{/snippet}
 		</Step>
 	</div>
