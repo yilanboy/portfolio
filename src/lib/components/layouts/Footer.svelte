@@ -5,11 +5,13 @@
 	import { locale } from '$lib/stores';
 	import { get } from 'svelte/store';
 	import english from '$lib/lang/en/footer';
-	import chinese from '$lib/lang/zh_TW/footer';
+	import simplifiedChinese from '$lib/lang/zh_CN/footer';
+	import traditionalChinese from '$lib/lang/zh_TW/footer';
 
 	let translations = {
 		english: english,
-		chinese: chinese
+		traditionalChinese: traditionalChinese,
+		simplifiedChinese: simplifiedChinese
 	};
 
 	let currentTranslation = $state(english);

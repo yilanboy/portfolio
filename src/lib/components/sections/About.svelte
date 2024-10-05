@@ -1,13 +1,15 @@
 <script lang="ts">
 	import { locale } from '$lib/stores';
 	import { get } from 'svelte/store';
-	import english from '$lib/lang/en/about';
-	import chinese from '$lib/lang/zh_TW/about';
 	import type { Locale } from '$lib/enums';
+	import english from '$lib/lang/en/about';
+	import simplifiedChinese from '$lib/lang/zh_CN/about';
+	import traditionalChinese from '$lib/lang/zh_TW/about';
 
 	let translations = {
 		english: english,
-		chinese: chinese
+		simplifiedChinese: simplifiedChinese,
+		traditionalChinese: traditionalChinese
 	};
 
 	let currentTranslation = $state(english);

@@ -2,13 +2,15 @@
 	import { onMount } from 'svelte';
 	import { locale } from '$lib/stores';
 	import { get } from 'svelte/store';
-	import chinese from '$lib/lang/zh_TW/introduction';
-	import english from '$lib/lang/en/introduction';
 	import type { Locale } from '$lib/enums';
+	import english from '$lib/lang/en/introduction';
+	import simplifiedChinese from '$lib/lang/zh_CN/introduction';
+	import traditionalChinese from '$lib/lang/zh_TW/introduction';
 
 	let translations = {
 		english: english,
-		chinese: chinese
+		simplifiedChinese: simplifiedChinese,
+		traditionalChinese: traditionalChinese
 	};
 
 	let currentTranslation = $state(english);

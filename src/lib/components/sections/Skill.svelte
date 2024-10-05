@@ -16,11 +16,13 @@
 	import { Themes } from '$lib/enums';
 	import { Locale } from '$lib/enums';
 	import english from '$lib/lang/en/skill';
-	import chinese from '$lib/lang/zh_TW/skill';
+	import simplifiedChinese from '$lib/lang/zh_CN/skill';
+	import traditionalChinese from '$lib/lang/zh_TW/skill';
 
 	let translations = {
 		english: english,
-		chinese: chinese
+		simplifiedChinese: simplifiedChinese,
+		traditionalChinese: traditionalChinese
 	};
 
 	let currentTranslation = $state(english);

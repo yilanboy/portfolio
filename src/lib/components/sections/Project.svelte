@@ -3,15 +3,17 @@
 	import FileEarmarkRichText from '$lib/components/icons/FileEarmarkRichText.svelte';
 	import JournalText from '$lib/components/icons/JournalText.svelte';
 	import Easel from '$lib/components/icons/Easel.svelte';
-	import english from '$lib/lang/en/project';
-	import chinese from '$lib/lang/zh_TW/project';
 	import { locale } from '$lib/stores';
 	import { get } from 'svelte/store';
 	import type { Locale } from '$lib/enums';
+	import english from '$lib/lang/en/project';
+	import simplifiedChinese from '$lib/lang/zh_CN/project';
+	import traditionalChinese from '$lib/lang/zh_TW/project';
 
 	let translations = {
 		english: english,
-		chinese: chinese
+		simplifiedChinese: simplifiedChinese,
+		traditionalChinese: traditionalChinese
 	};
 
 	let currentTranslation = $state(english);

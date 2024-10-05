@@ -6,9 +6,16 @@
 	import Moon from '$lib/components/icons/Moon.svelte';
 	import { Themes, Locale } from '$lib/enums';
 	import Language from '$lib/components/icons/Language.svelte';
-	import englishHeader from '$lib/lang/en/header';
-	import chineseHeader from '$lib/lang/zh_TW/header';
 	import { get } from 'svelte/store';
+	import english from '$lib/lang/en/header';
+	import simplifiedChinese from '$lib/lang/zh_CN/header';
+	import traditionalChinese from '$lib/lang/zh_TW/header';
+
+	let translations = {
+		english: english,
+		simplifiedChinese: simplifiedChinese,
+		traditionalChinese: traditionalChinese
+	};
 
 	interface Props {
 		y: number;
@@ -19,16 +26,11 @@
 	let isDarkModeEnabled = $state(false);
 	let showLanguageDropdown = $state(false);
 	let currentLocale = $state(Locale.English);
-	let currentTranslation = $state(englishHeader);
+	let currentTranslation = $state(english);
 
 	locale.subscribe(() => {
-		if (get(locale) === Locale.Chinese) {
-			currentTranslation = chineseHeader;
-			currentLocale = Locale.Chinese;
-		} else {
-			currentTranslation = englishHeader;
-			currentLocale = Locale.English;
-		}
+		currentLocale = get(locale) as Locale;
+		currentTranslation = translations[get(locale) as Locale];
 	});
 
 	let tabs = $derived([
@@ -43,9 +45,15 @@
 		showLanguageDropdown = false;
 	}
 
-	function switchToChinese() {
-		locale.update(() => Locale.Chinese);
-		localStorage.locale = Locale.Chinese;
+	function switchToSimplifiedChinese() {
+		locale.update(() => Locale.SimplifiedChinese);
+		localStorage.locale = Locale.SimplifiedChinese;
+		showLanguageDropdown = false;
+	}
+
+	function switchToTraditionalChinese() {
+		locale.update(() => Locale.TraditionalChinese);
+		localStorage.locale = Locale.TraditionalChinese;
 		showLanguageDropdown = false;
 	}
 
@@ -72,11 +80,14 @@
 			isDarkModeEnabled = false;
 		}
 
-		if (localStorage.locale === Locale.Chinese) {
-			locale.update(() => Locale.Chinese);
-		} else {
-			locale.update(() => Locale.English);
-		}
+		locale.update(() => {
+			if (Object.values(Locale).includes(localStorage.locale)) {
+				return localStorage.locale;
+			} else {
+				localStorage.locale = Locale.English;
+				return Locale.English;
+			}
+		});
 	});
 </script>
 
@@ -139,9 +150,16 @@
 					<button
 						type="button"
 						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
-						class:bg-neutral-200={currentLocale === Locale.Chinese}
-						class:dark:bg-neutral-600={currentLocale === Locale.Chinese}
-						onclick={switchToChinese}>繁體中文</button
+						class:bg-neutral-200={currentLocale === Locale.SimplifiedChinese}
+						class:dark:bg-neutral-600={currentLocale === Locale.SimplifiedChinese}
+						onclick={switchToSimplifiedChinese}>简体中文</button
+					>
+					<button
+						type="button"
+						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
+						class:bg-neutral-200={currentLocale === Locale.TraditionalChinese}
+						class:dark:bg-neutral-600={currentLocale === Locale.TraditionalChinese}
+						onclick={switchToTraditionalChinese}>繁體中文</button
 					>
 				</div>
 			</div>

@@ -20,13 +20,15 @@
 	import K3s from '$lib/components/icons/K3s.svelte';
 	import { locale } from '$lib/stores';
 	import { get } from 'svelte/store';
-	import english from '$lib/lang/en/experience';
-	import chinese from '$lib/lang/zh_TW/experience';
 	import type { Locale } from '$lib/enums';
+	import english from '$lib/lang/en/experience';
+	import simplifiedChinese from '$lib/lang/zh_CN/experience';
+	import traditionalChinese from '$lib/lang/zh_TW/experience';
 
 	let translations = {
 		english: english,
-		chinese: chinese
+		simplifiedChinese: simplifiedChinese,
+		traditionalChinese: traditionalChinese
 	};
 
 	let currentTranslation = $state(english);
