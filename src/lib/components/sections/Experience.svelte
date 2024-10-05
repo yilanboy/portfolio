@@ -21,8 +21,8 @@
 	import { locale } from '$lib/stores';
 	import { get } from 'svelte/store';
 	import { Locale } from '$lib/enums';
-	import english from '$lib/lang/en/experiences';
-	import chinese from '$lib/lang/zh_TW/experiences';
+	import english from '$lib/lang/en/experience';
+	import chinese from '$lib/lang/zh_TW/experience';
 
 	let currentTranslation = $state(english);
 
@@ -151,7 +151,7 @@
 		<h6 class="font-caveat text-2xl md:text-4xl">From Dev to DevOps</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
 			<!-- eslint-disable-next-line -->
-			{@html currentTranslation.title_html}
+			{@html currentTranslation.section_title_html}
 		</h3>
 	</div>
 

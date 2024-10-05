@@ -15,8 +15,8 @@
 	import { Locale } from '$lib/enums';
 	import { theme } from '$lib/stores';
 	import { Themes } from '$lib/enums';
-	import english from '$lib/lang/en/skill-stack';
-	import chinese from '$lib/lang/zh_TW/skill-stack';
+	import english from '$lib/lang/en/skill';
+	import chinese from '$lib/lang/zh_TW/skill';
 
 	let currentTranslation = $state(english);
 
@@ -37,7 +37,7 @@
 	let barBackgroundColor = $derived(isDarkModeEnabled ? '#404040' : '#e5e7eb');
 	let centerBackgroundColor = $derived(isDarkModeEnabled ? '#262626' : '#f9fafb');
 
-	type skillStack = {
+	type Skill = {
 		name: string;
 		iconComponent: Component;
 		progress: string;
@@ -45,7 +45,7 @@
 		showExperienceModal: boolean;
 	};
 
-	let skillStacks: { [Name: string]: skillStack } = $state({
+	let skills: { [Name: string]: Skill } = $state({
 		aws: {
 			name: 'AWS',
 			iconComponent: Aws,
@@ -120,36 +120,36 @@
 	});
 </script>
 
-<section id="skill-stack" class="flex flex-col gap-24 py-20">
+<section id="skill" class="flex flex-col gap-24 py-20">
 	<div class="flex flex-col gap-2 text-center dark:text-neutral-50">
 		<h6 class="font-caveat text-2xl md:text-4xl">These stuff are so cool!</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
 			<!-- eslint-disable-next-line -->
-			{@html currentTranslation.title_html}
+			{@html currentTranslation.section_title_html}
 		</h3>
 	</div>
 
 	<div class="mx-auto grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
-		{#each Object.entries(skillStacks) as [key, skillStack] (key)}
+		{#each Object.entries(skills) as [key, skill] (key)}
 			<div class="flex items-center justify-center">
 				<CircularProgressBar
-					progress={skillStack.progress}
-					barColor={skillStack.barColor}
+					progress={skill.progress}
+					barColor={skill.barColor}
 					{barBackgroundColor}
 					{centerBackgroundColor}
 				>
 					<button
-						onclick={() => (skillStack.showExperienceModal = true)}
+						onclick={() => (skill.showExperienceModal = true)}
 						type="button"
 						class="transition duration-150 hover:scale-125 active:scale-100"
 					>
-						<skillStack.iconComponent className="size-20" />
+						<skill.iconComponent className="size-20" />
 					</button>
 				</CircularProgressBar>
 
-				<Modal bind:showModal={skillStack.showExperienceModal}>
+				<Modal bind:showModal={skill.showExperienceModal}>
 					<h3 class="text-xl font-semibold leading-6 text-neutral-900 dark:text-neutral-50">
-						{skillStack.name}
+						{skill.name}
 					</h3>
 					<div class="mt-4 divide-y-2 divide-dashed divide-neutral-300 dark:divide-neutral-700">
 						{#each skillExperiences[key] as experience (experience)}

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Svelte from '$lib/components/icons/Svelte.svelte';
 	import TailwindCss from '$lib/components/icons/TailwindCss.svelte';
 	import { locale } from '$lib/stores';
@@ -40,7 +40,7 @@
 	<div
 		class="mx-2 mb-4 flex items-center justify-center gap-2 rounded-2xl bg-neutral-200/60 py-4 text-base dark:bg-neutral-700/60 dark:text-neutral-50 md:text-xl"
 	>
-		This page is made with
+		Made with
 		<Svelte className="size-5" />
 		<a
 			target="_blank"

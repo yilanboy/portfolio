@@ -1,6 +1,7 @@
 export default {
 	section_title_html:
-		'What to Know More <span class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-red-500 dark:before:bg-red-600">' +
+		'What to Know More ' +
+		'<span class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-red-500 dark:before:bg-red-600">' +
 		'<span class="relative text-neutral-50">About Me</span>' +
 		'</span> ?',
 	I_am_also: 'In fact, I am also...',
@@ -19,15 +20,15 @@ export default {
 			description:
 				'I believe that communicating with others and listening to their needs is essential to the success of a team. ' +
 				'Through good communication, we can not only learn more from each other, ' +
-				'but also understand each other better and work together more effectively.'
+				'but also understand how to work together more effectively.'
 		},
 		{
 			name: 'A lover of outdoor activities',
 			description:
 				'Lounging on the couch, watching an animation or a movie, ' +
-				'or sitting in front of the computer thinking about how this bug got there are all ways I relax. ' +
+				'or sitting in front of the computer thinking about how to solve the bugs make me relax. ' +
 				'But apart from staying at home, ' +
-				'I also like to go outdoors. Enjoying the sun, running, biking and camping are some of my favorite outdoor activities.'
+				'I also like to go outdoors. Enjoying the sun, running, biking and camping, these are my favorite outdoor activities.'
 		}
 	]
 };

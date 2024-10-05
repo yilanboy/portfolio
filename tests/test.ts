@@ -18,7 +18,7 @@ test('visitor can see introduction section', async ({ page }) => {
 
 test('visitor can see projects section', async ({ page }) => {
 	await page.goto('/');
-	const section = await page.$('#projects');
+	const section = await page.$('#project');
 	expect(section).not.toBeNull();
 });
 
@@ -30,7 +30,7 @@ test('visitor can see experience section', async ({ page }) => {
 
 test('visitor can see tech-stack section', async ({ page }) => {
 	await page.goto('/');
-	const section = await page.$('#skill-stack');
+	const section = await page.$('#skill');
 	expect(section).not.toBeNull();
 });
 

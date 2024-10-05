@@ -1,20 +1,17 @@
 <script lang="ts">
 	interface Props {
-		step: {
-			name: string;
-			href: string;
-			description: string;
-		};
+		name: string;
+		url: string;
 		icon?: import('svelte').Snippet;
 		content?: import('svelte').Snippet;
 		forwardText: string;
 	}
 
-	let { step, icon, content, forwardText = $bindable('Go') }: Props = $props();
+	let { name, url = '#', icon, content, forwardText = 'Go' }: Props = $props();
 </script>
 
 <a
-	href={step.href}
+	href={url}
 	target="_blank"
 	class="group flex cursor-pointer flex-col gap-4 rounded-lg border border-solid border-blue-700 p-4 text-center duration-200 hover:border-blue-400 dark:border-blue-400 dark:hover:border-blue-700 sm:p-6 md:p-8"
 >
@@ -24,7 +21,7 @@
 		{@render icon?.()}
 	</div>
 
-	<h3 class="text-xl font-medium sm:text-2xl md:text-3xl">{step.name}</h3>
+	<h3 class="text-xl font-medium sm:text-2xl md:text-3xl">{name}</h3>
 
 	{@render content?.()}
 

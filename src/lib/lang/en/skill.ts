@@ -1,5 +1,5 @@
 export default {
-	title_html:
+	section_title_html:
 		'<span class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-green-500 dark:before:bg-green-600">' +
 		'<span class="relative text-neutral-50">The skills</span>' +
 		'</span> I Specialize In',

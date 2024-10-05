@@ -1,6 +1,7 @@
 export default {
-	title_html:
-		'這些是我 <span class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-green-500 dark:before:bg-green-600">' +
+	section_title_html:
+		'這些是我 ' +
+		'<span class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-green-500 dark:before:bg-green-600">' +
 		'<span class="relative text-neutral-50">使用過的技術</span>' +
 		'</span>',
 	aws_experiences: [
