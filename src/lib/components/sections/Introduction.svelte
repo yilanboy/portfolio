@@ -1,28 +1,15 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { locale } from '$lib/stores';
-	import { get } from 'svelte/store';
-	import type { Locale } from '$lib/enums';
-	import english from '$lib/lang/en/introduction';
-	import simplifiedChinese from '$lib/lang/zh_CN/introduction';
-	import traditionalChinese from '$lib/lang/zh_TW/introduction';
+	import type { IntroductionTranslation } from '$lib/lang/type/introduction.type';
 
-	let translations = {
-		english: english,
-		simplifiedChinese: simplifiedChinese,
-		traditionalChinese: traditionalChinese
-	};
-
-	let currentTranslation = $state(english);
-
-	locale.subscribe(() => {
-		currentTranslation = translations[get(locale) as Locale];
-	});
-
-	let dynamicText: HTMLElement;
+	interface Props {
+		translation: IntroductionTranslation;
+	}
 
 	const words = ['Operation', 'Coding', 'Sharing'];
 
+	let { translation }: Props = $props();
+	let dynamicText: HTMLElement;
 	let wordIndex = 0;
 	let charIndex = 0;
 	let isDeleting = false;
@@ -64,7 +51,7 @@
 	<div class="flex flex-col gap-6 text-center md:gap-8 lg:justify-center lg:gap-10 lg:text-left">
 		<div class="flex flex-col gap-0">
 			<h2 class="text-4xl font-semibold dark:text-neutral-50 md:text-5xl">
-				{currentTranslation.i_am}
+				{translation.i_am}
 				<span
 					class="inline-block bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text leading-normal text-transparent"
 				>
@@ -73,32 +60,32 @@
 
 				<br />
 
-				{currentTranslation.a}
+				{translation.a}
 				<span
 					class="inline-block bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text leading-normal text-transparent"
 				>
 					DevOps
 				</span>
-				{currentTranslation.occupation}
+				{translation.occupation}
 			</h2>
 		</div>
 
 		<p class="inline-block text-base dark:text-neutral-50 sm:text-lg md:text-xl">
-			{currentTranslation.introduction_part_1}
+			{translation.introduction_part_1}
 			<span class="text-green-500 dark:text-green-400">
-				{currentTranslation.introduction_highlight_part_1}
+				{translation.introduction_highlight_part_1}
 			</span>
-			{currentTranslation.introduction_part_2}
+			{translation.introduction_part_2}
 			<span class="text-green-500 dark:text-green-400">
-				{currentTranslation.introduction_highlight_part_2}
+				{translation.introduction_highlight_part_2}
 			</span>
-			{currentTranslation.introduction_part_3}
+			{translation.introduction_part_3}
 			<span class="text-green-500 dark:text-green-400">
-				{currentTranslation.introduction_highlight_part_3}
+				{translation.introduction_highlight_part_3}
 			</span>
-			{currentTranslation.introduction_part_4}
+			{translation.introduction_part_4}
 			<span class="text-green-500 dark:text-green-400">
-				{currentTranslation.introduction_highlight_part_4}
+				{translation.introduction_highlight_part_4}
 			</span>
 		</p>
 

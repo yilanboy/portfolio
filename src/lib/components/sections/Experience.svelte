@@ -18,26 +18,13 @@
 	import Rust from '$lib/components/icons/Rust.svelte';
 	import GoogleCloudPlatform from '$lib/components/icons/GoogleCloudPlatform.svelte';
 	import K3s from '$lib/components/icons/K3s.svelte';
-	import { locale } from '$lib/stores';
-	import { get } from 'svelte/store';
-	import type { Locale } from '$lib/enums';
-	import english from '$lib/lang/en/experience';
-	import simplifiedChinese from '$lib/lang/zh_CN/experience';
-	import traditionalChinese from '$lib/lang/zh_TW/experience';
+	import type { ExperienceTranslation } from '$lib/lang/type/experience.type';
 
-	let translations = {
-		english: english,
-		simplifiedChinese: simplifiedChinese,
-		traditionalChinese: traditionalChinese
-	};
+	interface Props {
+		translation: ExperienceTranslation;
+	}
 
-	let currentTranslation = $state(english);
-
-	locale.subscribe(() => {
-		currentTranslation = translations[get(locale) as Locale];
-	});
-
-	interface Experience {
+	interface ExperienceTimeAndSkills {
 		time: string;
 		skills: Array<{
 			name: string;
@@ -47,7 +34,9 @@
 
 	const scaleRange = 0.4;
 
-	let experiences: { [Name: string]: Experience } = {
+	let { translation }: Props = $props();
+
+	let experiences: { [Name: string]: ExperienceTimeAndSkills } = {
 		experience4: {
 			time: 'Jul, 2022',
 			skills: [
@@ -96,10 +85,10 @@
 	};
 
 	let experienceDescriptions: { [Name: string]: { title: string; content: string } } = $derived({
-		experience4: currentTranslation.experience_4,
-		experience3: currentTranslation.experience_3,
-		experience2: currentTranslation.experience_2,
-		experience1: currentTranslation.experience_1
+		experience4: translation.experience_4,
+		experience3: translation.experience_3,
+		experience2: translation.experience_2,
+		experience1: translation.experience_1
 	});
 
 	function addDockAnimation() {
@@ -152,15 +141,15 @@
 	<div class="flex flex-col gap-2 text-center dark:text-neutral-50">
 		<h6 class="font-caveat text-2xl md:text-4xl">From Dev to DevOps</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
-			{currentTranslation.section_title_prefix}
+			{translation.section_title_prefix}
 			<span
 				class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-yellow-400 dark:before:bg-yellow-500"
 			>
 				<span class="relative text-neutral-50">
-					{currentTranslation.section_title_highlight}
+					{translation.section_title_highlight}
 				</span>
 			</span>
-			{currentTranslation.section_title_suffix}
+			{translation.section_title_suffix}
 		</h3>
 	</div>
 

@@ -10,37 +10,15 @@
 	import Livewire from '$lib/components/icons/Livewire.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import { type Component, onMount } from 'svelte';
-	import { locale } from '$lib/stores';
-	import { get } from 'svelte/store';
 	import { theme } from '$lib/stores';
 	import { Themes } from '$lib/enums';
-	import { Locale } from '$lib/enums';
-	import english from '$lib/lang/en/skill';
-	import simplifiedChinese from '$lib/lang/zh_CN/skill';
-	import traditionalChinese from '$lib/lang/zh_TW/skill';
+	import type { SkillTranslation } from '$lib/lang/type/skill.type';
 
-	let translations = {
-		english: english,
-		simplifiedChinese: simplifiedChinese,
-		traditionalChinese: traditionalChinese
-	};
+	interface Props {
+		translation: SkillTranslation;
+	}
 
-	let currentTranslation = $state(english);
-
-	locale.subscribe(() => {
-		currentTranslation = translations[get(locale) as Locale];
-	});
-
-	let isDarkModeEnabled: boolean = $state(false);
-
-	theme.subscribe((value) => {
-		isDarkModeEnabled = value === Themes.Dark;
-	});
-
-	let barBackgroundColor = $derived(isDarkModeEnabled ? '#404040' : '#e5e7eb');
-	let centerBackgroundColor = $derived(isDarkModeEnabled ? '#262626' : '#f9fafb');
-
-	type Skill = {
+	type SkillProgressBar = {
 		name: string;
 		iconComponent: Component;
 		progress: string;
@@ -48,7 +26,16 @@
 		showExperienceModal: boolean;
 	};
 
-	let skills: { [Name: string]: Skill } = $state({
+	let { translation }: Props = $props();
+	let isDarkModeEnabled: boolean = $state(false);
+	let barBackgroundColor = $derived(isDarkModeEnabled ? '#404040' : '#e5e7eb');
+	let centerBackgroundColor = $derived(isDarkModeEnabled ? '#262626' : '#f9fafb');
+
+	theme.subscribe((value) => {
+		isDarkModeEnabled = value === Themes.Dark;
+	});
+
+	let skills: { [Name: string]: SkillProgressBar } = $state({
 		aws: {
 			name: 'AWS',
 			iconComponent: Aws,
@@ -108,14 +95,14 @@
 	});
 
 	let skillExperiences: { [Name: string]: Array<string> } = $derived({
-		aws: currentTranslation.aws_experiences,
-		azure: currentTranslation.azure_experiences,
-		laravel: currentTranslation.laravel_experiences,
-		livewire: currentTranslation.livewire_experiences,
-		svelte: currentTranslation.svelte_experiences,
-		tailwindCSS: currentTranslation.tailwind_css_experiences,
-		terraform: currentTranslation.terraform_experiences,
-		ansible: currentTranslation.ansible_experiences
+		aws: translation.aws_experiences,
+		azure: translation.azure_experiences,
+		laravel: translation.laravel_experiences,
+		livewire: translation.livewire_experiences,
+		svelte: translation.svelte_experiences,
+		tailwindCSS: translation.tailwind_css_experiences,
+		terraform: translation.terraform_experiences,
+		ansible: translation.ansible_experiences
 	});
 
 	onMount(() => {
@@ -127,15 +114,15 @@
 	<div class="flex flex-col gap-2 text-center dark:text-neutral-50">
 		<h6 class="font-caveat text-2xl md:text-4xl">These stuff are so cool!</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
-			{currentTranslation.section_title_prefix}
+			{translation.section_title_prefix}
 			<span
 				class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-green-500 dark:before:bg-green-600"
 			>
 				<span class="relative text-neutral-50">
-					{currentTranslation.section_title_highlight}
+					{translation.section_title_highlight}
 				</span>
 			</span>
-			{currentTranslation.section_title_suffix}
+			{translation.section_title_suffix}
 		</h3>
 	</div>
 

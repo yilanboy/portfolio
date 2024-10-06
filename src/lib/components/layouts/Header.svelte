@@ -7,36 +7,27 @@
 	import { Themes, Locale } from '$lib/enums';
 	import Language from '$lib/components/icons/Language.svelte';
 	import { get } from 'svelte/store';
-	import english from '$lib/lang/en/header';
-	import simplifiedChinese from '$lib/lang/zh_CN/header';
-	import traditionalChinese from '$lib/lang/zh_TW/header';
 
-	let translations = {
-		english: english,
-		simplifiedChinese: simplifiedChinese,
-		traditionalChinese: traditionalChinese
-	};
+	import type { HeaderTranslation } from '$lib/lang/type/header.type';
 
 	interface Props {
+		translation: HeaderTranslation;
 		y: number;
 	}
 
-	let { y }: Props = $props();
-
+	let { translation, y }: Props = $props();
 	let isDarkModeEnabled = $state(false);
 	let showLanguageDropdown = $state(false);
 	let currentLocale = $state(Locale.English);
-	let currentTranslation = $state(english);
 
 	locale.subscribe(() => {
 		currentLocale = get(locale) as Locale;
-		currentTranslation = translations[get(locale) as Locale];
 	});
 
 	let tabs = $derived([
-		{ name: currentTranslation.project, link: '#project' },
-		{ name: currentTranslation.experiences, link: '#experience' },
-		{ name: currentTranslation.about, link: '#about' }
+		{ name: translation.project, link: '#project' },
+		{ name: translation.experiences, link: '#experience' },
+		{ name: translation.about, link: '#about' }
 	]);
 
 	function switchToEnglish() {
@@ -194,6 +185,6 @@
 		<div
 			class="absolute right-full top-0 z-0 size-full bg-blue-400 opacity-20 duration-200 group-hover:translate-x-full"
 		></div>
-		<h4 class="z-9 relative">{currentTranslation.check_my_blog} &rarr;</h4>
+		<div class="z-9 relative">{translation.check_my_blog} &rarr;</div>
 	</a>
 </header>

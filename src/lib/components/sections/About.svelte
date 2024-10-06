@@ -1,29 +1,11 @@
 <script lang="ts">
-	import { locale } from '$lib/stores';
-	import { get } from 'svelte/store';
-	import type { Locale } from '$lib/enums';
-	import english from '$lib/lang/en/about';
-	import simplifiedChinese from '$lib/lang/zh_CN/about';
-	import traditionalChinese from '$lib/lang/zh_TW/about';
+	import type { AboutTranslation } from '$lib/lang/type/about.type';
 
-	let translations = {
-		english: english,
-		simplifiedChinese: simplifiedChinese,
-		traditionalChinese: traditionalChinese
-	};
-
-	let currentTranslation = $state(english);
-
-	locale.subscribe(() => {
-		currentTranslation = translations[get(locale) as Locale];
-	});
-
-	interface Strength {
-		name: string;
-		description: string;
+	interface Props {
+		translation: AboutTranslation;
 	}
 
-	let strengths: Array<Strength> = $derived(currentTranslation.strengths);
+	let { translation }: Props = $props();
 </script>
 
 <section
@@ -33,22 +15,22 @@
 	<div class="flex flex-col gap-2 text-center dark:text-neutral-50">
 		<h6 class="font-caveat text-2xl md:text-4xl">Hey! my friends</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
-			{currentTranslation.section_title_prefix}
+			{translation.section_title_prefix}
 			<span
 				class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-red-500 dark:before:bg-red-600"
 			>
 				<span class="relative text-neutral-50">
-					{currentTranslation.section_title_highlight}
+					{translation.section_title_highlight}
 				</span>
 			</span>
-			{currentTranslation.section_title_suffix}
+			{translation.section_title_suffix}
 		</h3>
 	</div>
 	<p class="mx-auto text-lg font-semibold dark:text-neutral-50 sm:text-xl md:text-2xl">
-		{currentTranslation.I_am_also}
+		{translation.I_am_also}
 	</p>
 	<div class="mx-auto flex w-full max-w-3xl flex-col gap-20 dark:text-neutral-50">
-		{#each strengths as strength, index}
+		{#each translation.strengths as strength, index}
 			<div class="flex gap-6 sm:gap-8">
 				<p class="w-1/5 text-4xl font-semibold text-red-500 sm:text-5xl md:text-6xl">
 					{(index + 1).toString().padStart(2, '0')}
