@@ -6,14 +6,15 @@
 	import Skill from '$lib/components/sections/Skill.svelte';
 	import About from '$lib/components/sections/About.svelte';
 	import Footer from '$lib/components/layouts/Footer.svelte';
-	import english from '$lib/lang/en';
-	import traditionalChinese from '../lib/lang/zh-TW';
-	import simplifiedChinese from '../lib/lang/zh-CN';
 	import { locale } from '$lib/stores';
 	import { get } from 'svelte/store';
 	import { Locale } from '$lib/enums';
 	import ArrowUp from '$lib/components/icons/ArrowUp.svelte';
 	import { onMount } from 'svelte';
+	// locale translations
+	import english from '$lib/lang/en';
+	import traditionalChinese from '$lib/lang/zh-TW';
+	import simplifiedChinese from '$lib/lang/zh-CN';
 
 	let translations = {
 		english: english,
