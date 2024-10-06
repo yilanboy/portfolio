@@ -70,15 +70,6 @@
 			theme.update(() => Themes.Light);
 			isDarkModeEnabled = false;
 		}
-
-		locale.update(() => {
-			if (Object.values(Locale).includes(localStorage.locale)) {
-				return localStorage.locale;
-			} else {
-				localStorage.locale = Locale.English;
-				return Locale.English;
-			}
-		});
 	});
 </script>
 

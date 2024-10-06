@@ -11,8 +11,9 @@
 	import simplifiedChinese from '../lib/lang/zh-CN';
 	import { locale } from '$lib/stores';
 	import { get } from 'svelte/store';
-	import type { Locale } from '$lib/enums';
+	import { Locale } from '$lib/enums';
 	import ArrowUp from '$lib/components/icons/ArrowUp.svelte';
+	import { onMount } from 'svelte';
 
 	let translations = {
 		english: english,
@@ -30,6 +31,18 @@
 	function goTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
+
+	onMount(() => {
+		locale.update(() => {
+			if (Object.values(Locale).includes(localStorage.locale)) {
+				return localStorage.locale;
+			} else {
+				localStorage.locale = Locale.English;
+
+				return Locale.English;
+			}
+		});
+	});
 </script>
 
 <svelte:head>
