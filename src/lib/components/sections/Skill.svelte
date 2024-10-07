@@ -9,12 +9,11 @@
 	import TailwindCss from '$lib/components/icons/TailwindCss.svelte';
 	import Livewire from '$lib/components/icons/Livewire.svelte';
 	import Modal from '$lib/components/Modal.svelte';
-	import { type Component, onMount } from 'svelte';
-	import { theme } from '$lib/stores';
-	import { Themes } from '$lib/enums';
+	import { type Component } from 'svelte';
 	import type { SkillTranslation } from '$lib/lang/type/skill.type';
 
 	interface Props {
+		isDarkModeEnabled: boolean;
 		translation: SkillTranslation;
 	}
 
@@ -26,14 +25,9 @@
 		showExperienceModal: boolean;
 	};
 
-	let { translation }: Props = $props();
-	let isDarkModeEnabled: boolean = $state(false);
+	let { isDarkModeEnabled, translation }: Props = $props();
 	let barBackgroundColor = $derived(isDarkModeEnabled ? '#404040' : '#e5e7eb');
 	let centerBackgroundColor = $derived(isDarkModeEnabled ? '#262626' : '#f9fafb');
-
-	theme.subscribe((value) => {
-		isDarkModeEnabled = value === Themes.Dark;
-	});
 
 	let skills: { [Name: string]: SkillProgressBar } = $state({
 		aws: {
@@ -103,10 +97,6 @@
 		tailwindCSS: translation.tailwind_css_experiences,
 		terraform: translation.terraform_experiences,
 		ansible: translation.ansible_experiences
-	});
-
-	onMount(() => {
-		isDarkModeEnabled = document.documentElement.classList.contains('dark');
 	});
 </script>
 

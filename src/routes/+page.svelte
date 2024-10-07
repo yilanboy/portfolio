@@ -8,7 +8,7 @@
 	import Footer from '$lib/components/layouts/Footer.svelte';
 	import { locale } from '$lib/stores';
 	import { get } from 'svelte/store';
-	import { Locale } from '$lib/enums';
+	import { Locale, Theme } from '$lib/enums';
 	import ArrowUp from '$lib/components/icons/ArrowUp.svelte';
 	import { fade } from 'svelte/transition';
 	import type { PageData } from './$types';
@@ -29,6 +29,7 @@
 		'zh-TW': traditionalChinese
 	};
 
+	let isDarkModeEnabled = $state(data.theme === Theme.Dark);
 	let translation = $state(translations[data.locale as Locale]);
 	let y = $state(0);
 
@@ -68,7 +69,7 @@
 		</button>
 	</div>
 
-	<Header {y} translation={translation.header} />
+	<Header {y} bind:isDarkModeEnabled translation={translation.header} />
 
 	<main class="flex flex-1 flex-col px-2 font-sans-poppins md:px-6">
 		<Introduction translation={translation.introduction} />
@@ -77,7 +78,7 @@
 
 		<Experience translation={translation.experience} />
 
-		<Skill translation={translation.skill} />
+		<Skill {isDarkModeEnabled} translation={translation.skill} />
 
 		<About translation={translation.about} />
 	</main>

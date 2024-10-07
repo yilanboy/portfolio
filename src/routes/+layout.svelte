@@ -12,8 +12,9 @@
 	<!-- dark mode	-->
 	<script defer>
 		if (
-			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+			document.cookie.includes('theme=dark') ||
+			(!document.cookie.includes('theme=light') &&
+				window.matchMedia('(prefers-color-scheme: dark)').matches)
 		) {
 			document.documentElement.classList.add('dark');
 		} else {

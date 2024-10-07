@@ -26,7 +26,6 @@
 	aria-checked="false"
 >
 	<span class="sr-only">Use setting</span>
-	<!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
 	<span
 		class:translate-x-5={isEnabled}
 		class:translate-x-0={!isEnabled}
@@ -39,7 +38,7 @@
 			class:opacity-100={!isEnabled}
 			class:duration-200={!isEnabled}
 			class:ease-in={!isEnabled}
-			class="absolute inset-0 flex h-full w-full items-center justify-center opacity-100 transition-opacity duration-200 ease-in"
+			class="absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
 			aria-hidden="true"
 		>
 			{@render iconShowOnDisabled?.()}
@@ -51,7 +50,7 @@
 			class:opacity-0={!isEnabled}
 			class:duration-100={!isEnabled}
 			class:ease-out={!isEnabled}
-			class="absolute inset-0 flex h-full w-full items-center justify-center opacity-0 transition-opacity duration-100 ease-out"
+			class="absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
 			aria-hidden="true"
 		>
 			{@render iconShowOnEnabled?.()}

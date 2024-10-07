@@ -1,22 +1,21 @@
 <script lang="ts">
 	import Toggle from '$lib/components/Toggle.svelte';
-	import { onMount } from 'svelte';
 	import { theme, locale } from '$lib/stores';
 	import Sun from '$lib/components/icons/Sun.svelte';
 	import Moon from '$lib/components/icons/Moon.svelte';
-	import { Themes, Locale } from '$lib/enums';
+	import { Theme, Locale } from '$lib/enums';
 	import Language from '$lib/components/icons/Language.svelte';
 	import { get } from 'svelte/store';
 
 	import type { HeaderTranslation } from '$lib/lang/type/header.type';
 
 	interface Props {
+		isDarkModeEnabled: boolean;
 		translation: HeaderTranslation;
 		y: number;
 	}
 
-	let { translation, y }: Props = $props();
-	let isDarkModeEnabled = $state(false);
+	let { isDarkModeEnabled = $bindable(), translation, y }: Props = $props();
 	let showLanguageDropdown = $state(false);
 	let currentLocale = $state(Locale.En);
 
@@ -49,28 +48,18 @@
 	}
 
 	function toggleTheme() {
-		if (document.documentElement.classList.contains(Themes.Dark)) {
+		if (document.documentElement.classList.contains(Theme.Dark)) {
 			isDarkModeEnabled = false;
-			theme.update(() => Themes.Light);
-			localStorage.theme = Themes.Light;
-			document.documentElement.classList.remove(Themes.Dark);
+			theme.update(() => Theme.Light);
+			document.cookie = `theme=${Theme.Light}`;
+			document.documentElement.classList.remove(Theme.Dark);
 		} else {
 			isDarkModeEnabled = true;
-			theme.update(() => Themes.Dark);
-			localStorage.theme = Themes.Dark;
-			document.documentElement.classList.add(Themes.Dark);
+			theme.update(() => Theme.Dark);
+			document.cookie = `theme=${Theme.Dark}`;
+			document.documentElement.classList.add(Theme.Dark);
 		}
 	}
-
-	onMount(() => {
-		if (document.documentElement.classList.contains(Themes.Dark)) {
-			theme.update(() => Themes.Dark);
-			isDarkModeEnabled = true;
-		} else {
-			theme.update(() => Themes.Light);
-			isDarkModeEnabled = false;
-		}
-	});
 </script>
 
 <header
