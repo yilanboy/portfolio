@@ -37,11 +37,11 @@
 </script>
 
 <div
-	role="progressbar"
-	class="flex size-48 rounded-full"
+	bind:this={bar}
 	style:--bar-color={barColor}
 	style:--bar-background-color={barBackgroundColor}
-	bind:this={bar}
+	role="progressbar"
+	class="flex size-48 rounded-full"
 >
 	<div
 		style:--center-background-color={centerBackgroundColor}

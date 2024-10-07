@@ -11,17 +11,19 @@
 	import { Locale } from '$lib/enums';
 	import ArrowUp from '$lib/components/icons/ArrowUp.svelte';
 	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 	// locale translations
 	import english from '$lib/lang/en';
 	import traditionalChinese from '$lib/lang/zh-TW';
 	import simplifiedChinese from '$lib/lang/zh-CN';
 
-	let translations = {
+	const translations = {
 		english: english,
 		simplifiedChinese: simplifiedChinese,
 		traditionalChinese: traditionalChinese
 	};
 
+	let showComponent = $state(false);
 	let translation = $state(english);
 	let y = $state(0);
 
@@ -43,6 +45,9 @@
 				return Locale.English;
 			}
 		});
+
+		// show component after locale init is complete
+		showComponent = true;
 	});
 </script>
 
@@ -52,32 +57,40 @@
 
 <svelte:window bind:scrollY={y} />
 
-<div class="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col text-sm sm:text-base">
+{#if showComponent}
 	<div
-		class={'fixed bottom-0 right-0 z-10 flex p-10 duration-200' +
-			(y > 0 ? ' opacity-full pointer-events-auto' : ' pointer-events-none opacity-0')}
+		transition:fade
+		class="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col text-sm sm:text-base"
 	>
-		<button
-			onclick={goTop}
-			class="ml-auto grid aspect-square cursor-pointer place-items-center rounded-full bg-slate-900 px-3 text-neutral-50 transition duration-200 hover:bg-slate-700 dark:bg-slate-600 dark:hover:bg-slate-500 sm:px-4"
+		<div
+			class:opacity-full={y > 0}
+			class:pointer-events-auto={y > 0}
+			class:pointer-events-none={y <= 0}
+			class:opacity-0={y <= 0}
+			class="fixed bottom-0 right-0 z-10 flex p-10 duration-200"
 		>
-			<ArrowUp />
-		</button>
+			<button
+				onclick={goTop}
+				class="ml-auto grid aspect-square cursor-pointer place-items-center rounded-full bg-slate-900 px-3 text-neutral-50 transition duration-200 hover:bg-slate-700 dark:bg-slate-600 dark:hover:bg-slate-500 sm:px-4"
+			>
+				<ArrowUp />
+			</button>
+		</div>
+
+		<Header {y} translation={translation.header} />
+
+		<main class="flex flex-1 flex-col px-2 font-sans-poppins md:px-6">
+			<Introduction translation={translation.introduction} />
+
+			<Project translation={translation.project} />
+
+			<Experience translation={translation.experience} />
+
+			<Skill translation={translation.skill} />
+
+			<About translation={translation.about} />
+		</main>
+
+		<Footer translation={translation.footer} />
 	</div>
-
-	<Header {y} translation={translation.header} />
-
-	<main class="flex flex-1 flex-col px-2 font-sans-poppins md:px-6">
-		<Introduction translation={translation.introduction} />
-
-		<Project translation={translation.project} />
-
-		<Experience translation={translation.experience} />
-
-		<Skill translation={translation.skill} />
-
-		<About translation={translation.about} />
-	</main>
-
-	<Footer translation={translation.footer} />
-</div>
+{/if}
