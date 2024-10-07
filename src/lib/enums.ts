@@ -4,7 +4,7 @@ export enum Themes {
 }
 
 export enum Locale {
-	TraditionalChinese = 'traditionalChinese',
-	SimplifiedChinese = 'simplifiedChinese',
-	English = 'english'
+	En = 'en-US',
+	Cn = 'zh-CN',
+	Tw = 'zh-TW'
 }

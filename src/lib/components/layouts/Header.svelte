@@ -18,7 +18,7 @@
 	let { translation, y }: Props = $props();
 	let isDarkModeEnabled = $state(false);
 	let showLanguageDropdown = $state(false);
-	let currentLocale = $state(Locale.English);
+	let currentLocale = $state(Locale.En);
 
 	locale.subscribe(() => {
 		currentLocale = get(locale) as Locale;
@@ -31,20 +31,20 @@
 	]);
 
 	function switchToEnglish() {
-		locale.update(() => Locale.English);
-		localStorage.locale = Locale.English;
+		locale.update(() => Locale.En);
+		document.cookie = `locale=${Locale.En}`;
 		showLanguageDropdown = false;
 	}
 
 	function switchToSimplifiedChinese() {
-		locale.update(() => Locale.SimplifiedChinese);
-		localStorage.locale = Locale.SimplifiedChinese;
+		locale.update(() => Locale.Cn);
+		document.cookie = `locale=${Locale.Cn}`;
 		showLanguageDropdown = false;
 	}
 
 	function switchToTraditionalChinese() {
-		locale.update(() => Locale.TraditionalChinese);
-		localStorage.locale = Locale.TraditionalChinese;
+		locale.update(() => Locale.Tw);
+		document.cookie = `locale=${Locale.Tw}`;
 		showLanguageDropdown = false;
 	}
 
@@ -123,8 +123,8 @@
 			>
 				<div class="space-y-1 py-1">
 					<button
-						class:bg-neutral-200={currentLocale === Locale.English}
-						class:dark:bg-neutral-600={currentLocale === Locale.English}
+						class:bg-neutral-200={currentLocale === Locale.En}
+						class:dark:bg-neutral-600={currentLocale === Locale.En}
 						onclick={switchToEnglish}
 						type="button"
 						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
@@ -132,8 +132,8 @@
 						English
 					</button>
 					<button
-						class:bg-neutral-200={currentLocale === Locale.SimplifiedChinese}
-						class:dark:bg-neutral-600={currentLocale === Locale.SimplifiedChinese}
+						class:bg-neutral-200={currentLocale === Locale.Cn}
+						class:dark:bg-neutral-600={currentLocale === Locale.Cn}
 						onclick={switchToSimplifiedChinese}
 						type="button"
 						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
@@ -141,8 +141,8 @@
 						简体中文
 					</button>
 					<button
-						class:bg-neutral-200={currentLocale === Locale.TraditionalChinese}
-						class:dark:bg-neutral-600={currentLocale === Locale.TraditionalChinese}
+						class:bg-neutral-200={currentLocale === Locale.Tw}
+						class:dark:bg-neutral-600={currentLocale === Locale.Tw}
 						onclick={switchToTraditionalChinese}
 						type="button"
 						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"

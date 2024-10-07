@@ -10,22 +10,29 @@
 	import { get } from 'svelte/store';
 	import { Locale } from '$lib/enums';
 	import ArrowUp from '$lib/components/icons/ArrowUp.svelte';
-	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import type { PageData } from './$types';
 	// locale translations
 	import english from '$lib/lang/en';
 	import traditionalChinese from '$lib/lang/zh-TW';
 	import simplifiedChinese from '$lib/lang/zh-CN';
 
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
+
 	const translations = {
-		english: english,
-		simplifiedChinese: simplifiedChinese,
-		traditionalChinese: traditionalChinese
+		'en-US': english,
+		'zh-CN': simplifiedChinese,
+		'zh-TW': traditionalChinese
 	};
 
-	let showComponent = $state(false);
-	let translation = $state(english);
+	let translation = $state(translations[data.locale as Locale]);
 	let y = $state(0);
+
+	locale.update(() => data.locale);
 
 	locale.subscribe(() => {
 		translation = translations[get(locale) as Locale];
@@ -34,21 +41,6 @@
 	function goTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
-
-	onMount(() => {
-		locale.update(() => {
-			if (Object.values(Locale).includes(localStorage.locale)) {
-				return localStorage.locale;
-			} else {
-				localStorage.locale = Locale.English;
-
-				return Locale.English;
-			}
-		});
-
-		// show component after locale init is complete
-		showComponent = true;
-	});
 </script>
 
 <svelte:head>
@@ -57,40 +49,38 @@
 
 <svelte:window bind:scrollY={y} />
 
-{#if showComponent}
+<div
+	transition:fade
+	class="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col text-sm sm:text-base"
+>
 	<div
-		transition:fade
-		class="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col text-sm sm:text-base"
+		class:opacity-full={y > 0}
+		class:pointer-events-auto={y > 0}
+		class:pointer-events-none={y <= 0}
+		class:opacity-0={y <= 0}
+		class="fixed bottom-0 right-0 z-10 flex p-10 duration-200"
 	>
-		<div
-			class:opacity-full={y > 0}
-			class:pointer-events-auto={y > 0}
-			class:pointer-events-none={y <= 0}
-			class:opacity-0={y <= 0}
-			class="fixed bottom-0 right-0 z-10 flex p-10 duration-200"
+		<button
+			onclick={goTop}
+			class="ml-auto grid aspect-square cursor-pointer place-items-center rounded-full bg-slate-900 px-3 text-neutral-50 transition duration-200 hover:bg-slate-700 dark:bg-slate-600 dark:hover:bg-slate-500 sm:px-4"
 		>
-			<button
-				onclick={goTop}
-				class="ml-auto grid aspect-square cursor-pointer place-items-center rounded-full bg-slate-900 px-3 text-neutral-50 transition duration-200 hover:bg-slate-700 dark:bg-slate-600 dark:hover:bg-slate-500 sm:px-4"
-			>
-				<ArrowUp />
-			</button>
-		</div>
-
-		<Header {y} translation={translation.header} />
-
-		<main class="flex flex-1 flex-col px-2 font-sans-poppins md:px-6">
-			<Introduction translation={translation.introduction} />
-
-			<Project translation={translation.project} />
-
-			<Experience translation={translation.experience} />
-
-			<Skill translation={translation.skill} />
-
-			<About translation={translation.about} />
-		</main>
-
-		<Footer translation={translation.footer} />
+			<ArrowUp />
+		</button>
 	</div>
-{/if}
+
+	<Header {y} translation={translation.header} />
+
+	<main class="flex flex-1 flex-col px-2 font-sans-poppins md:px-6">
+		<Introduction translation={translation.introduction} />
+
+		<Project translation={translation.project} />
+
+		<Experience translation={translation.experience} />
+
+		<Skill translation={translation.skill} />
+
+		<About translation={translation.about} />
+	</main>
+
+	<Footer translation={translation.footer} />
+</div>
