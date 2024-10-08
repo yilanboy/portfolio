@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '../app.css';
+	import Background from '$lib/components/Background.svelte';
 
 	interface Props {
 		children?: import('svelte').Snippet;
@@ -31,8 +32,10 @@
 	/>
 </svelte:head>
 
-<div class="bg-neutral-50 text-neutral-900 dark:bg-neutral-800">
-	<div class="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col text-sm sm:text-base">
+<div class="relative bg-neutral-50 text-neutral-900 dark:bg-neutral-800">
+	<Background />
+
+	<div class="mx-auto flex min-h-screen w-full max-w-7xl flex-col text-sm sm:text-base">
 		{@render children?.()}
 	</div>
 </div>
