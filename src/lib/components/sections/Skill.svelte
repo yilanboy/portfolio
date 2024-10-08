@@ -88,7 +88,7 @@
 		}
 	});
 
-	let skillExperiences: { [Name: string]: Array<string> } = $derived({
+	let skillExperiences: { [Name: string]: string[] } = $derived({
 		aws: translation.aws_experiences,
 		azure: translation.azure_experiences,
 		laravel: translation.laravel_experiences,

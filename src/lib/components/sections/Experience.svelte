@@ -26,10 +26,10 @@
 
 	interface ExperienceTimeAndSkills {
 		time: string;
-		skills: Array<{
+		skills: {
 			name: string;
 			iconComponent: Component;
-		}>;
+		}[];
 	}
 
 	const scaleRange = 0.4;

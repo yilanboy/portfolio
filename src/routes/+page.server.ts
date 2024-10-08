@@ -5,14 +5,17 @@ export const load: PageServerLoad = async ({ cookies }) => {
 	let locale: Locale;
 	let theme: Theme;
 
-	if (Object.values(Locale).includes(cookies.get('locale') as Locale)) {
+	const locales: string[] = Object.values(Locale);
+	const themes: string[] = Object.values(Theme);
+
+	if (locales.includes(cookies.get('locale') ?? '')) {
 		locale = cookies.get('locale') as Locale;
 	} else {
 		cookies.set('locale', Locale.En, { path: '/', httpOnly: false });
 		locale = Locale.En;
 	}
 
-	if (Object.values(Theme).includes(cookies.get('theme') as Theme)) {
+	if (themes.includes(cookies.get('theme') ?? '')) {
 		theme = cookies.get('theme') as Theme;
 	} else {
 		cookies.set('theme', Theme.Light, { path: '/', httpOnly: false });
