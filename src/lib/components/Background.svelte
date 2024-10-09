@@ -26,7 +26,7 @@
 		<Controller className="size-64 rotate-12 text-neutral-200 dark:text-neutral-700" />
 	</div>
 
-	<div class="absolute left-[20%] top-[18rem] hidden lg:block">
+	<div class="absolute left-[24%] top-[18rem] hidden lg:block">
 		<PersonWalking className="size-24 -rotate-12 text-neutral-200 dark:text-neutral-700" />
 	</div>
 
