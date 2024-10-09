@@ -66,13 +66,14 @@
 	class:top-2={y > 0}
 	class:border-neutral-600={y > 0}
 	class:dark:border-neutral-400={y > 0}
+	class:dark:bg-neutral-800={y > 0}
 	class:bg-neutral-50={y > 0}
 	class:py-4={y > 0}
 	class:top-0={y <= 0}
 	class:border-transparent={y <= 0}
 	class:bg-transparent={y <= 0}
 	class:py-6={y <= 0}
-	class="sticky z-10 mx-2 flex items-center justify-between rounded-md border border-solid px-6 duration-200 dark:bg-neutral-800"
+	class="sticky z-10 mx-2 flex items-center justify-between rounded-md border border-solid px-6 duration-200"
 >
 	<h1 class="dark:text-neutral-50">
 		<b>Allen</b> Jiang
