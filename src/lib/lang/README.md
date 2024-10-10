@@ -25,7 +25,7 @@ type IntroductionTranslation = {
 export type { IntroductionTranslation };
 ```
 
-There should be a `introduction.type.ts` in each locale translation folder.
+There should be a `introduction.ts` in each locale translation folder.
 
 ```typescript
 // lang/en/introduction.ts

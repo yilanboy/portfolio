@@ -18,6 +18,7 @@
 	import Lightbulb from '$lib/components/icons/Lightbulb.svelte';
 	import MusicNoteBeamed from '$lib/components/icons/MusicNoteBeamed.svelte';
 	import BatteryCharging from '$lib/components/icons/BatteryCharging.svelte';
+	import CupHot from '$lib/components/icons/CupHot.svelte';
 </script>
 
 <div class="absolute right-1/2 top-0 h-screen w-full max-w-[1920px] translate-x-1/2">
@@ -65,12 +66,16 @@
 		<MusicNoteBeamed className="size-24 rotate-12 text-neutral-200 dark:text-neutral-700" />
 	</div>
 
-	<div class="absolute right-[36%] top-[40rem] hidden lg:block">
+	<div class="absolute right-[36%] top-[42rem] hidden lg:block">
 		<FiletypeJs className="size-24 -rotate-12 text-neutral-200 dark:text-neutral-700" />
 	</div>
 
-	<div class="absolute right-[36%] top-[6rem] hidden lg:block">
+	<div class="absolute right-[36%] top-[4rem] hidden lg:block">
 		<Floppy className="size-64 rotate-12 text-neutral-200 dark:text-neutral-700" />
+	</div>
+
+	<div class="absolute right-[34%] top-[26rem] hidden lg:block">
+		<CupHot className="size-24 rotate-12 text-neutral-200 dark:text-neutral-700" />
 	</div>
 
 	<div class="absolute right-[46%] top-[32rem] hidden lg:block">
@@ -94,7 +99,7 @@
 		<Cpu className="size-24 -rotate-12 text-neutral-200 dark:text-neutral-700" />
 	</div>
 
-	<div class="absolute right-[20%] top-[38rem] hidden lg:block">
+	<div class="absolute right-[20%] top-[40rem] hidden lg:block">
 		<Terminal className="size-24 rotate-12 text-neutral-200 dark:text-neutral-700" />
 	</div>
 

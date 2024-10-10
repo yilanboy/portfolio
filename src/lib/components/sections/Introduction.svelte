@@ -105,8 +105,8 @@
 	<div class="flex justify-center">
 		<div class="relative z-0 flex">
 			<img
-				class="z-20 w-[28rem] rounded-full border-8 border-neutral-50"
-				src={'images/profile.jpg'}
+				class="z-20 w-[26rem] rounded-full border-8 border-neutral-50"
+				src="https://allen-files.s3.ap-northeast-1.amazonaws.com/images/profile.jpg"
 				alt="Profile"
 			/>
 			<div
