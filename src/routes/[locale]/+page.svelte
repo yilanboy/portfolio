@@ -6,38 +6,32 @@
 	import Skill from '$lib/components/sections/Skill.svelte';
 	import About from '$lib/components/sections/About.svelte';
 	import Footer from '$lib/components/layouts/Footer.svelte';
-	import { locale } from '$lib/stores';
-	import { get } from 'svelte/store';
 	import { Locale, Theme } from '$lib/enums';
 	import ArrowUp from '$lib/components/icons/ArrowUp.svelte';
 	import { fade } from 'svelte/transition';
-	import type { PageData } from './$types';
+	import type { PageServerData } from './$types';
 	// locale translations
 	import english from '$lib/lang/en';
 	import traditionalChinese from '$lib/lang/zh-TW';
 	import simplifiedChinese from '$lib/lang/zh-CN';
+	import type { Translation } from '$lib/lang/type/index.type';
 
 	interface Props {
-		data: PageData;
+		data: PageServerData;
 	}
 
 	let { data }: Props = $props();
 
-	const translations = {
-		'en-US': english,
-		'zh-CN': simplifiedChinese,
-		'zh-TW': traditionalChinese
+	const translations: { [Name: string]: Translation } = {
+		en: english,
+		'zh-cn': simplifiedChinese,
+		'zh-tw': traditionalChinese
 	};
 
 	let isDarkModeEnabled = $state(data.theme === Theme.Dark);
-	let translation = $state(translations[data.locale as Locale]);
 	let y = $state(0);
 
-	locale.update(() => data.locale);
-
-	locale.subscribe(() => {
-		translation = translations[get(locale) as Locale];
-	});
+	let translation = $derived(translations[data.locale as Locale]);
 
 	function goTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -69,7 +63,7 @@
 		</button>
 	</div>
 
-	<Header {y} bind:isDarkModeEnabled translation={translation.header} />
+	<Header {y} currentLocale={data.locale} bind:isDarkModeEnabled translation={translation.header} />
 
 	<main class="flex flex-1 flex-col px-2 font-sans-poppins md:px-6">
 		<Introduction translation={translation.introduction} />

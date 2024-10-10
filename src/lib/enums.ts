@@ -4,7 +4,7 @@ export enum Theme {
 }
 
 export enum Locale {
-	En = 'en-US',
-	Cn = 'zh-CN',
-	Tw = 'zh-TW'
+	En = 'en',
+	Cn = 'zh-cn',
+	Tw = 'zh-tw'
 }

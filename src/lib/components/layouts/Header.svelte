@@ -1,51 +1,28 @@
 <script lang="ts">
 	import Toggle from '$lib/components/Toggle.svelte';
-	import { theme, locale } from '$lib/stores';
+	import { theme } from '$lib/stores';
 	import Sun from '$lib/components/icons/Sun.svelte';
 	import Moon from '$lib/components/icons/Moon.svelte';
 	import { Theme, Locale } from '$lib/enums';
 	import Language from '$lib/components/icons/Language.svelte';
-	import { get } from 'svelte/store';
 
 	import type { HeaderTranslation } from '$lib/lang/type/header.type';
 
 	interface Props {
+		currentLocale: Locale;
 		isDarkModeEnabled: boolean;
 		translation: HeaderTranslation;
 		y: number;
 	}
 
-	let { isDarkModeEnabled = $bindable(), translation, y }: Props = $props();
+	let { currentLocale, isDarkModeEnabled = $bindable(), translation, y }: Props = $props();
 	let showLanguageDropdown = $state(false);
-	let currentLocale = $state(Locale.En);
-
-	locale.subscribe(() => {
-		currentLocale = get(locale) as Locale;
-	});
 
 	let tabs = $derived([
 		{ name: translation.project, link: '#project' },
 		{ name: translation.experiences, link: '#experience' },
 		{ name: translation.about, link: '#about' }
 	]);
-
-	function switchToEnglish() {
-		locale.update(() => Locale.En);
-		document.cookie = `locale=${Locale.En}`;
-		showLanguageDropdown = false;
-	}
-
-	function switchToSimplifiedChinese() {
-		locale.update(() => Locale.Cn);
-		document.cookie = `locale=${Locale.Cn}`;
-		showLanguageDropdown = false;
-	}
-
-	function switchToTraditionalChinese() {
-		locale.update(() => Locale.Tw);
-		document.cookie = `locale=${Locale.Tw}`;
-		showLanguageDropdown = false;
-	}
 
 	function toggleTheme() {
 		if (document.documentElement.classList.contains(Theme.Dark)) {
@@ -112,33 +89,42 @@
 				tabindex="-1"
 			>
 				<div class="space-y-1 py-1">
-					<button
+					<a
 						class:bg-neutral-200={currentLocale === Locale.En}
 						class:dark:bg-neutral-600={currentLocale === Locale.En}
-						onclick={switchToEnglish}
-						type="button"
 						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
+						data-sveltekit-noscroll
+						href="/{Locale.En}"
+						onclick={() => {
+							showLanguageDropdown = false;
+						}}
 					>
 						English
-					</button>
-					<button
+					</a>
+					<a
 						class:bg-neutral-200={currentLocale === Locale.Cn}
 						class:dark:bg-neutral-600={currentLocale === Locale.Cn}
-						onclick={switchToSimplifiedChinese}
-						type="button"
 						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
+						data-sveltekit-noscroll
+						href="/{Locale.Cn}"
+						onclick={() => {
+							showLanguageDropdown = false;
+						}}
 					>
 						简体中文
-					</button>
-					<button
+					</a>
+					<a
 						class:bg-neutral-200={currentLocale === Locale.Tw}
 						class:dark:bg-neutral-600={currentLocale === Locale.Tw}
-						onclick={switchToTraditionalChinese}
-						type="button"
 						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
+						data-sveltekit-noscroll
+						href="/{Locale.Tw}"
+						onclick={() => {
+							showLanguageDropdown = false;
+						}}
 					>
 						繁體中文
-					</button>
+					</a>
 				</div>
 			</div>
 		</div>
