@@ -6,15 +6,10 @@
 	import Skill from '$lib/components/sections/Skill.svelte';
 	import About from '$lib/components/sections/About.svelte';
 	import Footer from '$lib/components/layouts/Footer.svelte';
-	import { Locale, Theme } from '$lib/enums';
+	import { Theme } from '$lib/enums';
 	import ArrowUp from '$lib/components/icons/ArrowUp.svelte';
 	import { fade } from 'svelte/transition';
 	import type { PageServerData } from './$types';
-	// locale translations
-	import english from '$lib/lang/en';
-	import traditionalChinese from '$lib/lang/zh-TW';
-	import simplifiedChinese from '$lib/lang/zh-CN';
-	import type { Translation } from '$lib/lang/type/index.type';
 
 	interface Props {
 		data: PageServerData;
@@ -22,16 +17,8 @@
 
 	let { data }: Props = $props();
 
-	const translations: { [Name: string]: Translation } = {
-		en: english,
-		'zh-cn': simplifiedChinese,
-		'zh-tw': traditionalChinese
-	};
-
 	let isDarkModeEnabled = $state(data.theme === Theme.Dark);
 	let y = $state(0);
-
-	let translation = $derived(translations[data.locale as Locale]);
 
 	function goTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -63,19 +50,24 @@
 		</button>
 	</div>
 
-	<Header {y} currentLocale={data.locale} bind:isDarkModeEnabled translation={translation.header} />
+	<Header
+		{y}
+		bind:isDarkModeEnabled
+		currentLocale={data.locale}
+		translation={data.translation.header}
+	/>
 
 	<main class="flex flex-1 flex-col px-2 font-sans-poppins md:px-6">
-		<Introduction translation={translation.introduction} />
+		<Introduction translation={data.translation.introduction} />
 
-		<Project translation={translation.project} />
+		<Project translation={data.translation.project} />
 
-		<Experience translation={translation.experience} />
+		<Experience translation={data.translation.experience} />
 
-		<Skill {isDarkModeEnabled} translation={translation.skill} />
+		<Skill {isDarkModeEnabled} translation={data.translation.skill} />
 
-		<About translation={translation.about} />
+		<About translation={data.translation.about} />
 	</main>
 
-	<Footer translation={translation.footer} />
+	<Footer translation={data.translation.footer} />
 </div>

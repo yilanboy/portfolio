@@ -9,13 +9,13 @@
 	import type { HeaderTranslation } from '$lib/lang/type/header.type';
 
 	interface Props {
-		currentLocale: Locale;
-		isDarkModeEnabled: boolean;
-		translation: HeaderTranslation;
 		y: number;
+		isDarkModeEnabled: boolean;
+		currentLocale: Locale;
+		translation: HeaderTranslation;
 	}
 
-	let { currentLocale, isDarkModeEnabled = $bindable(), translation, y }: Props = $props();
+	let { y, isDarkModeEnabled = $bindable(), currentLocale, translation }: Props = $props();
 	let showLanguageDropdown = $state(false);
 
 	let tabs = $derived([

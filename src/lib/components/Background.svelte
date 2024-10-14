@@ -127,13 +127,13 @@
 	}
 
 	#background-right > div {
-		animation-duration: 1.5s;
+		animation-duration: 1s;
 		animation-timing-function: ease-out;
 		animation-name: pop-from-center-to-right;
 	}
 
 	#background-left > div {
-		animation-duration: 1.5s;
+		animation-duration: 1s;
 		animation-timing-function: ease-out;
 		animation-name: pop-from-center-to-left;
 	}
