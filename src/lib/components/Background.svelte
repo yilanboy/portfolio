@@ -128,13 +128,13 @@
 
 	#background-right > div {
 		animation-duration: 1s;
-		animation-timing-function: ease-out;
+		animation-timing-function: cubic-bezier(0.2, 0.7, 0, 1);
 		animation-name: pop-from-center-to-right;
 	}
 
 	#background-left > div {
 		animation-duration: 1s;
-		animation-timing-function: ease-out;
+		animation-timing-function: cubic-bezier(0.2, 0.7, 0, 1);
 		animation-name: pop-from-center-to-left;
 	}
 </style>
