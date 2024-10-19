@@ -5,7 +5,7 @@ export default {
 	aws_experiences: [
 		'擁有 AWS Solution Architecture Associate 認證',
 		'使用 EC2、RDS 與 ElastiCache 搭建 LEMP 來運行自己的 Laravel 應用程式',
-		'使用 EC2 搭建簡易的 K3s 環境，運行各種各種自己打包的容器',
+		'使用 EC2 搭建簡易的 K3s 環境，運行各種自己的服務容器',
 		'透過 Saving Plan 與 Reserved Instance 的規劃來降低機器租用的成本',
 		'使用 Lambda 運行自己的 Laravel 應用程式，並分別使用 DynamoDB 與 SQS 來當作快取與佇列',
 		'使用 Athena 與 Glue 搭建系統日誌查詢功能，搜尋位於 S3 上的日誌'
