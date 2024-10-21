@@ -112,14 +112,14 @@
 </div>
 
 <style>
-	@keyframes pop-from-center-to-right {
+	@keyframes pop-from-bottom-to-right {
 		from {
 			top: 130%;
 			right: 50%;
 		}
 	}
 
-	@keyframes pop-from-center-to-left {
+	@keyframes pop-from-bottom-to-left {
 		from {
 			top: 130%;
 			left: 50%;
@@ -127,14 +127,14 @@
 	}
 
 	#background-right > div {
-		animation-duration: 1s;
+		animation-duration: 3s;
 		animation-timing-function: cubic-bezier(0.2, 0.7, 0, 1);
-		animation-name: pop-from-center-to-right;
+		animation-name: pop-from-bottom-to-right;
 	}
 
 	#background-left > div {
-		animation-duration: 1s;
+		animation-duration: 3s;
 		animation-timing-function: cubic-bezier(0.2, 0.7, 0, 1);
-		animation-name: pop-from-center-to-left;
+		animation-name: pop-from-bottom-to-left;
 	}
 </style>
