@@ -5,6 +5,7 @@ import type { Translation } from '$lib/lang/type/index.type';
 import english from '$lib/lang/en';
 import simplifiedChinese from '$lib/lang/zh-CN';
 import traditionalChinese from '$lib/lang/zh-TW';
+import japanese from '$lib/lang/ja';
 
 export const load: PageServerLoad = async ({ params, cookies }) => {
 	const locales: string[] = Object.values(Locale);
@@ -12,7 +13,8 @@ export const load: PageServerLoad = async ({ params, cookies }) => {
 	const translations: { [Name: string]: Translation } = {
 		en: english,
 		'zh-cn': simplifiedChinese,
-		'zh-tw': traditionalChinese
+		'zh-tw': traditionalChinese,
+		ja: japanese
 	};
 	let locale: Locale;
 	let theme: Theme;

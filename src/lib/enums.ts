@@ -6,5 +6,6 @@ export enum Theme {
 export enum Locale {
 	En = 'en',
 	Cn = 'zh-cn',
-	Tw = 'zh-tw'
+	Tw = 'zh-tw',
+	Ja = 'ja'
 }

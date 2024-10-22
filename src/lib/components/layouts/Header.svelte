@@ -125,6 +125,18 @@
 					>
 						繁體中文
 					</a>
+					<a
+						class:bg-neutral-200={currentLocale === Locale.Ja}
+						class:dark:bg-neutral-600={currentLocale === Locale.Ja}
+						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
+						data-sveltekit-noscroll
+						href="/{Locale.Ja}"
+						onclick={() => {
+							showLanguageDropdown = false;
+						}}
+					>
+						日本語
+					</a>
 				</div>
 			</div>
 		</div>

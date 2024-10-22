@@ -8,7 +8,7 @@ export default {
 		extend: {
 			fontFamily: {
 				'sans-poppins': [
-					"'Noto Sans TC', 'Noto Sans SC', 'Poppins'",
+					"'Noto Sans TC', 'Noto Sans SC', 'Noto Sans JP', 'Poppins'",
 					...defaultTheme.fontFamily.sans
 				],
 				caveat: ["'Caveat'", ...defaultTheme.fontFamily.sans]
