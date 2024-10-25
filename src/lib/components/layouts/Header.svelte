@@ -37,7 +37,24 @@
 			document.documentElement.classList.add(Theme.Dark);
 		}
 	}
+
+	function toggleLanguageDropdown() {
+		showLanguageDropdown = !showLanguageDropdown;
+	}
+
+	function closeLanguageDropdown() {
+		showLanguageDropdown = false;
+	}
+
+	function stopPropagation(fn: (event: Event) => void) {
+		return function (this: (event: Event) => void, event: Event) {
+			event.stopPropagation();
+			fn.call(this, event);
+		};
+	}
 </script>
+
+<svelte:window onclick={closeLanguageDropdown} />
 
 <header
 	class:top-2={y > 0}
@@ -59,9 +76,7 @@
 		<div class="relative inline-block text-left">
 			<div>
 				<button
-					onclick={() => {
-						showLanguageDropdown = !showLanguageDropdown;
-					}}
+					onclick={stopPropagation(toggleLanguageDropdown)}
 					type="button"
 					class="flex items-center justify-center rounded-md bg-transparent"
 					id="menu-button"
@@ -90,50 +105,42 @@
 			>
 				<div class="space-y-1 py-1">
 					<a
+						onclick={stopPropagation(closeLanguageDropdown)}
 						class:bg-neutral-200={currentLocale === Locale.En}
 						class:dark:bg-neutral-600={currentLocale === Locale.En}
 						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
 						data-sveltekit-noscroll
 						href="/{Locale.En}"
-						onclick={() => {
-							showLanguageDropdown = false;
-						}}
 					>
 						English
 					</a>
 					<a
+						onclick={stopPropagation(closeLanguageDropdown)}
 						class:bg-neutral-200={currentLocale === Locale.Cn}
 						class:dark:bg-neutral-600={currentLocale === Locale.Cn}
 						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
 						data-sveltekit-noscroll
 						href="/{Locale.Cn}"
-						onclick={() => {
-							showLanguageDropdown = false;
-						}}
 					>
 						简体中文
 					</a>
 					<a
+						onclick={stopPropagation(closeLanguageDropdown)}
 						class:bg-neutral-200={currentLocale === Locale.Tw}
 						class:dark:bg-neutral-600={currentLocale === Locale.Tw}
 						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
 						data-sveltekit-noscroll
 						href="/{Locale.Tw}"
-						onclick={() => {
-							showLanguageDropdown = false;
-						}}
 					>
 						繁體中文
 					</a>
 					<a
+						onclick={stopPropagation(closeLanguageDropdown)}
 						class:bg-neutral-200={currentLocale === Locale.Ja}
 						class:dark:bg-neutral-600={currentLocale === Locale.Ja}
 						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
 						data-sveltekit-noscroll
 						href="/{Locale.Ja}"
-						onclick={() => {
-							showLanguageDropdown = false;
-						}}
 					>
 						日本語
 					</a>
