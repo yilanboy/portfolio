@@ -105,7 +105,6 @@
 			>
 				<div class="space-y-1 py-1">
 					<a
-						onclick={stopPropagation(closeLanguageDropdown)}
 						class:bg-neutral-200={currentLocale === Locale.En}
 						class:dark:bg-neutral-600={currentLocale === Locale.En}
 						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
@@ -115,7 +114,6 @@
 						English
 					</a>
 					<a
-						onclick={stopPropagation(closeLanguageDropdown)}
 						class:bg-neutral-200={currentLocale === Locale.Cn}
 						class:dark:bg-neutral-600={currentLocale === Locale.Cn}
 						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
@@ -125,7 +123,6 @@
 						简体中文
 					</a>
 					<a
-						onclick={stopPropagation(closeLanguageDropdown)}
 						class:bg-neutral-200={currentLocale === Locale.Tw}
 						class:dark:bg-neutral-600={currentLocale === Locale.Tw}
 						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
@@ -135,7 +132,6 @@
 						繁體中文
 					</a>
 					<a
-						onclick={stopPropagation(closeLanguageDropdown)}
 						class:bg-neutral-200={currentLocale === Locale.Ja}
 						class:dark:bg-neutral-600={currentLocale === Locale.Ja}
 						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
