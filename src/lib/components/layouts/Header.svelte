@@ -67,7 +67,7 @@
 	class:border-transparent={y <= 0}
 	class:bg-transparent={y <= 0}
 	class:py-6={y <= 0}
-	class="sticky z-10 mx-2 flex items-center justify-between rounded-md border border-solid px-6 duration-200"
+	class="sticky z-10 mx-2 flex items-center justify-between rounded-2xl border border-solid px-6 duration-200"
 >
 	<h1 class="dark:text-neutral-50">
 		<b>Allen</b> Jiang
