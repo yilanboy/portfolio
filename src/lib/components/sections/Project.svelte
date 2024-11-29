@@ -29,7 +29,7 @@
 		},
 		note: {
 			name: translation.note.name,
-			url: 'https://github.com/YilanBoy/note',
+			url: 'https://github.com/yilanboy/note',
 			iconComponent: JournalText,
 			descriptionPart1: translation.note.description_part_1,
 			descriptionHighlightPart1: translation.note.description_highlight_part_1,
@@ -44,7 +44,7 @@
 		},
 		slide: {
 			name: translation.slide.name,
-			url: 'https://github.com/YilanBoy/slide',
+			url: 'https://github.com/yilanboy/slide',
 			iconComponent: Easel,
 			descriptionPart1: translation.slide.description_part_1,
 			descriptionHighlightPart1: translation.slide.description_highlight_part_1,
