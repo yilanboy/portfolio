@@ -45,7 +45,7 @@
 >
 	<div
 		style:--center-background-color={centerBackgroundColor}
-		class="m-auto flex size-[85%] items-center justify-center rounded-full text-xl text-black"
+		class="m-auto flex size-[82%] items-center justify-center rounded-full text-xl text-black"
 	>
 		{@render children?.()}
 	</div>
