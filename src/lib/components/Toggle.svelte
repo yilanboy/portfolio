@@ -18,39 +18,39 @@
 
 <button
 	{onclick}
-	class:bg-violet-500={isEnabled}
-	class:bg-gray-200={!isEnabled}
+	class={{
+		'bg-violet-500': isEnabled,
+		'bg-gray-200': !isEnabled,
+		'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2': true
+	}}
 	type="button"
-	class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2"
 	role="switch"
 	aria-checked="false"
 >
 	<span class="sr-only">Use setting</span>
 	<span
-		class:translate-x-5={isEnabled}
-		class:translate-x-0={!isEnabled}
-		class="pointer-events-none relative inline-block h-5 w-5 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+		class={{
+			'translate-x-5': isEnabled,
+			'translate-x-0': !isEnabled,
+			'pointer-events-none relative inline-block h-5 w-5 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out': true
+		}}
 	>
 		<span
-			class:opacity-0={isEnabled}
-			class:duration-100={isEnabled}
-			class:ease-out={isEnabled}
-			class:opacity-100={!isEnabled}
-			class:duration-200={!isEnabled}
-			class:ease-in={!isEnabled}
-			class="absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+			class={{
+				'opacity-0 duration-100 ease-out': isEnabled,
+				'opacity-100 duration-200 ease-in': !isEnabled,
+				'absolute inset-0 flex h-full w-full items-center justify-center transition-opacity': true
+			}}
 			aria-hidden="true"
 		>
 			{@render iconShowOnDisabled?.()}
 		</span>
 		<span
-			class:opacity-100={isEnabled}
-			class:duration-200={isEnabled}
-			class:ease-in={isEnabled}
-			class:opacity-0={!isEnabled}
-			class:duration-100={!isEnabled}
-			class:ease-out={!isEnabled}
-			class="absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+			class={{
+				'opacity-100 duration-200 ease-in': isEnabled,
+				'opacity-0 duration-100 ease-out': !isEnabled,
+				'absolute inset-0 flex h-full w-full items-center justify-center transition-opacity': true
+			}}
 			aria-hidden="true"
 		>
 			{@render iconShowOnEnabled?.()}

@@ -57,17 +57,12 @@
 <svelte:window onclick={closeLanguageDropdown} />
 
 <header
-	class:top-2={y > 0}
-	class:border-neutral-600={y > 0}
-	class:dark:border-neutral-400={y > 0}
-	class:dark:bg-neutral-800={y > 0}
-	class:bg-neutral-50={y > 0}
-	class:py-4={y > 0}
-	class:top-0={y <= 0}
-	class:border-transparent={y <= 0}
-	class:bg-transparent={y <= 0}
-	class:py-6={y <= 0}
-	class="sticky z-10 mx-2 flex items-center justify-between rounded-2xl border border-solid px-6 duration-200"
+	class={{
+		'top-2 border-neutral-600 bg-neutral-50 py-4 dark:border-neutral-400 dark:bg-neutral-800':
+			y > 0,
+		'top-0 border-transparent bg-transparent py-6': y <= 0,
+		'sticky z-10 mx-2 flex items-center justify-between rounded-2xl border border-solid px-6 duration-200': true
+	}}
 >
 	<h1 class="dark:text-neutral-50">
 		<b>Allen</b> Jiang
@@ -89,15 +84,11 @@
 			</div>
 
 			<div
-				class:ease-out={showLanguageDropdown}
-				class:duration-100={showLanguageDropdown}
-				class:opacity-100={showLanguageDropdown}
-				class:scale-100={showLanguageDropdown}
-				class:ease-in={!showLanguageDropdown}
-				class:duration-75={!showLanguageDropdown}
-				class:opacity-0={!showLanguageDropdown}
-				class:scale-0={!showLanguageDropdown}
-				class="absolute right-0 z-10 mt-2 w-40 origin-top-right transform rounded-md bg-neutral-50 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none dark:bg-neutral-700"
+				class={{
+					'scale-100 opacity-100 duration-100 ease-out': showLanguageDropdown,
+					'scale-0 opacity-0 duration-75 ease-in': !showLanguageDropdown,
+					'absolute right-0 z-10 mt-2 w-40 origin-top-right transform rounded-md bg-neutral-50 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none dark:bg-neutral-700': true
+				}}
 				role="menu"
 				aria-orientation="vertical"
 				aria-labelledby="menu-button"
@@ -105,36 +96,40 @@
 			>
 				<div class="space-y-1 py-1">
 					<a
-						class:bg-neutral-200={currentLocale === Locale.En}
-						class:dark:bg-neutral-600={currentLocale === Locale.En}
-						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
+						class={{
+							'bg-neutral-200 dark:bg-neutral-600': currentLocale === Locale.En,
+							'block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600': true
+						}}
 						data-sveltekit-noscroll
 						href="/{Locale.En}"
 					>
 						English
 					</a>
 					<a
-						class:bg-neutral-200={currentLocale === Locale.Cn}
-						class:dark:bg-neutral-600={currentLocale === Locale.Cn}
-						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
+						class={{
+							'bg-neutral-200 dark:bg-neutral-600': currentLocale === Locale.Cn,
+							'block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600': true
+						}}
 						data-sveltekit-noscroll
 						href="/{Locale.Cn}"
 					>
 						简体中文
 					</a>
 					<a
-						class:bg-neutral-200={currentLocale === Locale.Tw}
-						class:dark:bg-neutral-600={currentLocale === Locale.Tw}
-						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
+						class={{
+							'bg-neutral-200 dark:bg-neutral-600': currentLocale === Locale.Tw,
+							'block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600': true
+						}}
 						data-sveltekit-noscroll
 						href="/{Locale.Tw}"
 					>
 						繁體中文
 					</a>
 					<a
-						class:bg-neutral-200={currentLocale === Locale.Ja}
-						class:dark:bg-neutral-600={currentLocale === Locale.Ja}
-						class="block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600"
+						class={{
+							'bg-neutral-200 dark:bg-neutral-600': currentLocale === Locale.Ja,
+							'block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600': true
+						}}
 						data-sveltekit-noscroll
 						href="/{Locale.Ja}"
 					>
