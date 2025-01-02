@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AboutTranslation } from '$lib/lang/type/about.type';
+	import type { AboutTranslation } from '$lang/type/about.type';
 
 	interface Props {
 		translation: AboutTranslation;

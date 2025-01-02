@@ -18,7 +18,7 @@
 	import Rust from '$lib/components/icons/Rust.svelte';
 	import GoogleCloudPlatform from '$lib/components/icons/GoogleCloudPlatform.svelte';
 	import K3s from '$lib/components/icons/K3s.svelte';
-	import type { ExperienceTranslation } from '$lib/lang/type/experience.type';
+	import type { ExperienceTranslation } from '$lang/type/experience.type';
 
 	interface Props {
 		translation: ExperienceTranslation;

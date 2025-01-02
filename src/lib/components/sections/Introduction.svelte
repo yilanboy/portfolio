@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { IntroductionTranslation } from '$lib/lang/type/introduction.type';
+	import type { IntroductionTranslation } from '$lang/type/introduction.type';
 
 	interface Props {
 		translation: IntroductionTranslation;

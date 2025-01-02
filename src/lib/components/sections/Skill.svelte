@@ -10,7 +10,7 @@
 	import Livewire from '$lib/components/icons/Livewire.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import { type Component } from 'svelte';
-	import type { SkillTranslation } from '$lib/lang/type/skill.type';
+	import type { SkillTranslation } from '$lang/type/skill.type';
 
 	interface Props {
 		isDarkModeEnabled: boolean;

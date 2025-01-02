@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Svelte from '$lib/components/icons/Svelte.svelte';
 	import TailwindCss from '$lib/components/icons/TailwindCss.svelte';
-	import type { FooterTranslation } from '$lib/lang/type/footer.type';
+	import type { FooterTranslation } from '$lang/type/footer.type';
 
 	interface Props {
 		translation: FooterTranslation;

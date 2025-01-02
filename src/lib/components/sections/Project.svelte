@@ -3,7 +3,7 @@
 	import FileEarmarkRichText from '$lib/components/icons/FileEarmarkRichText.svelte';
 	import JournalText from '$lib/components/icons/JournalText.svelte';
 	import Easel from '$lib/components/icons/Easel.svelte';
-	import type { ProjectTranslation } from '$lib/lang/type/project.type';
+	import type { ProjectTranslation } from '$lang/type/project.type';
 
 	interface Props {
 		translation: ProjectTranslation;

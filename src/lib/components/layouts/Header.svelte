@@ -6,7 +6,7 @@
 	import { Theme, Locale } from '$lib/enums';
 	import Language from '$lib/components/icons/Language.svelte';
 
-	import type { HeaderTranslation } from '$lib/lang/type/header.type';
+	import type { HeaderTranslation } from '$lang/type/header.type';
 
 	interface Props {
 		y: number;
