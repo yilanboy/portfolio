@@ -1,5 +1,5 @@
 export default {
-	section_title_prefix: 'What to Know More',
+	section_title_prefix: 'Want to Know More',
 	section_title_highlight: 'About Me',
 	section_title_suffix: '?',
 	I_am_also: 'In fact, I am also...',
