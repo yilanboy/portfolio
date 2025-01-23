@@ -53,7 +53,7 @@
 			<h2 class="text-4xl font-semibold dark:text-neutral-50 md:text-5xl">
 				{translation.i_am}
 				<span
-					class="inline-block bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text leading-normal text-transparent"
+					class="inline-block bg-linear-to-r from-blue-400 to-green-400 bg-clip-text leading-normal text-transparent"
 				>
 					Allen
 				</span>
@@ -62,7 +62,7 @@
 
 				{translation.a}
 				<span
-					class="inline-block bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text leading-normal text-transparent"
+					class="inline-block bg-linear-to-r from-blue-400 to-green-400 bg-clip-text leading-normal text-transparent"
 				>
 					DevOps
 				</span>

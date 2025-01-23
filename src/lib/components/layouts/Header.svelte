@@ -87,7 +87,7 @@
 				class={{
 					'scale-100 opacity-100 duration-100 ease-out': showLanguageDropdown,
 					'scale-0 opacity-0 duration-75 ease-in': !showLanguageDropdown,
-					'absolute right-0 z-10 mt-2 w-40 origin-top-right transform rounded-md bg-neutral-50 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none dark:bg-neutral-700': true
+					'absolute right-0 z-10 mt-2 w-40 origin-top-right transform rounded-md bg-neutral-50 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-hidden dark:bg-neutral-700': true
 				}}
 				role="menu"
 				aria-orientation="vertical"

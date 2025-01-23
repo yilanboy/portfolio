@@ -180,7 +180,7 @@
 							<skill.iconComponent className="size-10" />
 
 							<div
-								class="absolute inset-0 z-10 flex size-16 items-center justify-center rounded-full bg-neutral-200/60 opacity-0 backdrop-blur-sm transition-all duration-150 hover:opacity-100 dark:bg-neutral-700/60"
+								class="absolute inset-0 z-10 flex size-16 items-center justify-center rounded-full bg-neutral-200/60 opacity-0 backdrop-blur-xs transition-all duration-150 hover:opacity-100 dark:bg-neutral-700/60"
 							>
 								<span class="text-xs dark:text-neutral-50">
 									{skill.name}
