@@ -128,14 +128,14 @@
 					<button
 						onclick={() => (skill.showExperienceModal = true)}
 						type="button"
-						class="transition duration-150 hover:scale-125 active:scale-100"
+						class="cursor-pointer transition duration-150 hover:scale-125 active:scale-100"
 					>
 						<skill.iconComponent className="size-20" />
 					</button>
 				</CircularProgressBar>
 
 				<Modal bind:showModal={skill.showExperienceModal}>
-					<h3 class="text-xl font-semibold leading-6 text-neutral-900 dark:text-neutral-50">
+					<h3 class="text-xl leading-6 font-semibold text-neutral-900 dark:text-neutral-50">
 						{skill.name}
 					</h3>
 					<div class="mt-4 divide-y-2 divide-dashed divide-neutral-300 dark:divide-neutral-700">

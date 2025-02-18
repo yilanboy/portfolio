@@ -29,7 +29,7 @@
 				>
 					<button onclick={() => (showModal = false)} type="button" class="absolute top-4 right-4">
 						<AcrossMark
-							className="size-10 text-neutral-400 transition duration-150 hover:text-neutral-600 dark:hover:text-neutral-200"
+							className="size-10 text-neutral-400 transition duration-150 hover:text-neutral-600 dark:hover:text-neutral-200 cursor-pointer"
 						/>
 					</button>
 					<div class="bg-neutral-50 px-4 pt-5 pb-4 sm:p-6 sm:pb-4 dark:bg-neutral-800">

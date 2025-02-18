@@ -73,7 +73,7 @@
 				<button
 					onclick={stopPropagation(toggleLanguageDropdown)}
 					type="button"
-					class="flex items-center justify-center rounded-md bg-transparent"
+					class="flex cursor-pointer items-center justify-center rounded-md bg-transparent"
 					id="menu-button"
 					aria-expanded="true"
 					aria-haspopup="true"
@@ -87,7 +87,7 @@
 				class={{
 					'scale-100 opacity-100 duration-100 ease-out': showLanguageDropdown,
 					'scale-0 opacity-0 duration-75 ease-in': !showLanguageDropdown,
-					'absolute right-0 z-10 mt-2 w-40 origin-top-right transform rounded-md bg-neutral-50 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-hidden dark:bg-neutral-700': true
+					'ring-opacity-5 absolute right-0 z-10 mt-2 w-40 origin-top-right transform rounded-md bg-neutral-50 ring-1 shadow-lg ring-black transition focus:outline-hidden dark:bg-neutral-700': true
 				}}
 				role="menu"
 				aria-orientation="vertical"
@@ -166,8 +166,8 @@
 		class="group relative overflow-hidden rounded-full bg-neutral-200/60 px-5 py-2 text-slate-950 dark:bg-neutral-700/60 dark:text-neutral-50"
 	>
 		<div
-			class="absolute right-full top-0 z-0 size-full bg-blue-400 opacity-20 duration-200 group-hover:translate-x-full"
+			class="absolute top-0 right-full z-0 size-full bg-blue-400 opacity-20 duration-200 group-hover:translate-x-full"
 		></div>
-		<div class="z-9 relative">{translation.check_my_blog} &rarr;</div>
+		<div class="relative z-9">{translation.check_my_blog} &rarr;</div>
 	</a>
 </header>
