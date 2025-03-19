@@ -52,28 +52,10 @@
 </div>
 
 <style>
-	@property --bar-color {
-		syntax: '<color>';
-		inherits: false;
-		initial-value: #111827;
-	}
-
-	@property --bar-background-color {
-		syntax: '<color>';
-		inherits: false;
-		initial-value: #e5e7eb;
-	}
-
 	@property --progress {
 		syntax: '<length-percentage>';
 		inherits: false;
 		initial-value: 3%;
-	}
-
-	@property --center-background-color {
-		syntax: '<color>';
-		inherits: false;
-		initial-value: #f9fafb;
 	}
 
 	[role='progressbar'] {
