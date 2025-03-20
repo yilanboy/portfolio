@@ -4,7 +4,7 @@
 	interface Props {
 		barColor?: string;
 		barBackgroundColor?: string;
-		progress?: string;
+		progress?: number;
 		centerBackgroundColor?: string;
 		children?: import('svelte').Snippet;
 	}
@@ -12,7 +12,7 @@
 	let {
 		barColor = '#111827',
 		barBackgroundColor = '#e5e7eb',
-		progress = '3%',
+		progress = 3,
 		centerBackgroundColor = '#f9fafb',
 		children
 	}: Props = $props();
@@ -27,7 +27,11 @@
 		const callback = (entries: IntersectionObserverEntry[]) => {
 			if (entries[0].intersectionRatio <= 0) return;
 
-			bar.style.setProperty('--progress', progress);
+			if (progress > 100) {
+				progress = 100;
+			}
+
+			bar.style.setProperty('--progress', `${progress}%`);
 		};
 
 		const intersectionObserver = new IntersectionObserver(callback, options);
@@ -44,7 +48,7 @@
 	class="flex size-48 rounded-full"
 >
 	<div
-		style:--center-background-color={centerBackgroundColor}
+		style:background-color={centerBackgroundColor}
 		class="m-auto flex size-[82%] items-center justify-center rounded-full text-xl text-black"
 	>
 		{@render children?.()}
@@ -64,9 +68,5 @@
 			var(--bar-background-color) var(--progress)
 		);
 		transition: --progress 2s;
-	}
-
-	[role='progressbar'] > div {
-		background-color: var(--center-background-color);
 	}
 </style>

@@ -20,7 +20,7 @@
 	type SkillProgressBar = {
 		name: string;
 		iconComponent: Component;
-		progress: string;
+		progress: number;
 		barColor: string;
 		showExperienceModal: boolean;
 	};
@@ -33,56 +33,56 @@
 		aws: {
 			name: 'AWS',
 			iconComponent: Aws,
-			progress: '65%',
+			progress: 65,
 			barColor: '#ff9900',
 			showExperienceModal: false
 		},
 		azure: {
 			name: 'Azure',
 			iconComponent: Azure,
-			progress: '20%',
+			progress: 20,
 			barColor: '#138dd8',
 			showExperienceModal: false
 		},
 		laravel: {
 			name: 'Laravel',
 			iconComponent: Laravel,
-			progress: '70%',
+			progress: 70,
 			barColor: '#ff2c20',
 			showExperienceModal: false
 		},
 		livewire: {
 			name: 'Livewire',
 			iconComponent: Livewire,
-			progress: '70%',
+			progress: 70,
 			barColor: '#fb70a9',
 			showExperienceModal: false
 		},
 		svelte: {
 			name: 'Svelte',
 			iconComponent: Svelte,
-			progress: '20%',
+			progress: 20,
 			barColor: '#f73c00',
 			showExperienceModal: false
 		},
 		tailwindCSS: {
 			name: 'Tailwind CSS',
 			iconComponent: TailwindCss,
-			progress: '50%',
+			progress: 50,
 			barColor: '#38bdf8',
 			showExperienceModal: false
 		},
 		terraform: {
 			name: 'Terraform',
 			iconComponent: Terraform,
-			progress: '75%',
+			progress: 75,
 			barColor: '#7c3aec',
 			showExperienceModal: false
 		},
 		ansible: {
 			name: 'Ansible',
 			iconComponent: Ansible,
-			progress: '20%',
+			progress: 20,
 			barColor: '#5d5d5d',
 			showExperienceModal: false
 		}
