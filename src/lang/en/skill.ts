@@ -22,7 +22,7 @@ export default {
 		'Integration with SendGrid for mail delivery service',
 		'Multi-Tenancy system development and maintenance',
 		"Communicate with the team and implement Laravel Pint to standardize the team's code writing style",
-		'Use Pest to write various feature tests and unit tests'
+		'Use Pest to write various feature e2e and unit e2e'
 	],
 	livewire_experiences: [
 		'Use Livewire to develop my blog frontend and implement SPA to improve user experience',
