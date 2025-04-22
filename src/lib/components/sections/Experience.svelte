@@ -104,22 +104,30 @@
 		}
 
 		for (let i = 0; i < skillItems.length; i++) {
-			skillItems[i].addEventListener('mousemove', (event: MouseEvent) => {
-				const itemRect = skillItems[i].getBoundingClientRect();
+			const item = skillItems[i];
+
+			// when mouse move on the skill item
+			item.addEventListener('mousemove', (event: MouseEvent) => {
+				const itemRect = item.getBoundingClientRect();
+				// calculate the offset of the mouse position relative to the item
+				// from left to right, the offset will be from 0 to 1
 				const offset = Math.abs(event.clientX - itemRect.left) / itemRect.width;
 
-				const prev = (skillItems[i].previousElementSibling as HTMLDivElement) || null;
-				const next = (skillItems[i].nextElementSibling as HTMLDivElement) || null;
+				const prev = (item.previousElementSibling as HTMLDivElement) || null;
+				const next = (item.nextElementSibling as HTMLDivElement) || null;
 
 				resetScale();
 
 				if (prev) {
+					// when offset close to 0, the previous item will be scaled
 					prev.style.setProperty('--scale', String(1 + scaleRange * Math.abs(offset - 1)));
 				}
 
-				skillItems[i].style.setProperty('--scale', String(1 + scaleRange));
+				// when offset are between 0 and 1, the current item will be scaled
+				item.style.setProperty('--scale', String(1 + scaleRange));
 
 				if (next) {
+					// when offset close to 1, the next item will be scaled
 					next.style.setProperty('--scale', String(1 + scaleRange * offset));
 				}
 			});
