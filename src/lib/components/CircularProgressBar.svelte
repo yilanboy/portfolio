@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import type { Snippet } from 'svelte';
 
 	interface Props {
 		barColor?: string;
 		barBackgroundColor?: string;
 		progress?: number;
 		centerBackgroundColor?: string;
-		children?: import('svelte').Snippet;
+		children?: Snippet;
 	}
 
 	let {

@@ -1,9 +1,11 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
+
 	interface Props {
 		isEnabled?: boolean;
 		onclick?: () => void;
-		iconShowOnDisabled?: import('svelte').Snippet;
-		iconShowOnEnabled?: import('svelte').Snippet;
+		iconShowOnDisabled?: Snippet;
+		iconShowOnEnabled?: Snippet;
 	}
 
 	let {
@@ -21,7 +23,7 @@
 	class={{
 		'bg-violet-500': isEnabled,
 		'bg-gray-200': !isEnabled,
-		'relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-hidden focus:ring-2 focus:ring-violet-500 focus:ring-offset-2': true
+		'relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 focus:outline-hidden': true
 	}}
 	type="button"
 	role="switch"

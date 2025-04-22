@@ -1,9 +1,11 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
+
 	interface Props {
 		name: string;
 		url: string;
-		icon?: import('svelte').Snippet;
-		content?: import('svelte').Snippet;
+		icon?: Snippet;
+		content?: Snippet;
 		forwardText: string;
 	}
 

@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import AcrossMark from '$lib/components/icons/AcrossMark.svelte';
+	import type { Snippet } from 'svelte';
 
 	interface Props {
 		showModal?: boolean;
-		children?: import('svelte').Snippet;
+		children?: Snippet;
 	}
 
 	let { showModal = $bindable(false), children }: Props = $props();
