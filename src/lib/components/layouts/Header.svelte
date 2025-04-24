@@ -58,7 +58,7 @@
 
 <header
 	class={{
-		'top-2 border-neutral-600 bg-neutral-50 py-4 dark:border-neutral-400 dark:bg-neutral-800':
+		'top-2 border-neutral-300 bg-neutral-50 py-4 dark:border-neutral-600 dark:bg-neutral-800':
 			y > 0,
 		'top-0 border-transparent bg-transparent py-6': y <= 0,
 		'sticky z-10 mx-2 flex items-center justify-between rounded-2xl border border-solid px-6 duration-200': true
@@ -87,7 +87,7 @@
 				class={{
 					'scale-100 opacity-100 duration-100 ease-out': showLanguageDropdown,
 					'scale-0 opacity-0 duration-75 ease-in': !showLanguageDropdown,
-					'ring-opacity-5 absolute right-0 z-10 mt-2 w-40 origin-top-right transform rounded-md bg-neutral-50 ring-1 shadow-lg ring-black transition focus:outline-hidden dark:bg-neutral-700': true
+					'absolute right-0 z-10 mt-2 w-40 origin-top-right transform rounded-md bg-neutral-50 shadow-lg ring-1 ring-black/5 transition focus:outline-hidden dark:bg-neutral-700': true
 				}}
 				role="menu"
 				aria-orientation="vertical"

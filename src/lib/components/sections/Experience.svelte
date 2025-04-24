@@ -166,10 +166,10 @@
 			<div class="group relative py-6 pl-8 sm:pl-32">
 				<!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
 				<div
-					class="mb-4 flex flex-col items-start before:absolute before:left-2 before:h-full before:-translate-x-1/2 before:translate-y-3 before:self-start before:bg-neutral-300 before:px-px group-last:before:hidden after:absolute after:left-2 after:box-content after:size-2 after:-translate-x-1/2 after:translate-y-1.5 after:rounded-full after:border-8 after:border-neutral-50 after:bg-yellow-400 sm:flex-row sm:before:left-0 sm:before:ml-[6.5rem] sm:after:left-0 sm:after:ml-[6.5rem] dark:before:bg-neutral-700 dark:after:border-neutral-800 dark:after:bg-yellow-500"
+					class="mb-4 flex flex-col items-start before:absolute before:left-2 before:h-full before:-translate-x-1/2 before:translate-y-3 before:self-start before:bg-neutral-300 before:px-px group-last:before:hidden after:absolute after:top-5 after:left-2 after:box-content after:size-2 after:-translate-x-1/2 after:translate-y-1.5 after:rounded-full after:border-8 after:border-neutral-50 after:bg-yellow-400 sm:flex-row sm:before:left-0 sm:before:ml-[6.5rem] sm:after:left-0 sm:after:ml-[6.5rem] dark:before:bg-neutral-700 dark:after:border-neutral-800 dark:after:bg-yellow-500"
 				>
 					<time
-						class="left-0 mb-3 inline-flex h-6 w-20 translate-y-0.5 items-center justify-center rounded-full bg-yellow-200 text-xs font-semibold text-yellow-700 uppercase sm:absolute sm:mb-0 dark:bg-yellow-600 dark:text-yellow-50"
+						class="left-0 mb-3 inline-flex h-6 w-20 translate-y-0.5 items-center justify-center rounded-md bg-yellow-200 text-xs font-semibold text-yellow-700 uppercase sm:absolute sm:mb-0 dark:bg-yellow-400 dark:text-yellow-900"
 						>{experience.time}</time
 					>
 					<div class="text-xl font-bold dark:text-neutral-50">
@@ -181,7 +181,7 @@
 					{experienceDescriptions[key].content}
 				</div>
 				<div class="skill-list flex flex-wrap gap-4">
-					{#each experience.skills as skill}
+					{#each experience.skills as skill (skill.name)}
 						<div
 							class="skill-item relative flex size-16 items-center justify-center rounded-full bg-neutral-200/60 dark:bg-neutral-700/60"
 						>
@@ -190,7 +190,7 @@
 							<div
 								class="absolute inset-0 z-10 flex size-16 items-center justify-center rounded-full bg-neutral-200/60 opacity-0 backdrop-blur-xs transition-all duration-150 hover:opacity-100 dark:bg-neutral-700/60"
 							>
-								<span class="text-xs dark:text-neutral-50">
+								<span class="text-xs font-semibold dark:text-neutral-50">
 									{skill.name}
 								</span>
 							</div>

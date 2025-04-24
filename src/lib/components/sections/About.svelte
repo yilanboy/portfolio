@@ -26,11 +26,11 @@
 			{translation.section_title_suffix}
 		</h3>
 	</div>
-	<p class="mx-auto text-lg font-semibold dark:text-neutral-50 sm:text-xl md:text-2xl">
+	<p class="mx-auto text-lg font-semibold sm:text-xl md:text-2xl dark:text-neutral-50">
 		{translation.I_am_also}
 	</p>
 	<div class="mx-auto flex w-full max-w-3xl flex-col gap-20 dark:text-neutral-50">
-		{#each translation.strengths as strength, index}
+		{#each translation.strengths as strength, index (index)}
 			<div class="flex gap-6 sm:gap-8">
 				<p class="w-1/5 text-4xl font-semibold text-red-500 sm:text-5xl md:text-6xl">
 					{(index + 1).toString().padStart(2, '0')}
