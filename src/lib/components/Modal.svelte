@@ -14,7 +14,7 @@
 {#if showModal}
 	<div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 		<div
-			in:fade={{ duration: 200 }}
+			in:fade={{ delay: 150, duration: 200 }}
 			out:fade={{ delay: 200, duration: 200 }}
 			id="backdrop"
 			class="fixed inset-0 bg-neutral-500/75 backdrop-blur-md transition-opacity"

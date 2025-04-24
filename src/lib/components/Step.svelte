@@ -15,10 +15,10 @@
 <a
 	href={url}
 	target="_blank"
-	class="group flex cursor-pointer flex-col gap-4 rounded-2xl border border-solid border-blue-700 p-4 text-center duration-200 hover:border-blue-400 sm:p-6 md:p-8 dark:border-blue-400 dark:hover:border-blue-700"
+	class="group flex cursor-pointer flex-col gap-4 rounded-2xl border border-solid border-blue-400 p-4 text-center duration-200 hover:border-blue-700 sm:p-6 md:p-8 dark:border-blue-700 dark:hover:border-blue-400"
 >
 	<div
-		class="mx-auto -mt-10 grid place-items-center gap-2 bg-neutral-50 px-4 text-5xl duration-200 sm:-mt-12 md:-mt-14 md:text-6xl lg:-mt-16 dark:bg-neutral-800"
+		class="mx-auto -mt-10 grid place-items-center gap-2 bg-neutral-50 px-4 text-5xl transition-all duration-200 group-hover:-translate-y-1 group-hover:scale-125 sm:-mt-12 md:-mt-14 md:text-6xl lg:-mt-16 dark:bg-neutral-800"
 	>
 		{@render icon?.()}
 	</div>

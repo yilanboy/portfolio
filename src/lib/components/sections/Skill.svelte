@@ -126,9 +126,9 @@
 					{centerBackgroundColor}
 				>
 					<button
-						onclick={() => (skill.showExperienceModal = true)}
+						onmouseup={() => (skill.showExperienceModal = true)}
 						type="button"
-						class="cursor-pointer transition duration-150 hover:scale-125 active:scale-100"
+						class="cursor-pointer transition-all duration-150 hover:scale-125 active:scale-50"
 					>
 						<skill.iconComponent className="size-20" />
 					</button>
