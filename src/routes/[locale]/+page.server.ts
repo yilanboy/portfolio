@@ -1,11 +1,11 @@
 import type { PageServerLoad } from './$types';
 import { Locale, Theme } from '$lib/enums';
 import { redirect } from '@sveltejs/kit';
-import type { Translation } from '../../lang/type/index.type';
-import english from '../../lang/en';
-import simplifiedChinese from '../../lang/zh-CN';
-import traditionalChinese from '../../lang/zh-TW';
-import japanese from '../../lang/ja';
+import type { Translation } from '$lang/type/index.type';
+import english from '$lang/en';
+import simplifiedChinese from '$lang/zh-CN';
+import traditionalChinese from '$lang/zh-TW';
+import japanese from '$lang/ja';
 
 export const load: PageServerLoad = async ({ params, cookies }) => {
 	const locales: string[] = Object.values(Locale);
