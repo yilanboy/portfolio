@@ -21,52 +21,52 @@
 	import CupHot from '$lib/components/icons/CupHot.svelte';
 </script>
 
-<div class="absolute right-1/2 top-0 h-screen w-full max-w-[1920px] translate-x-1/2">
+<div class="absolute top-0 right-1/2 h-screen w-full max-w-[1920px] translate-x-1/2">
 	<div id="background-left">
-		<div class="absolute left-[2%] top-[6rem] hidden md:block">
-			<Controller className="size-56 rotate-12 text-neutral-200 dark:text-neutral-700" />
+		<div class="absolute top-[6rem] left-[2%] hidden md:block">
+			<Controller className="size-48 rotate-12 text-neutral-200 dark:text-neutral-700" />
 		</div>
 
-		<div class="absolute left-[24%] top-[18rem] hidden lg:block">
+		<div class="absolute top-[18rem] left-[24%] hidden lg:block">
 			<PersonWalking className="size-24 -rotate-12 text-neutral-200 dark:text-neutral-700" />
 		</div>
 
-		<div class="absolute left-[8%] top-[26rem] hidden lg:block">
+		<div class="absolute top-[26rem] left-[8%] hidden lg:block">
 			<RocketTakeoff className="size-24 scale-x-[-1] text-neutral-200 dark:text-neutral-700" />
 		</div>
 
-		<div class="absolute left-[18%] top-[34rem] hidden md:block">
-			<ChatHeart className="size-56 -rotate-12 text-neutral-200 dark:text-neutral-700" />
+		<div class="absolute top-[34rem] left-[18%] hidden md:block">
+			<ChatHeart className="size-48 -rotate-12 text-neutral-200 dark:text-neutral-700" />
 		</div>
 
-		<div class="absolute left-[2%] top-[38rem] hidden lg:block">
+		<div class="absolute top-[38rem] left-[2%] hidden lg:block">
 			<Easel className="size-24 rotate-12 text-neutral-200 dark:text-neutral-700" />
 		</div>
 
-		<div class="absolute left-[8%] top-[48rem] hidden lg:block">
+		<div class="absolute top-[48rem] left-[8%] hidden lg:block">
 			<GlobeAmericas
 				className="size-24 -rotate-12 scale-x-[-1] text-neutral-200 dark:text-neutral-700"
 			/>
 		</div>
-		<div class="absolute left-[24%] top-[4rem] hidden lg:block">
+		<div class="absolute top-[4rem] left-[24%] hidden lg:block">
 			<HandThumbsUp className="size-24 rotate-12 text-neutral-200 dark:text-neutral-700" />
 		</div>
 
-		<div class="absolute left-[38%] top-[10rem] hidden lg:block">
+		<div class="absolute top-[10rem] left-[38%] hidden lg:block">
 			<Lightbulb className="size-24 -rotate-12 text-neutral-200 dark:text-neutral-700" />
 		</div>
 
-		<div class="absolute left-[38%] top-[26rem] hidden lg:block">
+		<div class="absolute top-[26rem] left-[38%] hidden lg:block">
 			<BatteryCharging className="size-24 -rotate-12 text-neutral-200 dark:text-neutral-700" />
 		</div>
 
-		<div class="absolute left-[40%] top-[40rem] hidden lg:block">
+		<div class="absolute top-[40rem] left-[40%] hidden lg:block">
 			<MusicNoteBeamed className="size-24 rotate-12 text-neutral-200 dark:text-neutral-700" />
 		</div>
 	</div>
 
 	<div id="background-right">
-		<div class="absolute right-[36%] top-[42rem] hidden lg:block">
+		<div class="absolute top-[42rem] right-[36%] hidden lg:block">
 			<TypeScript
 				className="size-24 -rotate-12"
 				rectClassName="fill-neutral-200 dark:fill-neutral-700"
@@ -74,39 +74,39 @@
 			/>
 		</div>
 
-		<div class="absolute right-[36%] top-[6rem] hidden lg:block">
-			<Cloud className="size-56 rotate-12 text-neutral-200 dark:text-neutral-700" />
+		<div class="absolute top-[6rem] right-[36%] hidden lg:block">
+			<Cloud className="size-48 rotate-12 text-neutral-200 dark:text-neutral-700" />
 		</div>
 
-		<div class="absolute right-[34%] top-[24rem] hidden lg:block">
+		<div class="absolute top-[24rem] right-[34%] hidden lg:block">
 			<CupHot className="size-24 rotate-12 text-neutral-200 dark:text-neutral-700" />
 		</div>
 
-		<div class="absolute right-[46%] top-[30rem] hidden lg:block">
+		<div class="absolute top-[30rem] right-[46%] hidden lg:block">
 			<ClipboardCheck className="size-24 rotate-12 text-neutral-200 dark:text-neutral-700" />
 		</div>
-		<div class="absolute right-[22%] top-[6rem] hidden lg:block">
+		<div class="absolute top-[6rem] right-[22%] hidden lg:block">
 			<Bug className="size-24 rotate-45 text-neutral-200 dark:text-neutral-700" />
 		</div>
 
-		<div class="absolute right-[4%] top-[12rem] hidden lg:block">
+		<div class="absolute top-[12rem] right-[4%] hidden lg:block">
 			<FolderOpen className="size-24 rotate-12 text-neutral-200 dark:text-neutral-700" />
 		</div>
 
-		<div class="absolute right-[14%] top-[18rem] hidden md:block">
-			<Floppy className="size-56 -rotate-12 text-neutral-200 dark:text-neutral-700" />
+		<div class="absolute top-[18rem] right-[14%] hidden md:block">
+			<Floppy className="size-48 -rotate-12 text-neutral-200 dark:text-neutral-700" />
 		</div>
 
-		<div class="absolute right-[4%] top-[32rem] hidden lg:block">
+		<div class="absolute top-[32rem] right-[4%] hidden lg:block">
 			<Cpu className="size-24 -rotate-12 text-neutral-200 dark:text-neutral-700" />
 		</div>
 
-		<div class="absolute right-[20%] top-[40rem] hidden lg:block">
+		<div class="absolute top-[40rem] right-[20%] hidden lg:block">
 			<Terminal className="size-24 rotate-12 text-neutral-200 dark:text-neutral-700" />
 		</div>
 
-		<div class="absolute right-[4%] top-[44rem] hidden md:block">
-			<Php className="size-56 rotate-12" pathClassName="fill-neutral-200 dark:fill-neutral-700" />
+		<div class="absolute top-[44rem] right-[4%] hidden md:block">
+			<Php className="size-48 rotate-12" pathClassName="fill-neutral-200 dark:fill-neutral-700" />
 		</div>
 	</div>
 </div>
