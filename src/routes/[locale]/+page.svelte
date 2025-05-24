@@ -36,15 +36,15 @@
 	class="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col text-sm sm:text-base"
 >
 	<div
-		class:opacity-full={y > 0}
-		class:pointer-events-auto={y > 0}
-		class:pointer-events-none={y <= 0}
-		class:opacity-0={y <= 0}
-		class="fixed bottom-0 right-0 z-10 flex p-10 duration-200"
+		class={{
+			'fixed right-0 bottom-0 z-10 flex p-10 duration-200': true,
+			'opacity-full pointer-events-auto': y > 0,
+			'pointer-events-none opacity-0': y <= 0
+		}}
 	>
 		<button
 			onclick={goTop}
-			class="ml-auto grid aspect-square cursor-pointer place-items-center rounded-full bg-slate-900 px-3 text-neutral-50 transition duration-200 hover:bg-slate-700 dark:bg-slate-600 dark:hover:bg-slate-500 sm:px-4"
+			class="ml-auto grid aspect-square cursor-pointer place-items-center rounded-full bg-slate-900 px-3 text-neutral-50 transition duration-200 hover:bg-slate-700 sm:px-4 dark:bg-slate-600 dark:hover:bg-slate-500"
 		>
 			<ArrowUp />
 		</button>
@@ -57,7 +57,7 @@
 		translation={data.translation.header}
 	/>
 
-	<main class="flex flex-1 flex-col px-2 font-sans-poppins md:px-6">
+	<main class="font-sans-poppins flex flex-1 flex-col px-2 md:px-6">
 		<Introduction translation={data.translation.introduction} />
 
 		<Project translation={data.translation.project} />
