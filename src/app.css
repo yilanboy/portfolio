@@ -3,11 +3,12 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-	--font-sans-poppins: 'Noto Sans TC', 'Noto Sans SC', 'Noto Sans JP', 'Poppins', ui-sans-serif,
-		system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-		'Noto Color Emoji';
-	--font-caveat: 'Caveat', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-		'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	--font-sans-poppins:
+		'Noto Sans TC', 'Noto Sans SC', 'Noto Sans JP', 'Poppins', ui-sans-serif, system-ui, sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	--font-caveat:
+		'Caveat', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol', 'Noto Color Emoji';
 
 	--animate-blink: blink 0.7s infinite;
 
@@ -16,4 +17,12 @@
 			opacity: 0;
 		}
 	}
+}
+
+:root {
+	scrollbar-color: theme('colors.neutral.300') theme('colors.neutral.50');
+}
+
+:root.dark {
+	scrollbar-color: theme('colors.neutral.700') theme('colors.neutral.800');
 }
