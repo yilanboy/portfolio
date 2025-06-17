@@ -32,7 +32,7 @@
 	/>
 </svelte:head>
 
-<div class="relative bg-neutral-50 text-neutral-900 dark:bg-neutral-800">
+<div class="relative">
 	<Background />
 
 	<div class="mx-auto flex min-h-screen w-full max-w-7xl flex-col text-sm sm:text-base">

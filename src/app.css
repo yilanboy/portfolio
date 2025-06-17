@@ -18,11 +18,3 @@
 		}
 	}
 }
-
-body {
-	background-color: theme('colors.neutral.50');
-}
-
-.dark body {
-	background-color: theme('colors.neutral.800');
-}
