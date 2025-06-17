@@ -2,13 +2,30 @@
 	import { fade } from 'svelte/transition';
 	import AcrossMark from '$lib/components/icons/AcrossMark.svelte';
 	import type { Snippet } from 'svelte';
+	import { browser } from '$app/environment';
 
 	interface Props {
 		showModal?: boolean;
 		children?: Snippet;
 	}
 
+	let scrollbarWidth = $state(0);
+
 	let { showModal = $bindable(false), children }: Props = $props();
+
+	if (browser) {
+		scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+	}
+
+	$effect(() => {
+		if (showModal) {
+			document.documentElement.style.overflow = 'hidden';
+			document.documentElement.style.paddingRight = `${scrollbarWidth}px`;
+		} else {
+			document.documentElement.style.overflow = '';
+			document.documentElement.style.paddingRight = '';
+		}
+	});
 </script>
 
 {#if showModal}
@@ -40,10 +57,4 @@
 			</div>
 		</div>
 	</div>
-
-	<style>
-		body {
-			overflow: hidden;
-		}
-	</style>
 {/if}
