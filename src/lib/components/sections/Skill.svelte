@@ -128,7 +128,7 @@
 					<button
 						onmouseup={() => (skill.showExperienceModal = true)}
 						type="button"
-						class="cursor-pointer transition-all duration-150 hover:scale-125 active:scale-50"
+						class="cursor-pointer transition-all duration-150 hover:scale-[1.15] active:scale-[0.85]"
 					>
 						<skill.iconComponent className="size-20" />
 					</button>

@@ -31,8 +31,8 @@
 {#if showModal}
 	<div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 		<div
-			in:fade={{ delay: 150, duration: 200 }}
-			out:fade={{ delay: 200, duration: 200 }}
+			in:fade={{ delay: 150, duration: 100 }}
+			out:fade={{ delay: 200, duration: 100 }}
 			id="backdrop"
 			class="fixed inset-0 bg-neutral-500/75 backdrop-blur-md transition-opacity"
 		></div>
@@ -40,8 +40,8 @@
 		<div class="fixed inset-0 z-10 w-screen overflow-y-auto">
 			<div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
 				<div
-					in:fade={{ delay: 200, duration: 200 }}
-					out:fade={{ duration: 200 }}
+					in:fade={{ delay: 200, duration: 100 }}
+					out:fade={{ duration: 100 }}
 					id="modal"
 					class="relative transform overflow-hidden rounded-lg bg-neutral-50 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl"
 				>
