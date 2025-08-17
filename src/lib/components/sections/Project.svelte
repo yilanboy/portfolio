@@ -75,7 +75,8 @@
 			{translation.section_title_suffix}
 		</h3>
 	</div>
-	<div class="grid grid-cols-1 gap-12 dark:text-neutral-50 lg:grid-cols-3 lg:gap-10">
+
+	<div class="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-10 dark:text-neutral-50">
 		{#each Object.entries(steps) as [key, step] (key)}
 			<Step name={step.name} url={step.url} forwardText={translation.go}>
 				{#snippet icon()}

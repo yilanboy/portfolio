@@ -10,6 +10,7 @@
 	import ArrowUp from '$lib/components/icons/ArrowUp.svelte';
 	import { fade } from 'svelte/transition';
 	import type { PageServerData } from './$types';
+	import Posts from '$lib/components/sections/Posts.svelte';
 
 	interface Props {
 		data: PageServerData;
@@ -61,6 +62,8 @@
 		<Introduction translation={data.translation.introduction} />
 
 		<Project translation={data.translation.project} />
+
+		<Posts translation={data.translation.post} />
 
 		<Experience translation={data.translation.experience} />
 

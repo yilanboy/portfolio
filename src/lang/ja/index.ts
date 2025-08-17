@@ -5,6 +5,7 @@ import experience from './experience';
 import skill from './skill';
 import about from './about';
 import footer from './footer';
+import post from './post';
 
 export default {
 	header: header,
@@ -13,5 +14,6 @@ export default {
 	experience: experience,
 	skill: skill,
 	about: about,
-	footer: footer
+	footer: footer,
+	post: post
 };
