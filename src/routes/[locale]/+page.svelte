@@ -63,7 +63,7 @@
 
 		<Project translation={data.translation.project} />
 
-		<Posts translation={data.translation.post} />
+		<Posts translation={data.translation.post} posts={data.posts} />
 
 		<Experience translation={data.translation.experience} />
 

@@ -1,27 +1,18 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import type { PostTranslation } from '$lang/type/post.type';
-
-	interface Post {
-		id: number;
-		title: string;
-		excerpt: string;
-		created_at: string;
-		updated_at: string;
-		url: string;
-	}
+	import type { Post } from '$lib/types';
 
 	interface Props {
 		translation: PostTranslation;
+		posts: Post[];
 	}
 
-	let { translation }: Props = $props();
-
-	let posts: { data: Post[] } | null = $state(null);
+	let { translation, posts }: Props = $props();
 
 	function formatDate(iso: string) {
 		try {
 			const d = new Date(iso);
+
 			return new Intl.DateTimeFormat(navigator.language || 'en-US', {
 				year: 'numeric',
 				month: 'short',
@@ -31,16 +22,9 @@
 			return iso;
 		}
 	}
-
-	onMount(async () => {
-		const response = await fetch('https://docfunc.com/api/posts');
-		posts = await response.json();
-
-		console.log(posts);
-	});
 </script>
 
-{#if posts}
+{#if posts.length > 0}
 	<section id="post" class="flex flex-col gap-24 py-20">
 		<div class="flex flex-col gap-2 text-center dark:text-neutral-50">
 			<h6 class="font-caveat text-2xl md:text-4xl">Check it out!</h6>
@@ -57,8 +41,8 @@
 			</h3>
 		</div>
 
-		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-			{#each posts.data as post (post.id)}
+		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			{#each posts as post (post.id)}
 				<article
 					class="group flex h-full flex-col overflow-hidden rounded-xl border border-zinc-200/70 bg-white/70 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-zinc-700/60 dark:bg-zinc-700/70"
 				>
