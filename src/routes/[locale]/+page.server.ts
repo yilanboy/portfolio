@@ -32,9 +32,9 @@ export const load: PageServerLoad = async ({ params, cookies, fetch }) => {
 
 		redirect(301, `/${locale}`);
 	} else {
-		cookies.set('locale', Locale.En, { path: '/' });
+		cookies.set('locale', Locale.Tw, { path: '/' });
 
-		redirect(301, `/${Locale.En}`);
+		redirect(301, `/${Locale.Tw}`);
 	}
 
 	if (themes.includes(cookies.get('theme') ?? '')) {

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PostTranslation } from '$lang/type/post.type';
 	import type { Post } from '$lib/types';
+	import { formatDate } from '$lib/helpers';
 
 	interface Props {
 		translation: PostTranslation;
@@ -8,20 +9,6 @@
 	}
 
 	let { translation, posts }: Props = $props();
-
-	function formatDate(iso: string) {
-		try {
-			const d = new Date(iso);
-
-			return new Intl.DateTimeFormat(navigator.language || 'en-US', {
-				year: 'numeric',
-				month: 'short',
-				day: '2-digit'
-			}).format(d);
-		} catch {
-			return iso;
-		}
-	}
 </script>
 
 {#if posts.length > 0}
@@ -43,35 +30,26 @@
 
 		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{#each posts as post (post.id)}
-				<article
-					class="group flex h-full flex-col overflow-hidden rounded-xl border border-zinc-200/70 bg-white/70 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-zinc-700/60 dark:bg-zinc-700/70"
-				>
-					<a
-						class="flex flex-1 flex-col gap-6 p-5 no-underline"
-						href={post.url}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<h3
-							class="line-clamp-2 text-lg font-semibold text-zinc-900 group-hover:text-zinc-700 dark:text-zinc-100 dark:group-hover:text-zinc-200"
+				<article class="rounded-2xl border border-neutral-300 p-6 dark:border-neutral-600">
+					<div class="group relative max-w-xl">
+						<time
+							datetime={post.created_at}
+							class="block text-sm/6 text-zinc-600 dark:text-zinc-400"
 						>
-							{post.title}
-						</h3>
-
-						<p class="line-clamp-3 text-sm text-zinc-600 dark:text-zinc-300">
+							{formatDate(post.created_at)}
+						</time>
+						<h2
+							class="mt-2 text-lg font-semibold text-zinc-900 group-hover:text-zinc-600 dark:text-white dark:group-hover:text-zinc-300"
+						>
+							<a href={post.url} target="_blank">
+								<span class="absolute inset-0"></span>
+								{post.title}
+							</a>
+						</h2>
+						<p class="mt-4 text-sm/6 text-zinc-600 dark:text-zinc-400">
 							{post.excerpt}
 						</p>
-
-						<div
-							class="mt-auto flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400"
-						>
-							<span>Published: {formatDate(post.created_at)}</span>
-
-							{#if post.updated_at && post.updated_at !== post.created_at}
-								<span>Updated: {formatDate(post.updated_at)}</span>
-							{/if}
-						</div>
-					</a>
+					</div>
 				</article>
 			{/each}
 		</div>
