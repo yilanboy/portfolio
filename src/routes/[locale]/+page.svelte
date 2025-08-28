@@ -58,7 +58,7 @@
 		translation={data.translation.header}
 	/>
 
-	<main class="font-sans-poppins flex flex-1 flex-col px-2 md:px-6">
+	<main class="font-sans-roboto flex flex-1 flex-col px-2 md:px-6">
 		<Introduction translation={data.translation.introduction} />
 
 		<Project translation={data.translation.project} />
