@@ -11,10 +11,12 @@
 	import Modal from '$lib/components/Modal.svelte';
 	import { type Component } from 'svelte';
 	import type { SkillTranslation } from '$lang/type/skill.type';
+	import type { Locale } from '$lib/enums';
+	import { translations } from '$lib/translations';
 
 	interface Props {
 		isDarkModeEnabled: boolean;
-		translation: SkillTranslation;
+		locale: Locale;
 	}
 
 	type SkillProgressBar = {
@@ -25,7 +27,8 @@
 		showExperienceModal: boolean;
 	};
 
-	let { isDarkModeEnabled, translation }: Props = $props();
+	let { isDarkModeEnabled, locale }: Props = $props();
+	let translation: SkillTranslation = $derived(translations[locale].skill);
 	let barBackgroundColor = $derived(isDarkModeEnabled ? '#404040' : '#e5e7eb');
 	let centerBackgroundColor = $derived(isDarkModeEnabled ? '#262626' : '#f9fafb');
 

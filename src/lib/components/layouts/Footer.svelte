@@ -2,16 +2,19 @@
 	import Svelte from '$lib/components/icons/Svelte.svelte';
 	import TailwindCss from '$lib/components/icons/TailwindCss.svelte';
 	import type { FooterTranslation } from '$lang/type/footer.type';
+	import type { Locale } from '$lib/enums';
+	import { translations } from '$lib/translations';
 
 	interface Props {
-		translation: FooterTranslation;
+		locale: Locale;
 	}
 
-	let { translation }: Props = $props();
+	let { locale }: Props = $props();
+	let translation: FooterTranslation = $derived(translations[locale].footer);
 </script>
 
 <div
-	class="mx-2 mb-4 flex items-center justify-center gap-2 rounded-2xl bg-neutral-200/60 py-4 text-base dark:bg-neutral-700/60 dark:text-neutral-50 md:text-xl"
+	class="mx-2 mb-4 flex items-center justify-center gap-2 rounded-2xl bg-neutral-200/60 py-4 text-base md:text-xl dark:bg-neutral-700/60 dark:text-neutral-50"
 >
 	{translation.content_prefix}
 	<Svelte className="size-5" />

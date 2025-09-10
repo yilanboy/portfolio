@@ -2,13 +2,16 @@
 	import type { PostTranslation } from '$lang/type/post.type';
 	import type { Post } from '$lib/types';
 	import { formatDate } from '$lib/helpers';
+	import type { Locale } from '$lib/enums';
+	import { translations } from '$lib/translations';
 
 	interface Props {
-		translation: PostTranslation;
+		locale: Locale;
 		posts: Post[];
 	}
 
-	let { translation, posts }: Props = $props();
+	let { locale, posts }: Props = $props();
+	let translation: PostTranslation = $derived(translations[locale].post);
 </script>
 
 {#if posts.length > 0}

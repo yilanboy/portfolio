@@ -1,11 +1,14 @@
 <script lang="ts">
 	import type { AboutTranslation } from '$lang/type/about.type';
+	import { translations } from '$lib/translations';
+	import type { Locale } from '$lib/enums';
 
 	interface Props {
-		translation: AboutTranslation;
+		locale: Locale;
 	}
 
-	let { translation }: Props = $props();
+	let { locale }: Props = $props();
+	let translation: AboutTranslation = $derived(translations[locale].about);
 </script>
 
 <section

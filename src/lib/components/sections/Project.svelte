@@ -4,12 +4,15 @@
 	import JournalText from '$lib/components/icons/JournalText.svelte';
 	import Easel from '$lib/components/icons/Easel.svelte';
 	import type { ProjectTranslation } from '$lang/type/project.type';
+	import type { Locale } from '$lib/enums';
+	import { translations } from '$lib/translations';
 
 	interface Props {
-		translation: ProjectTranslation;
+		locale: Locale;
 	}
 
-	let { translation }: Props = $props();
+	let { locale }: Props = $props();
+	let translation: ProjectTranslation = $derived(translations[locale].project);
 
 	let steps = $derived({
 		blog: {

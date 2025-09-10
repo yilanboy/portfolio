@@ -19,9 +19,11 @@
 	import GoogleCloudPlatform from '$lib/components/icons/GoogleCloudPlatform.svelte';
 	import K3s from '$lib/components/icons/K3s.svelte';
 	import type { ExperienceTranslation } from '$lang/type/experience.type';
+	import { translations } from '$lib/translations';
+	import type { Locale } from '$lib/enums';
 
 	interface Props {
-		translation: ExperienceTranslation;
+		locale: Locale;
 	}
 
 	interface ExperienceTimeAndSkills {
@@ -34,7 +36,8 @@
 
 	const scaleRange = 0.4;
 
-	let { translation }: Props = $props();
+	let { locale }: Props = $props();
+	let translation: ExperienceTranslation = $derived(translations[locale].experience);
 
 	let experiences: { [Name: string]: ExperienceTimeAndSkills } = {
 		experience4: {

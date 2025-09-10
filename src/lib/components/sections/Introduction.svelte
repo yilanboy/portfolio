@@ -1,14 +1,17 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { IntroductionTranslation } from '$lang/type/introduction.type';
+	import type { Locale } from '$lib/enums';
+	import { translations } from '$lib/translations';
 
 	interface Props {
-		translation: IntroductionTranslation;
+		locale: Locale;
 	}
 
 	const words = ['Operation', 'Coding', 'Sharing'];
 
-	let { translation }: Props = $props();
+	let { locale }: Props = $props();
+	let translation: IntroductionTranslation = $derived(translations[locale].introduction);
 	let dynamicText = $state('');
 	let wordIndex = 0;
 	let charIndex = 0;

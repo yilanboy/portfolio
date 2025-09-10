@@ -7,15 +7,16 @@
 	import Language from '$lib/components/icons/Language.svelte';
 
 	import type { HeaderTranslation } from '$lang/type/header.type';
+	import { translations } from '$lib/translations';
 
 	interface Props {
 		y: number;
 		isDarkModeEnabled: boolean;
 		currentLocale: Locale;
-		translation: HeaderTranslation;
 	}
 
-	let { y, isDarkModeEnabled = $bindable(), currentLocale, translation }: Props = $props();
+	let { y, isDarkModeEnabled = $bindable(), currentLocale }: Props = $props();
+	let translation = translations[currentLocale].header as HeaderTranslation;
 	let showLanguageDropdown = $state(false);
 
 	let tabs = $derived([

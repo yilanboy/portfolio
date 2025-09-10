@@ -51,26 +51,21 @@
 		</button>
 	</div>
 
-	<Header
-		{y}
-		bind:isDarkModeEnabled
-		currentLocale={data.locale}
-		translation={data.translation.header}
-	/>
+	<Header {y} bind:isDarkModeEnabled currentLocale={data.locale} />
 
 	<main class="font-sans-roboto flex flex-1 flex-col px-2 md:px-6">
-		<Introduction translation={data.translation.introduction} />
+		<Introduction locale={data.locale} />
 
-		<Project translation={data.translation.project} />
+		<Project locale={data.locale} />
 
-		<Posts translation={data.translation.post} posts={data.posts} />
+		<Posts locale={data.locale} posts={data.posts} />
 
-		<Experience translation={data.translation.experience} />
+		<Experience locale={data.locale} />
 
-		<Skill {isDarkModeEnabled} translation={data.translation.skill} />
+		<Skill {isDarkModeEnabled} locale={data.locale} />
 
-		<About translation={data.translation.about} />
+		<About locale={data.locale} />
 	</main>
 
-	<Footer translation={data.translation.footer} />
+	<Footer locale={data.locale} />
 </div>

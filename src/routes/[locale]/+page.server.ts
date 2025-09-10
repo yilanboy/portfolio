@@ -1,22 +1,11 @@
 import type { PageServerLoad } from './$types';
 import { Locale, Theme } from '$lib/enums';
 import { redirect } from '@sveltejs/kit';
-import type { Translation } from '$lang/type/index.type';
-import english from '$lang/en';
-import simplifiedChinese from '$lang/zh-CN';
-import traditionalChinese from '$lang/zh-TW';
-import japanese from '$lang/ja';
 import type { Post } from '$lib/types';
 
 export const load: PageServerLoad = async ({ params, cookies, fetch }) => {
 	const locales: string[] = Object.values(Locale);
 	const themes: string[] = Object.values(Theme);
-	const translations: { [Name: string]: Translation } = {
-		en: english,
-		'zh-cn': simplifiedChinese,
-		'zh-tw': traditionalChinese,
-		ja: japanese
-	};
 	let locale: Locale;
 	let theme: Theme;
 	let body: {
@@ -55,7 +44,6 @@ export const load: PageServerLoad = async ({ params, cookies, fetch }) => {
 	return {
 		locale: locale,
 		theme: theme,
-		translation: translations[locale],
 		posts: body.data
 	};
 };
