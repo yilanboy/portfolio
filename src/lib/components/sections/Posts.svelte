@@ -33,17 +33,17 @@
 
 		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{#each posts as post (post.id)}
-				<article class="rounded-2xl border border-neutral-300 p-6 dark:border-neutral-600">
-					<div class="group relative max-w-xl">
+				<article
+					class="rounded-2xl border border-neutral-300 p-6 hover:border-violet-400 dark:border-neutral-600"
+				>
+					<div class="relative max-w-xl">
 						<time
 							datetime={post.created_at}
 							class="block text-sm/6 text-zinc-600 dark:text-zinc-400"
 						>
 							{formatDate(post.created_at)}
 						</time>
-						<h2
-							class="mt-2 text-lg font-semibold text-zinc-900 group-hover:text-zinc-600 dark:text-white dark:group-hover:text-zinc-300"
-						>
+						<h2 class="mt-2 text-lg font-semibold text-zinc-900 dark:text-white">
 							<a href={post.url} target="_blank">
 								<span class="absolute inset-0"></span>
 								{post.title}
