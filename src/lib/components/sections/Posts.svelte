@@ -17,7 +17,7 @@
 {#if posts.length > 0}
 	<section id="post" class="flex flex-col gap-24 py-20">
 		<div class="flex flex-col gap-2 text-center dark:text-neutral-50">
-			<h6 class="font-caveat text-2xl md:text-4xl">Check it out!</h6>
+			<h6 class="font-caveat text-2xl md:text-4xl">Check them out!</h6>
 			<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
 				{translation.section_title_prefix}
 				<span
