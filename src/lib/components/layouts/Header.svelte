@@ -16,7 +16,7 @@
 	}
 
 	let { y, isDarkModeEnabled = $bindable(), currentLocale }: Props = $props();
-	let translation = translations[currentLocale].header as HeaderTranslation;
+	let translation = $derived(translations[currentLocale].header as HeaderTranslation);
 	let showLanguageDropdown = $state(false);
 
 	let tabs = $derived([

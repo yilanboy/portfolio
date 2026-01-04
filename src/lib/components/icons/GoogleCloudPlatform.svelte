@@ -16,20 +16,22 @@
 	style="enable-background:new 0 0 2268.6 1823.7;"
 	xml:space="preserve"
 >
-	<style type="text/css">
-		.st0 {
-			fill: #ea4335;
-		}
-		.st1 {
-			fill: #4285f4;
-		}
-		.st2 {
-			fill: #34a853;
-		}
-		.st3 {
-			fill: #fbbc05;
-		}
-	</style>
+	<defs>
+		<style>
+			.st0 {
+				fill: #ea4335;
+			}
+			.st1 {
+				fill: #4285f4;
+			}
+			.st2 {
+				fill: #34a853;
+			}
+			.st3 {
+				fill: #fbbc05;
+			}
+		</style>
+	</defs>
 	<path
 		class="st0"
 		d="M1508.7,503.5l197.2-197.2l13.1-83C1359.7-103.5,788.5-66.4,464.5,300.6c-90,101.9-156.7,229-192.3,360.3
