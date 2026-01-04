@@ -26,16 +26,16 @@
 	]);
 
 	function toggleTheme() {
-		if (document.documentElement.classList.contains(Theme.Dark)) {
+		if (document.documentElement.getAttribute('data-theme') === Theme.Dark) {
 			isDarkModeEnabled = false;
 			theme.update(() => Theme.Light);
 			document.cookie = `theme=${Theme.Light}`;
-			document.documentElement.classList.remove(Theme.Dark);
+			document.documentElement.setAttribute('data-theme', Theme.Light);
 		} else {
 			isDarkModeEnabled = true;
 			theme.update(() => Theme.Dark);
 			document.cookie = `theme=${Theme.Dark}`;
-			document.documentElement.classList.add(Theme.Dark);
+			document.documentElement.setAttribute('data-theme', Theme.Dark);
 		}
 	}
 
