@@ -18,7 +18,7 @@
 
 	let { data }: Props = $props();
 
-	let isDarkModeEnabled = $state(data.theme === Theme.Dark);
+	let isDarkModeEnabled = $derived(data.theme === Theme.Dark);
 	let y = $state(0);
 
 	function goTop() {
