@@ -24,7 +24,7 @@
 	</script>
 </svelte:head>
 
-<div class="relative">
+<div>
 	<Background />
 
 	<div class="mx-auto flex min-h-screen w-full max-w-7xl flex-col text-sm sm:text-base">
