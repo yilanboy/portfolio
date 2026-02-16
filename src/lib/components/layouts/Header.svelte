@@ -25,6 +25,13 @@
 		{ name: translation.about, link: '#about' }
 	]);
 
+	const languages = [
+		{ locale: Locale.En, label: 'English' },
+		{ locale: Locale.Cn, label: '简体中文' },
+		{ locale: Locale.Tw, label: '繁體中文' },
+		{ locale: Locale.Ja, label: '日本語' }
+	];
+
 	function toggleTheme() {
 		if (document.documentElement.getAttribute('data-theme') === Theme.Dark) {
 			isDarkModeEnabled = false;
@@ -96,46 +103,18 @@
 				tabindex="-1"
 			>
 				<div class="space-y-1 py-1">
-					<a
-						class={{
-							'bg-neutral-200 dark:bg-neutral-600': currentLocale === Locale.En,
-							'block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600': true
-						}}
-						data-sveltekit-noscroll
-						href="/{Locale.En}"
-					>
-						English
-					</a>
-					<a
-						class={{
-							'bg-neutral-200 dark:bg-neutral-600': currentLocale === Locale.Cn,
-							'block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600': true
-						}}
-						data-sveltekit-noscroll
-						href="/{Locale.Cn}"
-					>
-						简体中文
-					</a>
-					<a
-						class={{
-							'bg-neutral-200 dark:bg-neutral-600': currentLocale === Locale.Tw,
-							'block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600': true
-						}}
-						data-sveltekit-noscroll
-						href="/{Locale.Tw}"
-					>
-						繁體中文
-					</a>
-					<a
-						class={{
-							'bg-neutral-200 dark:bg-neutral-600': currentLocale === Locale.Ja,
-							'block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600': true
-						}}
-						data-sveltekit-noscroll
-						href="/{Locale.Ja}"
-					>
-						日本語
-					</a>
+					{#each languages as { locale, label }}
+						<a
+							class={{
+								'bg-neutral-200 dark:bg-neutral-600': currentLocale === locale,
+								'block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600': true
+							}}
+							data-sveltekit-noscroll
+							href="/{locale}"
+						>
+							{label}
+						</a>
+					{/each}
 				</div>
 			</div>
 		</div>
