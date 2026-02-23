@@ -44,4 +44,3 @@ export default {
 	introduction_highlight_part_4: ''
 };
 ```
-

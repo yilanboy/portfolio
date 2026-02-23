@@ -8,6 +8,7 @@ export default {
 	introduction_highlight_part_2: 'クラウドサービス',
 	introduction_part_3: 'に長けたバックエンドエンジニア。余暇には、',
 	introduction_highlight_part_3: 'フロントエンドとバックエンドの両方の技術',
-	introduction_part_4: 'を探求するのが好きです。性格は動的言語のよう自由だが、冗長な静的言語のように厳密さを追求したいと思っています。',
+	introduction_part_4:
+		'を探求するのが好きです。性格は動的言語のよう自由だが、冗長な静的言語のように厳密さを追求したいと思っています。',
 	introduction_highlight_part_4: ''
 };

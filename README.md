@@ -8,4 +8,3 @@ This project is made by [SvelteKit](https://kit.svelte.dev/).
 
 - [node](https://nodejs.org/en) ^19
 - [npm](https://www.npmjs.com/)
-
