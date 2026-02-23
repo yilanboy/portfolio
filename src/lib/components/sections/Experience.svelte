@@ -131,7 +131,7 @@
 					prev.style.setProperty('--scale', String(1 + scaleRange * Math.abs(offset - 1)));
 				}
 
-				// when offset are between 0 and 1, the current item will be scaled
+				// when the offset is between 0 and 1, the current item will be scaled
 				item.style.setProperty('--scale', String(1 + scaleRange));
 
 				if (next) {
@@ -140,7 +140,7 @@
 				}
 			};
 
-			// when mouse move on the skill item
+			// when the mouse moves on the skill item
 			item.addEventListener('mousemove', onMouseMove);
 			cleanups.push(() => item.removeEventListener('mousemove', onMouseMove));
 		}
