@@ -94,11 +94,17 @@
 		experience1: translation.experience_1
 	});
 
+	let sectionRef: HTMLElement;
+
 	function addDockAnimation() {
-		const allSkillList = document.querySelectorAll('.skill-list') as NodeListOf<HTMLDivElement>;
-		const skillItems = document.querySelectorAll(
+		if (!sectionRef) return () => {};
+
+		const allSkillList = sectionRef.querySelectorAll('.skill-list') as NodeListOf<HTMLDivElement>;
+		const skillItems = sectionRef.querySelectorAll(
 			'.skill-list .skill-item'
 		) as NodeListOf<HTMLDivElement>;
+
+		const cleanups: (() => void)[] = [];
 
 		function resetScale() {
 			for (let i = 0; i < skillItems.length; i++) {
@@ -109,8 +115,7 @@
 		for (let i = 0; i < skillItems.length; i++) {
 			const item = skillItems[i];
 
-			// when mouse move on the skill item
-			item.addEventListener('mousemove', (event: MouseEvent) => {
+			const onMouseMove = (event: MouseEvent) => {
 				const itemRect = item.getBoundingClientRect();
 				// calculate the offset of the mouse position relative to the item
 				// from left to right, the offset will be from 0 to 1
@@ -126,29 +131,38 @@
 					prev.style.setProperty('--scale', String(1 + scaleRange * Math.abs(offset - 1)));
 				}
 
-				// when offset are between 0 and 1, the current item will be scaled
+				// when the offset is between 0 and 1, the current item will be scaled
 				item.style.setProperty('--scale', String(1 + scaleRange));
 
 				if (next) {
 					// when offset close to 1, the next item will be scaled
 					next.style.setProperty('--scale', String(1 + scaleRange * offset));
 				}
-			});
+			};
+
+			// when the mouse moves on the skill item
+			item.addEventListener('mousemove', onMouseMove);
+			cleanups.push(() => item.removeEventListener('mousemove', onMouseMove));
 		}
 
 		for (let i = 0; i < allSkillList.length; i++) {
-			allSkillList[i].addEventListener('mouseleave', () => {
+			const onMouseLeave = () => {
 				resetScale();
-			});
+			};
+
+			allSkillList[i].addEventListener('mouseleave', onMouseLeave);
+			cleanups.push(() => allSkillList[i].removeEventListener('mouseleave', onMouseLeave));
 		}
+
+		return () => cleanups.forEach((fn) => fn());
 	}
 
 	onMount(() => {
-		addDockAnimation();
+		return addDockAnimation();
 	});
 </script>
 
-<section id="experience" class="flex flex-col gap-24 py-20">
+<section id="experience" bind:this={sectionRef} class="flex flex-col gap-24 py-20">
 	<div class="flex flex-col gap-2 text-center dark:text-neutral-50">
 		<h6 class="font-caveat text-2xl md:text-4xl">From Dev to DevOps</h6>
 		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
