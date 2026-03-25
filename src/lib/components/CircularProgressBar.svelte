@@ -28,16 +28,19 @@
 		const callback = (entries: IntersectionObserverEntry[]) => {
 			if (entries[0].intersectionRatio <= 0) return;
 
-			if (progress > 100) {
-				progress = 100;
+			let currentProgress = progress;
+			if (currentProgress > 100) {
+				currentProgress = 100;
 			}
 
-			bar.style.setProperty('--progress', `${progress}%`);
+			bar.style.setProperty('--progress', `${currentProgress}%`);
 		};
 
 		const intersectionObserver = new IntersectionObserver(callback, options);
 
 		intersectionObserver.observe(bar);
+
+		return () => intersectionObserver.disconnect();
 	});
 </script>
 
@@ -46,6 +49,10 @@
 	style:--bar-color={barColor}
 	style:--bar-background-color={barBackgroundColor}
 	role="progressbar"
+	aria-valuenow={Math.min(progress, 100)}
+	aria-valuemin={0}
+	aria-valuemax={100}
+	aria-label="Skill progress"
 	class="flex size-48 rounded-full"
 >
 	<div
@@ -60,7 +67,7 @@
 	@property --progress {
 		syntax: '<length-percentage>';
 		inherits: false;
-		initial-value: 3%;
+		initial-value: 0%;
 	}
 
 	[role='progressbar'] {

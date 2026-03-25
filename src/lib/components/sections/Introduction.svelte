@@ -17,6 +17,8 @@
 	let charIndex = 0;
 	let isDeleting = false;
 
+	let timeoutId: ReturnType<typeof setTimeout>;
+
 	function typeEffect() {
 		const currentWord = words[wordIndex];
 
@@ -25,25 +27,29 @@
 		if (!isDeleting && charIndex < currentWord.length) {
 			// dynamic text is typing
 			charIndex++;
-			setTimeout(typeEffect, 200);
+			timeoutId = setTimeout(typeEffect, 200);
 		} else if (isDeleting && charIndex > 0) {
 			// dynamic text is deleting
 			charIndex--;
-			setTimeout(typeEffect, 100);
+			timeoutId = setTimeout(typeEffect, 100);
 		} else if (!isDeleting && charIndex === currentWord.length) {
 			// dynamic text is finished, and change isDeleting to true
 			isDeleting = true;
-			setTimeout(typeEffect, 1500);
+			timeoutId = setTimeout(typeEffect, 1500);
 		} else {
 			// dynamic text is deleted, change isDeleting to false, and show next word
 			isDeleting = false;
 			wordIndex = (wordIndex + 1) % words.length;
-			setTimeout(typeEffect, 1200);
+			timeoutId = setTimeout(typeEffect, 1200);
 		}
 	}
 
 	onMount(() => {
 		typeEffect();
+
+		// The timeoutId only tracks the pending timer.
+		// Clearing it here safely breaks the recursive chain when unmounted.
+		return () => clearTimeout(timeoutId);
 	});
 </script>
 

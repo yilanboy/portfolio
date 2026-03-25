@@ -2,34 +2,31 @@
 	import { fade } from 'svelte/transition';
 	import AcrossMark from '$lib/components/icons/AcrossMark.svelte';
 	import type { Snippet } from 'svelte';
-	import { browser } from '$app/environment';
 
 	interface Props {
 		showModal?: boolean;
 		children?: Snippet;
 	}
 
-	let scrollbarWidth = $state(0);
-
 	let { showModal = $bindable(false), children }: Props = $props();
 
-	if (browser) {
-		scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-	}
-
-	$effect(() => {
-		if (showModal) {
-			document.documentElement.style.overflow = 'hidden';
-			document.documentElement.style.paddingRight = `${scrollbarWidth}px`;
-		} else {
-			document.documentElement.style.overflow = '';
-			document.documentElement.style.paddingRight = '';
+	function handleKeydown(event: KeyboardEvent) {
+		if (showModal && event.key === 'Escape') {
+			showModal = false;
 		}
-	});
+	}
 </script>
 
+<svelte:window onkeydown={handleKeydown} />
+
 {#if showModal}
-	<div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+	<div
+		class="relative z-10"
+		aria-labelledby="modal-title"
+		role="dialog"
+		aria-modal="true"
+		style:overflow={showModal ? 'hidden' : 'auto'}
+	>
 		<div
 			in:fade={{ delay: 150, duration: 100 }}
 			out:fade={{ delay: 200, duration: 100 }}
@@ -40,10 +37,10 @@
 		<div class="fixed inset-0 z-10 w-screen overflow-y-auto">
 			<div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
 				<div
+					tabindex="-1"
 					in:fade={{ delay: 200, duration: 100 }}
 					out:fade={{ duration: 100 }}
-					id="modal"
-					class="relative transform overflow-hidden rounded-lg bg-neutral-50 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl"
+					class="relative transform overflow-hidden rounded-lg bg-neutral-50 text-left shadow-xl transition-all focus:outline-hidden sm:my-8 sm:w-full sm:max-w-2xl"
 				>
 					<button onclick={() => (showModal = false)} type="button" class="absolute top-4 right-4">
 						<AcrossMark

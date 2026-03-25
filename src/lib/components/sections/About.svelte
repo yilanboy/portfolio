@@ -33,7 +33,7 @@
 		{translation.I_am_also}
 	</p>
 	<div class="mx-auto flex w-full max-w-3xl flex-col gap-20 dark:text-neutral-50">
-		{#each translation.strengths as strength, index (index)}
+		{#each translation.strengths as strength, index (index + strength.name)}
 			<div class="flex gap-6 sm:gap-8">
 				<p class="w-1/5 text-4xl font-semibold text-red-500 sm:text-5xl md:text-6xl">
 					{(index + 1).toString().padStart(2, '0')}

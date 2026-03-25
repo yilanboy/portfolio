@@ -24,7 +24,6 @@
 		iconComponent: Component;
 		progress: number;
 		barColor: string;
-		showExperienceModal: boolean;
 	};
 
 	let { isDarkModeEnabled, locale }: Props = $props();
@@ -32,63 +31,66 @@
 	let barBackgroundColor = $derived(isDarkModeEnabled ? '#404040' : '#e5e7eb');
 	let centerBackgroundColor = $derived(isDarkModeEnabled ? '#262626' : '#f9fafb');
 
-	let skills: { [Name: string]: SkillProgressBar } = $state({
+	const skills: { [Name: string]: SkillProgressBar } = {
 		aws: {
 			name: 'AWS',
 			iconComponent: Aws,
 			progress: 65,
-			barColor: '#ff9900',
-			showExperienceModal: false
+			barColor: '#ff9900'
 		},
 		azure: {
 			name: 'Azure',
 			iconComponent: Azure,
 			progress: 20,
-			barColor: '#138dd8',
-			showExperienceModal: false
+			barColor: '#138dd8'
 		},
 		laravel: {
 			name: 'Laravel',
 			iconComponent: Laravel,
 			progress: 70,
-			barColor: '#ff2c20',
-			showExperienceModal: false
+			barColor: '#ff2c20'
 		},
 		livewire: {
 			name: 'Livewire',
 			iconComponent: Livewire,
 			progress: 70,
-			barColor: '#fb70a9',
-			showExperienceModal: false
+			barColor: '#fb70a9'
 		},
 		svelte: {
 			name: 'Svelte',
 			iconComponent: Svelte,
 			progress: 20,
-			barColor: '#f73c00',
-			showExperienceModal: false
+			barColor: '#f73c00'
 		},
 		tailwindCSS: {
 			name: 'Tailwind CSS',
 			iconComponent: TailwindCss,
 			progress: 50,
-			barColor: '#38bdf8',
-			showExperienceModal: false
+			barColor: '#38bdf8'
 		},
 		terraform: {
 			name: 'Terraform',
 			iconComponent: Terraform,
 			progress: 75,
-			barColor: '#7c3aec',
-			showExperienceModal: false
+			barColor: '#7c3aec'
 		},
 		ansible: {
 			name: 'Ansible',
 			iconComponent: Ansible,
 			progress: 20,
-			barColor: '#5d5d5d',
-			showExperienceModal: false
+			barColor: '#5d5d5d'
 		}
+	};
+
+	let showExperienceModal: { [Name: string]: boolean } = $state({
+		aws: false,
+		azure: false,
+		laravel: false,
+		livewire: false,
+		svelte: false,
+		tailwindCSS: false,
+		terraform: false,
+		ansible: false
 	});
 
 	let skillExperiences: { [Name: string]: string[] } = $derived({
@@ -129,7 +131,7 @@
 					{centerBackgroundColor}
 				>
 					<button
-						onmouseup={() => (skill.showExperienceModal = true)}
+						onclick={() => (showExperienceModal[key] = true)}
 						type="button"
 						class="cursor-pointer transition-all duration-150 active:scale-[0.95]"
 					>
@@ -137,8 +139,8 @@
 					</button>
 				</CircularProgressBar>
 
-				<Modal bind:showModal={skill.showExperienceModal}>
-					<h3 class="text-xl leading-6 font-semibold text-neutral-900 dark:text-neutral-50">
+				<Modal bind:showModal={showExperienceModal[key]}>
+					<h3 id="modal-title" class="text-xl leading-6 font-semibold text-neutral-900 dark:text-neutral-50">
 						{skill.name}
 					</h3>
 					<div class="mt-4 divide-y-2 divide-dashed divide-neutral-300 dark:divide-neutral-700">

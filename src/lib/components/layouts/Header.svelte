@@ -32,19 +32,14 @@
 		{ locale: Locale.Ja, label: '日本語' }
 	];
 
-	function toggleTheme() {
-		if (document.documentElement.getAttribute('data-theme') === Theme.Dark) {
-			isDarkModeEnabled = false;
-			theme.update(() => Theme.Light);
-			document.cookie = `theme=${Theme.Light}`;
-			document.documentElement.setAttribute('data-theme', Theme.Light);
-		} else {
-			isDarkModeEnabled = true;
-			theme.update(() => Theme.Dark);
-			document.cookie = `theme=${Theme.Dark}`;
-			document.documentElement.setAttribute('data-theme', Theme.Dark);
+	$effect(() => {
+		const currentTheme = isDarkModeEnabled ? Theme.Dark : Theme.Light;
+		if (document.documentElement.getAttribute('data-theme') !== currentTheme) {
+			theme.update(() => currentTheme);
+			document.cookie = `theme=${currentTheme}`;
+			document.documentElement.setAttribute('data-theme', currentTheme);
 		}
-	}
+	});
 
 	function toggleLanguageDropdown() {
 		showLanguageDropdown = !showLanguageDropdown;
@@ -120,7 +115,7 @@
 		</div>
 
 		<div class="flex items-center justify-center gap-2">
-			<Toggle bind:isEnabled={isDarkModeEnabled} onclick={toggleTheme}>
+			<Toggle bind:isEnabled={isDarkModeEnabled}>
 				{#snippet iconShowOnDisabled()}
 					<Sun className="size-3" />
 				{/snippet}

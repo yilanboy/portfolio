@@ -3,23 +3,19 @@
 
 	interface Props {
 		isEnabled?: boolean;
-		onclick?: () => void;
 		iconShowOnDisabled?: Snippet;
 		iconShowOnEnabled?: Snippet;
 	}
 
 	let {
 		isEnabled = $bindable(false),
-		onclick = () => {
-			isEnabled = !isEnabled;
-		},
 		iconShowOnDisabled,
 		iconShowOnEnabled
 	}: Props = $props();
 </script>
 
 <button
-	{onclick}
+	onclick={() => (isEnabled = !isEnabled)}
 	class={{
 		'bg-violet-500': isEnabled,
 		'bg-gray-200': !isEnabled,
@@ -27,7 +23,7 @@
 	}}
 	type="button"
 	role="switch"
-	aria-checked="false"
+	aria-checked={isEnabled}
 >
 	<span class="sr-only">Use setting</span>
 	<span
