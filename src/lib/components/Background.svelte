@@ -1,119 +1,67 @@
 <script lang="ts">
 	import Controller from '$lib/components/icons/Controller.svelte';
-	import PersonWalking from '$lib/components/icons/PersonWalking.svelte';
 	import RocketTakeoff from '$lib/components/icons/RocketTakeoff.svelte';
-	import ChatHeart from '$lib/components/icons/ChatHeart.svelte';
-	import Easel from '$lib/components/icons/Easel.svelte';
 	import GlobeAmericas from '$lib/components/icons/GlobeAmericas.svelte';
 	import Bug from '$lib/components/icons/Bug.svelte';
-	import FolderOpen from '$lib/components/icons/FolderOpen.svelte';
 	import Cloud from '$lib/components/icons/Cloud.svelte';
 	import Cpu from '$lib/components/icons/Cpu.svelte';
 	import Terminal from '$lib/components/icons/Terminal.svelte';
-	import Php from '$lib/components/icons/Php.svelte';
 	import TypeScript from '$lib/components/icons/TypeScript.svelte';
-	import ClipboardCheck from '$lib/components/icons/ClipboardCheck.svelte';
-	import Floppy from '$lib/components/icons/Floppy.svelte';
-	import HandThumbsUp from '$lib/components/icons/HandThumbsUp.svelte';
 	import Lightbulb from '$lib/components/icons/Lightbulb.svelte';
 	import MusicNoteBeamed from '$lib/components/icons/MusicNoteBeamed.svelte';
-	import BatteryCharging from '$lib/components/icons/BatteryCharging.svelte';
-	import CupHot from '$lib/components/icons/CupHot.svelte';
 </script>
 
-<div class="fixed top-0 right-1/2 h-screen w-full max-w-480 translate-x-1/2">
+<div
+	class="pointer-events-none fixed top-0 right-1/2 h-screen w-full max-w-480 translate-x-1/2"
+	aria-hidden="true"
+>
 	<div id="background-left">
-		<div class="absolute top-16 left-[22%] hidden lg:block">
-			<HandThumbsUp className="size-24 rotate-12 text-neutral-200/40 dark:text-neutral-700/40" />
+		<div class="absolute top-24 left-[6%] hidden md:block">
+			<Controller className="size-32 rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
 		</div>
 
-		<div class="absolute top-40 left-[4%] hidden md:block">
-			<Controller className="rotate-12 size-42 text-neutral-200/40 dark:text-neutral-700/40" />
+		<div class="absolute top-72 left-[30%] hidden lg:block">
+			<Lightbulb className="size-20 -rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
 		</div>
 
-		<div class="absolute top-64 left-[36%] hidden lg:block">
-			<Lightbulb className="size-24 -rotate-12 text-neutral-200/40 dark:text-neutral-700/40" />
-		</div>
-
-		<div class="absolute top-88 left-[16%] hidden lg:block">
-			<PersonWalking className="size-36 -rotate-12 text-neutral-200/40 dark:text-neutral-700/40" />
-		</div>
-
-		<div class="absolute top-112 left-[36%] hidden lg:block">
-			<BatteryCharging
-				className="size-24 -rotate-12 text-neutral-200/40 dark:text-neutral-700/40"
-			/>
-		</div>
-
-		<div class="absolute top-132 left-[4%] hidden lg:block">
+		<div class="absolute top-128 left-[8%] hidden lg:block">
 			<RocketTakeoff
-				className="size-24 scale-x-[-1] text-neutral-200/40 dark:text-neutral-700/40"
+				className="size-36 scale-x-[-1] text-neutral-200/25 dark:text-neutral-700/30"
 			/>
 		</div>
 
-		<div class="absolute top-156 left-[20%] hidden md:block">
-			<ChatHeart className="size-42 -rotate-12 text-neutral-200/40 dark:text-neutral-700/40" />
-		</div>
-
-		<div class="absolute top-176 left-[36%] hidden lg:block">
-			<Easel className="size-24 rotate-12 text-neutral-200/40 dark:text-neutral-700/40" />
-		</div>
-
-		<div class="absolute top-200 left-[6%] hidden lg:block">
+		<div class="absolute top-184 left-[28%] hidden lg:block">
 			<GlobeAmericas
-				className="size-36 -rotate-12 scale-x-[-1] text-neutral-200/40 dark:text-neutral-700/40"
+				className="size-24 -rotate-6 scale-x-[-1] text-neutral-200/25 dark:text-neutral-700/30"
 			/>
 		</div>
 
-		<div class="absolute top-224 left-[28%] hidden lg:block">
-			<MusicNoteBeamed className="size-24 rotate-12 text-neutral-200/40 dark:text-neutral-700/40" />
+		<div class="absolute top-232 left-[10%] hidden lg:block">
+			<MusicNoteBeamed className="size-20 rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
 		</div>
 	</div>
 
 	<div id="background-right">
-		<div class="absolute top-20 right-[22%] hidden lg:block">
-			<Bug className="size-24 rotate-45 text-neutral-200/40 dark:text-neutral-700/40" />
+		<div class="absolute top-32 right-[28%] hidden lg:block">
+			<Bug className="size-20 rotate-12 text-neutral-200/25 dark:text-neutral-700/30" />
 		</div>
 
-		<div class="absolute top-44 right-[4%] hidden lg:block">
-			<FolderOpen className="size-24 rotate-12 text-neutral-200/40 dark:text-neutral-700/40" />
+		<div class="absolute top-80 right-[6%] hidden md:block">
+			<Cloud className="size-36 rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
 		</div>
 
-		<div class="absolute top-40 right-[36%] hidden lg:block">
-			<Cloud className="size-42 rotate-12 text-neutral-200/40 dark:text-neutral-700/40" />
+		<div class="absolute top-136 right-[26%] hidden lg:block">
+			<Cpu className="size-24 -rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
 		</div>
 
-		<div class="absolute top-92 right-[14%] hidden md:block">
-			<Floppy className="size-42 -rotate-12 text-neutral-200/40 dark:text-neutral-700/40" />
+		<div class="absolute top-192 right-[8%] hidden lg:block">
+			<Terminal className="size-28 rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
 		</div>
 
-		<div class="absolute top-116 right-[36%] hidden lg:block">
-			<CupHot className="size-24 rotate-12 text-neutral-200/40 dark:text-neutral-700/40" />
-		</div>
-
-		<div class="absolute top-136 right-[4%] hidden lg:block">
-			<Cpu className="size-24 -rotate-12 text-neutral-200/40 dark:text-neutral-700/40" />
-		</div>
-
-		<div class="absolute top-160 right-[24%] hidden lg:block">
-			<Terminal className="size-24 rotate-12 text-neutral-200/40 dark:text-neutral-700/40" />
-		</div>
-
-		<div class="absolute top-184 right-[38%] hidden lg:block">
-			<ClipboardCheck className="size-24 rotate-12 text-neutral-200/40 dark:text-neutral-700/40" />
-		</div>
-
-		<div class="absolute top-208 right-[6%] hidden md:block">
-			<Php
-				className="size-42 rotate-12"
-				pathClassName="fill-neutral-200/40 dark:fill-neutral-700/40"
-			/>
-		</div>
-
-		<div class="absolute top-232 right-[30%] hidden lg:block">
+		<div class="absolute top-240 right-[30%] hidden lg:block">
 			<TypeScript
-				className="size-24 -rotate-12"
-				rectClassName="fill-neutral-200/40 dark:fill-neutral-700/40"
+				className="size-20"
+				rectClassName="fill-neutral-200/25 dark:fill-neutral-700/30"
 				pathClassName="fill-neutral-50 dark:fill-neutral-800"
 			/>
 		</div>
@@ -121,29 +69,31 @@
 </div>
 
 <style>
-	@keyframes pop-from-bottom-to-right {
-		from {
-			top: 130%;
-			right: 50%;
+	@media (prefers-reduced-motion: no-preference) {
+		@keyframes pop-from-bottom-to-right {
+			from {
+				top: 130%;
+				right: 50%;
+			}
 		}
-	}
 
-	@keyframes pop-from-bottom-to-left {
-		from {
-			top: 130%;
-			left: 50%;
+		@keyframes pop-from-bottom-to-left {
+			from {
+				top: 130%;
+				left: 50%;
+			}
 		}
-	}
 
-	#background-right > div {
-		animation-duration: 3s;
-		animation-timing-function: cubic-bezier(0.2, 0.7, 0, 1);
-		animation-name: pop-from-bottom-to-right;
-	}
+		#background-right > div {
+			animation-duration: 3s;
+			animation-timing-function: cubic-bezier(0.2, 0.7, 0, 1);
+			animation-name: pop-from-bottom-to-right;
+		}
 
-	#background-left > div {
-		animation-duration: 3s;
-		animation-timing-function: cubic-bezier(0.2, 0.7, 0, 1);
-		animation-name: pop-from-bottom-to-left;
+		#background-left > div {
+			animation-duration: 3s;
+			animation-timing-function: cubic-bezier(0.2, 0.7, 0, 1);
+			animation-name: pop-from-bottom-to-left;
+		}
 	}
 </style>
