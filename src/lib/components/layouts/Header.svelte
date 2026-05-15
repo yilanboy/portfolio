@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Toggle from '$lib/components/Toggle.svelte';
-	import { theme } from '$lib/stores';
+	import { theme } from '$lib/theme.svelte';
+	import { resolve } from '$app/paths';
 	import Sun from '$lib/components/icons/Sun.svelte';
 	import Moon from '$lib/components/icons/Moon.svelte';
 	import { Theme, Locale } from '$lib/enums';
@@ -35,7 +36,7 @@
 	$effect(() => {
 		const currentTheme = isDarkModeEnabled ? Theme.Dark : Theme.Light;
 		if (document.documentElement.getAttribute('data-theme') !== currentTheme) {
-			theme.update(() => currentTheme);
+			theme.current = currentTheme;
 			document.cookie = `theme=${currentTheme}`;
 			document.documentElement.setAttribute('data-theme', currentTheme);
 		}
@@ -98,14 +99,14 @@
 				tabindex="-1"
 			>
 				<div class="space-y-1 py-1">
-					{#each languages as { locale, label }}
+					{#each languages as { locale, label } ('menu-item-' + label)}
 						<a
 							class={{
 								'bg-neutral-200 dark:bg-neutral-600': currentLocale === locale,
 								'block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600': true
 							}}
 							data-sveltekit-noscroll
-							href="/{locale}"
+							href={resolve('/[locale]', { locale: locale })}
 						>
 							{label}
 						</a>
