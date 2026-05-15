@@ -1,4 +1,4 @@
-import { describe, it, expect, afterEach } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import { mount, unmount, flushSync } from 'svelte';
 import CircularProgressBar from './CircularProgressBar.svelte';
 
@@ -10,7 +10,45 @@ afterEach(async () => {
 		instance = null;
 	}
 	document.body.innerHTML = '';
+	vi.restoreAllMocks();
 });
+
+type IOCallback = (entries: { intersectionRatio: number }[]) => void;
+
+function installMockIntersectionObserver() {
+	const captured: { callback: IOCallback; target: Element | null }[] = [];
+
+	class MockIO {
+		callback: IOCallback;
+		target: Element | null = null;
+
+		constructor(cb: IOCallback) {
+			this.callback = cb;
+			captured.push({ callback: cb, target: null });
+		}
+
+		observe(target: Element) {
+			this.target = target;
+			captured[captured.length - 1].target = target;
+		}
+
+		unobserve() {}
+		disconnect() {}
+		takeRecords() {
+			return [];
+		}
+	}
+
+	vi.stubGlobal('IntersectionObserver', MockIO);
+
+	return {
+		fire(ratio: number) {
+			for (const { callback } of captured) {
+				callback([{ intersectionRatio: ratio }]);
+			}
+		}
+	};
+}
 
 function getBar() {
 	return document.querySelector('[role="progressbar"]') as HTMLElement | null;
@@ -99,5 +137,50 @@ describe('CircularProgressBar', () => {
 		flushSync();
 
 		expect(getBar()?.getAttribute('aria-label')).toBeTruthy();
+	});
+
+	it('writes the --progress CSS variable once the bar intersects the viewport', () => {
+		const io = installMockIntersectionObserver();
+
+		instance = mount(CircularProgressBar, {
+			target: document.body,
+			props: { progress: 65 }
+		});
+		flushSync();
+
+		// Before intersection, the variable is unset.
+		expect(getBar()?.style.getPropertyValue('--progress')).toBe('');
+
+		io.fire(1);
+
+		expect(getBar()?.style.getPropertyValue('--progress')).toBe('65%');
+	});
+
+	it('does not write --progress when the intersectionRatio is 0', () => {
+		const io = installMockIntersectionObserver();
+
+		instance = mount(CircularProgressBar, {
+			target: document.body,
+			props: { progress: 65 }
+		});
+		flushSync();
+
+		io.fire(0);
+
+		expect(getBar()?.style.getPropertyValue('--progress')).toBe('');
+	});
+
+	it('clamps --progress at 100% even when the prop exceeds 100', () => {
+		const io = installMockIntersectionObserver();
+
+		instance = mount(CircularProgressBar, {
+			target: document.body,
+			props: { progress: 250 }
+		});
+		flushSync();
+
+		io.fire(1);
+
+		expect(getBar()?.style.getPropertyValue('--progress')).toBe('100%');
 	});
 });

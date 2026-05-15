@@ -1,10 +1,15 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { get } from 'svelte/store';
 import { theme } from './stores';
 import { Theme } from './enums';
 
 describe('theme store', () => {
-	it('defaults to Light', () => {
+	// The store is module-level state shared across tests. Reset before each.
+	beforeEach(() => {
+		theme.set(Theme.Light);
+	});
+
+	it('defaults to Light at the start of a test', () => {
 		expect(get(theme)).toBe(Theme.Light);
 	});
 

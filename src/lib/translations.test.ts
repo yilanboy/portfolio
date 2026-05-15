@@ -49,9 +49,9 @@ describe('translations', () => {
 
 	it('every locale shares the same skill experience keys (arrays of strings)', () => {
 		const enSkill = translations[Locale.En].skill;
-		const arrayKeys = (
-			Object.keys(enSkill) as (keyof typeof enSkill)[]
-		).filter((k) => Array.isArray(enSkill[k]));
+		const arrayKeys = (Object.keys(enSkill) as (keyof typeof enSkill)[]).filter((k) =>
+			Array.isArray(enSkill[k])
+		);
 
 		for (const locale of allLocales) {
 			for (const key of arrayKeys) {
@@ -81,7 +81,12 @@ describe('translations', () => {
 	});
 
 	it('every locale defines all four experience entries with title and content', () => {
-		const experienceKeys = ['experience_1', 'experience_2', 'experience_3', 'experience_4'] as const;
+		const experienceKeys = [
+			'experience_1',
+			'experience_2',
+			'experience_3',
+			'experience_4'
+		] as const;
 
 		for (const locale of allLocales) {
 			const experience = translations[locale].experience;
@@ -100,6 +105,32 @@ describe('translations', () => {
 		for (const locale of allLocales) {
 			expect(translations[locale].header.check_my_blog).toBeTypeOf('string');
 			expect(translations[locale].header.check_my_blog.length).toBeGreaterThan(0);
+		}
+	});
+
+	it('non-English locales actually translate the header — they are not raw copies of English', () => {
+		const en = translations[Locale.En].header;
+
+		for (const locale of [Locale.Cn, Locale.Tw, Locale.Ja]) {
+			const localized = translations[locale].header;
+			expect(localized.project, `${locale}.header.project must differ from English`).not.toBe(
+				en.project
+			);
+			expect(
+				localized.check_my_blog,
+				`${locale}.header.check_my_blog must differ from English`
+			).not.toBe(en.check_my_blog);
+		}
+	});
+
+	it('non-English locales actually translate the about section title', () => {
+		const en = translations[Locale.En].about;
+
+		for (const locale of [Locale.Cn, Locale.Tw, Locale.Ja]) {
+			expect(
+				translations[locale].about.section_title_highlight,
+				`${locale}.about.section_title_highlight must differ from English`
+			).not.toBe(en.section_title_highlight);
 		}
 	});
 });

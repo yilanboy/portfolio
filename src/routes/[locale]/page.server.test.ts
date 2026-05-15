@@ -188,4 +188,36 @@ describe('[locale]/+page.server load', () => {
 
 		expect(fetch).toHaveBeenCalledWith('https://docfunc.com/api/posts');
 	});
+
+	it('propagates a network failure when the posts fetch rejects (no swallow)', async () => {
+		// The load function only handles `ok: false`. A rejected fetch should bubble
+		// up so SvelteKit can render an error page rather than silently serving an
+		// empty list when the network is broken.
+		const cookies = makeCookies();
+		const fetch = vi.fn(async () => {
+			throw new Error('network down');
+		});
+
+		await expect(
+			load({
+				params: { locale: Locale.En },
+				cookies: cookies.jar,
+				fetch
+			} as unknown as LoadArgs)
+		).rejects.toThrow('network down');
+	});
+
+	it('writes the locale cookie before redirecting when the cookie locale is the only valid source', async () => {
+		const cookies = makeCookies({ locale: Locale.Ja });
+		const fetch = okFetch({ data: [] });
+
+		await callLoad({
+			params: { locale: 'fr' },
+			cookies: cookies.jar,
+			fetch
+		} as unknown as LoadArgs);
+
+		// the implementation rewrites the cookie before throwing the redirect
+		expect(cookies.jar.set).toHaveBeenCalledWith('locale', Locale.Ja, { path: '/' });
+	});
 });
