@@ -21,9 +21,9 @@
 	let showLanguageDropdown = $state(false);
 
 	let tabs = $derived([
-		{ name: translation.project, link: '#project' },
-		{ name: translation.experiences, link: '#experience' },
-		{ name: translation.about, link: '#about' }
+		{ name: translation.project, id: 'project' },
+		{ name: translation.experiences, id: 'experience' },
+		{ name: translation.about, id: 'about' }
 	]);
 
 	const languages = [
@@ -129,7 +129,8 @@
 
 		{#each tabs as tab (tab.name)}
 			<a
-				href={tab.link}
+				data-sveltekit-replacestate
+				href={'#' + tab.id}
 				class="hover:text-neutral-600 dark:text-neutral-50 dark:hover:text-neutral-200"
 			>
 				<p>{tab.name}</p>
