@@ -1,14 +1,14 @@
 <script lang="ts">
-	import Controller from '$lib/components/icons/Controller.svelte';
-	import RocketTakeoff from '$lib/components/icons/RocketTakeoff.svelte';
-	import GlobeAmericas from '$lib/components/icons/GlobeAmericas.svelte';
-	import Bug from '$lib/components/icons/Bug.svelte';
-	import Cloud from '$lib/components/icons/Cloud.svelte';
-	import Cpu from '$lib/components/icons/Cpu.svelte';
-	import Terminal from '$lib/components/icons/Terminal.svelte';
+	import Controller from '@lucide/svelte/icons/gamepad-2';
+	import RocketTakeoff from '@lucide/svelte/icons/rocket';
+	import GlobeAmericas from '@lucide/svelte/icons/globe';
+	import Bug from '@lucide/svelte/icons/bug';
+	import Cloud from '@lucide/svelte/icons/cloud';
+	import Cpu from '@lucide/svelte/icons/cpu';
+	import Terminal from '@lucide/svelte/icons/terminal';
 	import TypeScript from '$lib/components/icons/TypeScript.svelte';
-	import Lightbulb from '$lib/components/icons/Lightbulb.svelte';
-	import MusicNoteBeamed from '$lib/components/icons/MusicNoteBeamed.svelte';
+	import Lightbulb from '@lucide/svelte/icons/lightbulb';
+	import MusicNoteBeamed from '@lucide/svelte/icons/music';
 </script>
 
 <div
@@ -17,45 +17,43 @@
 >
 	<div id="background-left">
 		<div class="absolute top-24 left-[6%] hidden md:block">
-			<Controller className="size-32 rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
+			<Controller class="size-32 rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
 		</div>
 
 		<div class="absolute top-72 left-[30%] hidden lg:block">
-			<Lightbulb className="size-20 -rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
+			<Lightbulb class="size-20 -rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
 		</div>
 
 		<div class="absolute top-128 left-[8%] hidden lg:block">
-			<RocketTakeoff
-				className="size-36 scale-x-[-1] text-neutral-200/25 dark:text-neutral-700/30"
-			/>
+			<RocketTakeoff class="size-36 scale-x-[-1] text-neutral-200/25 dark:text-neutral-700/30" />
 		</div>
 
 		<div class="absolute top-184 left-[28%] hidden lg:block">
 			<GlobeAmericas
-				className="size-24 -rotate-6 scale-x-[-1] text-neutral-200/25 dark:text-neutral-700/30"
+				class="size-24 -rotate-6 scale-x-[-1] text-neutral-200/25 dark:text-neutral-700/30"
 			/>
 		</div>
 
 		<div class="absolute top-232 left-[10%] hidden lg:block">
-			<MusicNoteBeamed className="size-20 rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
+			<MusicNoteBeamed class="size-20 rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
 		</div>
 	</div>
 
 	<div id="background-right">
 		<div class="absolute top-32 right-[28%] hidden lg:block">
-			<Bug className="size-20 rotate-12 text-neutral-200/25 dark:text-neutral-700/30" />
+			<Bug class="size-20 rotate-12 text-neutral-200/25 dark:text-neutral-700/30" />
 		</div>
 
 		<div class="absolute top-80 right-[6%] hidden md:block">
-			<Cloud className="size-36 rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
+			<Cloud class="size-36 rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
 		</div>
 
 		<div class="absolute top-136 right-[26%] hidden lg:block">
-			<Cpu className="size-24 -rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
+			<Cpu class="size-24 -rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
 		</div>
 
 		<div class="absolute top-192 right-[8%] hidden lg:block">
-			<Terminal className="size-28 rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
+			<Terminal class="size-28 rotate-6 text-neutral-200/25 dark:text-neutral-700/30" />
 		</div>
 
 		<div class="absolute top-240 right-[30%] hidden lg:block">

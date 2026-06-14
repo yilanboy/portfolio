@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import AcrossMark from '$lib/components/icons/AcrossMark.svelte';
+	import AcrossMark from '@lucide/svelte/icons/x';
 	import type { Snippet } from 'svelte';
 
 	interface Props {
@@ -44,7 +44,7 @@
 				>
 					<button onclick={() => (showModal = false)} type="button" class="absolute top-4 right-4">
 						<AcrossMark
-							className="size-10 text-neutral-400 transition duration-150 hover:text-neutral-600 dark:hover:text-neutral-200 cursor-pointer"
+							class="size-10 cursor-pointer text-neutral-400 transition duration-150 hover:text-neutral-600 dark:hover:text-neutral-200"
 						/>
 					</button>
 					<div class="bg-neutral-50 px-4 pt-5 pb-4 sm:p-6 sm:pb-4 dark:bg-neutral-800">

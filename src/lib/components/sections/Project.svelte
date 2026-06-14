@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Step from '$lib/components/Step.svelte';
-	import FileEarmarkRichText from '$lib/components/icons/FileEarmarkRichText.svelte';
-	import JournalText from '$lib/components/icons/JournalText.svelte';
-	import Easel from '$lib/components/icons/Easel.svelte';
+	import FileEarmarkRichText from '@lucide/svelte/icons/file-text';
+	import JournalText from '@lucide/svelte/icons/notebook-text';
+	import Easel from '@lucide/svelte/icons/palette';
 	import type { ProjectTranslation } from '$lang/type/project.type';
 	import type { Locale } from '$lib/enums';
 	import { translations } from '$lib/translations';
@@ -83,7 +83,7 @@
 		{#each Object.entries(steps) as [key, step] (key)}
 			<Step name={step.name} url={step.url} forwardText={translation.go}>
 				{#snippet icon()}
-					<step.iconComponent className="size-12" />
+					<step.iconComponent class="size-12" />
 				{/snippet}
 
 				{#snippet content()}

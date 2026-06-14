@@ -7,7 +7,7 @@
 	import About from '$lib/components/sections/About.svelte';
 	import Footer from '$lib/components/layouts/Footer.svelte';
 	import { Theme } from '$lib/enums';
-	import ArrowUp from '$lib/components/icons/ArrowUp.svelte';
+	import ArrowUp from '@lucide/svelte/icons/arrow-up';
 	import { fade } from 'svelte/transition';
 	import type { PageServerData } from './$types';
 	import Posts from '$lib/components/sections/Posts.svelte';
@@ -47,7 +47,7 @@
 			onclick={goTop}
 			class="ml-auto grid aspect-square cursor-pointer place-items-center rounded-full bg-slate-900 px-3 text-neutral-50 transition duration-200 hover:bg-slate-700 sm:px-4 dark:bg-slate-600 dark:hover:bg-slate-500"
 		>
-			<ArrowUp />
+			<ArrowUp class="size-6" />
 		</button>
 	</div>
 

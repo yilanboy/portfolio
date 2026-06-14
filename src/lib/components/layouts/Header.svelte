@@ -2,10 +2,10 @@
 	import Toggle from '$lib/components/Toggle.svelte';
 	import { theme } from '$lib/theme.svelte';
 	import { resolve } from '$app/paths';
-	import Sun from '$lib/components/icons/Sun.svelte';
-	import Moon from '$lib/components/icons/Moon.svelte';
+	import Sun from '@lucide/svelte/icons/sun';
+	import Moon from '@lucide/svelte/icons/moon';
 	import { Theme, Locale } from '$lib/enums';
-	import Language from '$lib/components/icons/Language.svelte';
+	import Language from '@lucide/svelte/icons/languages';
 
 	import type { HeaderTranslation } from '$lang/type/header.type';
 	import { translations } from '$lib/translations';
@@ -83,7 +83,7 @@
 					aria-haspopup="true"
 					aria-label="change language"
 				>
-					<Language className="size-6 dark:text-neutral-50" />
+					<Language class="size-6 dark:text-neutral-50" />
 				</button>
 			</div>
 
@@ -118,11 +118,11 @@
 		<div class="flex items-center justify-center gap-2">
 			<Toggle bind:isEnabled={isDarkModeEnabled}>
 				{#snippet iconShowOnDisabled()}
-					<Sun className="size-3" />
+					<Sun class="size-3" />
 				{/snippet}
 
 				{#snippet iconShowOnEnabled()}
-					<Moon className="size-3 text-violet-500" />
+					<Moon class="size-3 text-violet-500" />
 				{/snippet}
 			</Toggle>
 		</div>
