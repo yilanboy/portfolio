@@ -1,11 +1,11 @@
 export enum Theme {
-	Light = 'light',
-	Dark = 'dark'
+  Light = "light",
+  Dark = "dark",
 }
 
 export enum Locale {
-	En = 'en',
-	Cn = 'zh-cn',
-	Tw = 'zh-tw',
-	Ja = 'ja'
+  En = "en",
+  Cn = "zh-cn",
+  Tw = "zh-tw",
+  Ja = "ja",
 }

@@ -1,5 +1,5 @@
 export default {
-	content_prefix: 'Made with',
-	and: 'and',
-	content_suffix: ''
+  content_prefix: "Made with",
+  and: "and",
+  content_suffix: "",
 };

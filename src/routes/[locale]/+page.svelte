@@ -1,71 +1,71 @@
 <script lang="ts">
-	import Header from '$lib/components/layouts/Header.svelte';
-	import Introduction from '$lib/components/sections/Introduction.svelte';
-	import Project from '$lib/components/sections/Project.svelte';
-	import Experience from '$lib/components/sections/Experience.svelte';
-	import Skill from '$lib/components/sections/Skill.svelte';
-	import About from '$lib/components/sections/About.svelte';
-	import Footer from '$lib/components/layouts/Footer.svelte';
-	import { Theme } from '$lib/enums';
-	import ArrowUp from '@lucide/svelte/icons/arrow-up';
-	import { fade } from 'svelte/transition';
-	import type { PageServerData } from './$types';
-	import Posts from '$lib/components/sections/Posts.svelte';
+  import Header from "$lib/components/layouts/Header.svelte";
+  import Introduction from "$lib/components/sections/Introduction.svelte";
+  import Project from "$lib/components/sections/Project.svelte";
+  import Experience from "$lib/components/sections/Experience.svelte";
+  import Skill from "$lib/components/sections/Skill.svelte";
+  import About from "$lib/components/sections/About.svelte";
+  import Footer from "$lib/components/layouts/Footer.svelte";
+  import { Theme } from "$lib/enums";
+  import ArrowUp from "@lucide/svelte/icons/arrow-up";
+  import { fade } from "svelte/transition";
+  import type { PageServerData } from "./$types";
+  import Posts from "$lib/components/sections/Posts.svelte";
 
-	interface Props {
-		data: PageServerData;
-	}
+  interface Props {
+    data: PageServerData;
+  }
 
-	let { data }: Props = $props();
+  let { data }: Props = $props();
 
-	let isDarkModeEnabled = $derived(data.theme === Theme.Dark);
-	let y = $state(0);
+  let isDarkModeEnabled = $derived(data.theme === Theme.Dark);
+  let y = $state(0);
 
-	function goTop() {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-	}
+  function goTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 </script>
 
 <svelte:head>
-	<title>Allen's Portfolio</title>
+  <title>Allen's Portfolio</title>
 </svelte:head>
 
 <svelte:window bind:scrollY={y} />
 
 <div
-	transition:fade
-	class="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col text-sm sm:text-base"
+  transition:fade
+  class="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col text-sm sm:text-base"
 >
-	<div
-		class={{
-			'fixed right-0 bottom-0 z-10 flex p-10 duration-200': true,
-			'opacity-full pointer-events-auto': y > 0,
-			'pointer-events-none opacity-0': y <= 0
-		}}
-	>
-		<button
-			onclick={goTop}
-			class="ml-auto grid aspect-square cursor-pointer place-items-center rounded-full bg-slate-900 px-3 text-neutral-50 transition duration-200 hover:bg-slate-700 sm:px-4 dark:bg-slate-600 dark:hover:bg-slate-500"
-		>
-			<ArrowUp class="size-6" />
-		</button>
-	</div>
+  <div
+    class={{
+      "fixed right-0 bottom-0 z-10 flex p-10 duration-200": true,
+      "opacity-full pointer-events-auto": y > 0,
+      "pointer-events-none opacity-0": y <= 0,
+    }}
+  >
+    <button
+      onclick={goTop}
+      class="ml-auto grid aspect-square cursor-pointer place-items-center rounded-full bg-slate-900 px-3 text-neutral-50 transition duration-200 hover:bg-slate-700 sm:px-4 dark:bg-slate-600 dark:hover:bg-slate-500"
+    >
+      <ArrowUp class="size-6" />
+    </button>
+  </div>
 
-	<Header {y} bind:isDarkModeEnabled currentLocale={data.locale} />
+  <Header {y} bind:isDarkModeEnabled currentLocale={data.locale} />
 
-	<main class="font-sans-roboto flex flex-1 flex-col px-2 md:px-6">
-		<Introduction locale={data.locale} />
+  <main class="flex flex-1 flex-col px-2 font-sans-roboto md:px-6">
+    <Introduction locale={data.locale} />
 
-		<Project locale={data.locale} />
+    <Project locale={data.locale} />
 
-		<Posts locale={data.locale} posts={data.posts} />
+    <Posts locale={data.locale} posts={data.posts} />
 
-		<Experience locale={data.locale} />
+    <Experience locale={data.locale} />
 
-		<Skill {isDarkModeEnabled} locale={data.locale} />
+    <Skill {isDarkModeEnabled} locale={data.locale} />
 
-		<About locale={data.locale} />
-	</main>
+    <About locale={data.locale} />
+  </main>
 
-	<Footer locale={data.locale} />
+  <Footer locale={data.locale} />
 </div>

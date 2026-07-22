@@ -1,155 +1,158 @@
 <script lang="ts">
-	import CircularProgressBar from '$lib/components/CircularProgressBar.svelte';
-	import Laravel from '$lib/components/icons/Laravel.svelte';
-	import Terraform from '$lib/components/icons/Terraform.svelte';
-	import Ansible from '$lib/components/icons/Ansible.svelte';
-	import Aws from '$lib/components/icons/Aws.svelte';
-	import Azure from '$lib/components/icons/Azure.svelte';
-	import Svelte from '$lib/components/icons/Svelte.svelte';
-	import TailwindCss from '$lib/components/icons/TailwindCss.svelte';
-	import Livewire from '$lib/components/icons/Livewire.svelte';
-	import Modal from '$lib/components/Modal.svelte';
-	import { type Component } from 'svelte';
-	import type { SkillTranslation } from '$lang/type/skill.type';
-	import type { Locale } from '$lib/enums';
-	import { translations } from '$lib/translations';
+  import CircularProgressBar from "$lib/components/CircularProgressBar.svelte";
+  import Laravel from "$lib/components/icons/Laravel.svelte";
+  import Terraform from "$lib/components/icons/Terraform.svelte";
+  import Ansible from "$lib/components/icons/Ansible.svelte";
+  import Aws from "$lib/components/icons/Aws.svelte";
+  import Azure from "$lib/components/icons/Azure.svelte";
+  import Svelte from "$lib/components/icons/Svelte.svelte";
+  import TailwindCss from "$lib/components/icons/TailwindCss.svelte";
+  import Livewire from "$lib/components/icons/Livewire.svelte";
+  import Modal from "$lib/components/Modal.svelte";
+  import { type Component } from "svelte";
+  import type { SkillTranslation } from "$lang/type/skill.type";
+  import type { Locale } from "$lib/enums";
+  import { translations } from "$lib/translations";
 
-	interface Props {
-		isDarkModeEnabled: boolean;
-		locale: Locale;
-	}
+  interface Props {
+    isDarkModeEnabled: boolean;
+    locale: Locale;
+  }
 
-	type SkillProgressBar = {
-		name: string;
-		iconComponent: Component;
-		progress: number;
-		barColor: string;
-	};
+  type SkillProgressBar = {
+    name: string;
+    iconComponent: Component;
+    progress: number;
+    barColor: string;
+  };
 
-	let { isDarkModeEnabled, locale }: Props = $props();
-	let translation: SkillTranslation = $derived(translations[locale].skill);
-	let barBackgroundColor = $derived(isDarkModeEnabled ? '#404040' : '#e5e7eb');
-	let centerBackgroundColor = $derived(isDarkModeEnabled ? '#262626' : '#f9fafb');
+  let { isDarkModeEnabled, locale }: Props = $props();
+  let translation: SkillTranslation = $derived(translations[locale].skill);
+  let barBackgroundColor = $derived(isDarkModeEnabled ? "#404040" : "#e5e7eb");
+  let centerBackgroundColor = $derived(isDarkModeEnabled ? "#262626" : "#f9fafb");
 
-	const skills: { [Name: string]: SkillProgressBar } = {
-		aws: {
-			name: 'AWS',
-			iconComponent: Aws,
-			progress: 65,
-			barColor: '#ff9900'
-		},
-		azure: {
-			name: 'Azure',
-			iconComponent: Azure,
-			progress: 20,
-			barColor: '#138dd8'
-		},
-		laravel: {
-			name: 'Laravel',
-			iconComponent: Laravel,
-			progress: 70,
-			barColor: '#ff2c20'
-		},
-		livewire: {
-			name: 'Livewire',
-			iconComponent: Livewire,
-			progress: 70,
-			barColor: '#fb70a9'
-		},
-		svelte: {
-			name: 'Svelte',
-			iconComponent: Svelte,
-			progress: 20,
-			barColor: '#f73c00'
-		},
-		tailwindCSS: {
-			name: 'Tailwind CSS',
-			iconComponent: TailwindCss,
-			progress: 50,
-			barColor: '#38bdf8'
-		},
-		terraform: {
-			name: 'Terraform',
-			iconComponent: Terraform,
-			progress: 75,
-			barColor: '#7c3aec'
-		},
-		ansible: {
-			name: 'Ansible',
-			iconComponent: Ansible,
-			progress: 20,
-			barColor: '#5d5d5d'
-		}
-	};
+  const skills: { [Name: string]: SkillProgressBar } = {
+    aws: {
+      name: "AWS",
+      iconComponent: Aws,
+      progress: 65,
+      barColor: "#ff9900",
+    },
+    azure: {
+      name: "Azure",
+      iconComponent: Azure,
+      progress: 20,
+      barColor: "#138dd8",
+    },
+    laravel: {
+      name: "Laravel",
+      iconComponent: Laravel,
+      progress: 70,
+      barColor: "#ff2c20",
+    },
+    livewire: {
+      name: "Livewire",
+      iconComponent: Livewire,
+      progress: 70,
+      barColor: "#fb70a9",
+    },
+    svelte: {
+      name: "Svelte",
+      iconComponent: Svelte,
+      progress: 20,
+      barColor: "#f73c00",
+    },
+    tailwindCSS: {
+      name: "Tailwind CSS",
+      iconComponent: TailwindCss,
+      progress: 50,
+      barColor: "#38bdf8",
+    },
+    terraform: {
+      name: "Terraform",
+      iconComponent: Terraform,
+      progress: 75,
+      barColor: "#7c3aec",
+    },
+    ansible: {
+      name: "Ansible",
+      iconComponent: Ansible,
+      progress: 20,
+      barColor: "#5d5d5d",
+    },
+  };
 
-	let showExperienceModal: { [Name: string]: boolean } = $state({
-		aws: false,
-		azure: false,
-		laravel: false,
-		livewire: false,
-		svelte: false,
-		tailwindCSS: false,
-		terraform: false,
-		ansible: false
-	});
+  let showExperienceModal: { [Name: string]: boolean } = $state({
+    aws: false,
+    azure: false,
+    laravel: false,
+    livewire: false,
+    svelte: false,
+    tailwindCSS: false,
+    terraform: false,
+    ansible: false,
+  });
 
-	let skillExperiences: { [Name: string]: string[] } = $derived({
-		aws: translation.aws_experiences,
-		azure: translation.azure_experiences,
-		laravel: translation.laravel_experiences,
-		livewire: translation.livewire_experiences,
-		svelte: translation.svelte_experiences,
-		tailwindCSS: translation.tailwind_css_experiences,
-		terraform: translation.terraform_experiences,
-		ansible: translation.ansible_experiences
-	});
+  let skillExperiences: { [Name: string]: string[] } = $derived({
+    aws: translation.aws_experiences,
+    azure: translation.azure_experiences,
+    laravel: translation.laravel_experiences,
+    livewire: translation.livewire_experiences,
+    svelte: translation.svelte_experiences,
+    tailwindCSS: translation.tailwind_css_experiences,
+    terraform: translation.terraform_experiences,
+    ansible: translation.ansible_experiences,
+  });
 </script>
 
 <section id="skill" class="flex flex-col gap-24 py-20">
-	<div class="flex flex-col gap-2 text-center dark:text-neutral-50">
-		<h6 class="font-caveat text-2xl md:text-4xl">These stuff are so cool!</h6>
-		<h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
-			{translation.section_title_prefix}
-			<span
-				class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-green-500 dark:before:bg-green-600"
-			>
-				<span class="relative text-neutral-50">
-					{translation.section_title_highlight}
-				</span>
-			</span>
-			{translation.section_title_suffix}
-		</h3>
-	</div>
+  <div class="flex flex-col gap-2 text-center dark:text-neutral-50">
+    <h6 class="font-caveat text-2xl md:text-4xl">These stuff are so cool!</h6>
+    <h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
+      {translation.section_title_prefix}
+      <span
+        class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-green-500 dark:before:bg-green-600"
+      >
+        <span class="relative text-neutral-50">
+          {translation.section_title_highlight}
+        </span>
+      </span>
+      {translation.section_title_suffix}
+    </h3>
+  </div>
 
-	<div class="mx-auto grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
-		{#each Object.entries(skills) as [key, skill] (key)}
-			<div class="flex items-center justify-center">
-				<CircularProgressBar
-					progress={skill.progress}
-					barColor={skill.barColor}
-					{barBackgroundColor}
-					{centerBackgroundColor}
-				>
-					<button
-						onclick={() => (showExperienceModal[key] = true)}
-						type="button"
-						class="cursor-pointer transition-all duration-150 active:scale-[0.95]"
-					>
-						<skill.iconComponent className="size-20" />
-					</button>
-				</CircularProgressBar>
+  <div class="mx-auto grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
+    {#each Object.entries(skills) as [key, skill] (key)}
+      <div class="flex items-center justify-center">
+        <CircularProgressBar
+          progress={skill.progress}
+          barColor={skill.barColor}
+          {barBackgroundColor}
+          {centerBackgroundColor}
+        >
+          <button
+            onclick={() => (showExperienceModal[key] = true)}
+            type="button"
+            class="cursor-pointer transition-all duration-150 active:scale-[0.95]"
+          >
+            <skill.iconComponent className="size-20" />
+          </button>
+        </CircularProgressBar>
 
-				<Modal bind:showModal={showExperienceModal[key]}>
-					<h3 id="modal-title" class="text-xl leading-6 font-semibold text-neutral-900 dark:text-neutral-50">
-						{skill.name}
-					</h3>
-					<div class="mt-4 divide-y-2 divide-dashed divide-neutral-300 dark:divide-neutral-700">
-						{#each skillExperiences[key] as experience (experience)}
-							<p class="p-2 text-lg text-neutral-500 dark:text-neutral-400">{experience}</p>
-						{/each}
-					</div>
-				</Modal>
-			</div>
-		{/each}
-	</div>
+        <Modal bind:showModal={showExperienceModal[key]}>
+          <h3
+            id="modal-title"
+            class="text-xl leading-6 font-semibold text-neutral-900 dark:text-neutral-50"
+          >
+            {skill.name}
+          </h3>
+          <div class="mt-4 divide-y-2 divide-dashed divide-neutral-300 dark:divide-neutral-700">
+            {#each skillExperiences[key] as experience (experience)}
+              <p class="p-2 text-lg text-neutral-500 dark:text-neutral-400">{experience}</p>
+            {/each}
+          </div>
+        </Modal>
+      </div>
+    {/each}
+  </div>
 </section>

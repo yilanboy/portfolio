@@ -1,49 +1,49 @@
-import type { PageServerLoad } from './$types';
-import { Locale, Theme } from '$lib/enums';
-import { redirect } from '@sveltejs/kit';
-import type { Post } from '$lib/types';
+import type { PageServerLoad } from "./$types";
+import { Locale, Theme } from "$lib/enums";
+import { redirect } from "@sveltejs/kit";
+import type { Post } from "$lib/types";
 
 export const load: PageServerLoad = async ({ params, cookies, fetch }) => {
-	const locales: string[] = Object.values(Locale);
-	const themes: string[] = Object.values(Theme);
-	let locale: Locale;
-	let theme: Theme;
-	let body: {
-		data: Post[];
-	};
+  const locales: string[] = Object.values(Locale);
+  const themes: string[] = Object.values(Theme);
+  let locale: Locale;
+  let theme: Theme;
+  let body: {
+    data: Post[];
+  };
 
-	if (locales.includes(params.locale ?? '')) {
-		locale = params.locale as Locale;
-		cookies.set('locale', params.locale, { path: '/' });
-	} else if (locales.includes(cookies.get('locale') ?? '')) {
-		locale = cookies.get('locale') as Locale;
-		cookies.set('locale', cookies.get('locale') as Locale, { path: '/' });
+  if (locales.includes(params.locale ?? "")) {
+    locale = params.locale as Locale;
+    cookies.set("locale", params.locale, { path: "/" });
+  } else if (locales.includes(cookies.get("locale") ?? "")) {
+    locale = cookies.get("locale") as Locale;
+    cookies.set("locale", cookies.get("locale") as Locale, { path: "/" });
 
-		redirect(301, `/${locale}`);
-	} else {
-		cookies.set('locale', Locale.Tw, { path: '/' });
+    redirect(301, `/${locale}`);
+  } else {
+    cookies.set("locale", Locale.Tw, { path: "/" });
 
-		redirect(301, `/${Locale.Tw}`);
-	}
+    redirect(301, `/${Locale.Tw}`);
+  }
 
-	if (themes.includes(cookies.get('theme') ?? '')) {
-		theme = cookies.get('theme') as Theme;
-	} else {
-		cookies.set('theme', Theme.Light, { path: '/', httpOnly: false });
-		theme = Theme.Light;
-	}
+  if (themes.includes(cookies.get("theme") ?? "")) {
+    theme = cookies.get("theme") as Theme;
+  } else {
+    cookies.set("theme", Theme.Light, { path: "/", httpOnly: false });
+    theme = Theme.Light;
+  }
 
-	const response = await fetch('https://docfunc.com/api/posts');
+  const response = await fetch("https://docfunc.com/api/posts");
 
-	if (response.ok) {
-		body = await response.json();
-	} else {
-		body = { data: [] };
-	}
+  if (response.ok) {
+    body = await response.json();
+  } else {
+    body = { data: [] };
+  }
 
-	return {
-		locale: locale,
-		theme: theme,
-		posts: body.data
-	};
+  return {
+    locale: locale,
+    theme: theme,
+    posts: body.data,
+  };
 };
