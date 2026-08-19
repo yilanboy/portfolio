@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { PostTranslation } from "#lang/type/post.type";
+    import type { PostTranslation } from "#lang/type/post.type.js";
     import type { Post } from "#lib/types.js";
     import { formatDate } from "#lib/helpers.js";
     import type { Locale } from "#lib/enums.js";

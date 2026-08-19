@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { flushSync } from "svelte";
-import { theme } from "./theme.svelte";
-import { Theme } from "./enums";
+import { theme } from "./theme.svelte.js";
+import { Theme } from "./enums.js";
 
 describe("theme shared state", () => {
   // The module exports a singleton so it leaks between tests. Reset before each.
@@ -44,7 +44,7 @@ describe("theme shared state", () => {
   it("exposes a singleton — the same instance is observed across imports", async () => {
     theme.current = Theme.Dark;
 
-    const { theme: reimported } = await import("./theme.svelte");
+    const { theme: reimported } = await import("./theme.svelte.js");
     expect(reimported.current).toBe(Theme.Dark);
     expect(reimported).toBe(theme);
   });

@@ -51,8 +51,8 @@ src/
 ├── lang/                      # statically-typed translation objects
 │   ├── en/                    # English translations
 │   ├── ja/                    # Japanese translations
-│   ├── zh-CN/                 # Simplified Chinese translations
-│   ├── zh-TW/                 # Traditional Chinese translations (default)
+│   ├── zh-cn/                 # Simplified Chinese translations
+│   ├── zh-tw/                 # Traditional Chinese translations (default)
 │   └── type/                  # per-section type definitions
 ├── lib/                       # shared components and utilities
 ├── app.css                    # Tailwind entry + theme tokens

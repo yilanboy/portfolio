@@ -1,11 +1,11 @@
-import type { HeaderTranslation } from "./header.type";
-import type { IntroductionTranslation } from "./introduction.type";
-import type { ProjectTranslation } from "./project.type";
-import type { ExperienceTranslation } from "./experience.type";
-import type { SkillTranslation } from "./skill.type";
-import type { AboutTranslation } from "./about.type";
-import type { FooterTranslation } from "./footer.type";
-import type { PostTranslation } from "./post.type";
+import type { HeaderTranslation } from "./header.type.js";
+import type { IntroductionTranslation } from "./introduction.type.js";
+import type { ProjectTranslation } from "./project.type.js";
+import type { ExperienceTranslation } from "./experience.type.js";
+import type { SkillTranslation } from "./skill.type.js";
+import type { AboutTranslation } from "./about.type.js";
+import type { FooterTranslation } from "./footer.type.js";
+import type { PostTranslation } from "./post.type.js";
 
 type Translation = {
   header: HeaderTranslation;

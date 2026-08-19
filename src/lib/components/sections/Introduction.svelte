@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import type { IntroductionTranslation } from "#lang/type/introduction.type";
+    import type { IntroductionTranslation } from "#lang/type/introduction.type.js";
     import type { Locale } from "#lib/enums.js";
     import { translations } from "#lib/translations.js";
     import profile from "#lib/assets/images/profile.jpg";

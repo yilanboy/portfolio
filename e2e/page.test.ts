@@ -44,7 +44,7 @@ test("visitor can see about section", async ({ page }) => {
 
 test("root URL redirects to /zh-tw by default", async ({ page }) => {
   const response = await page.goto("/");
-  await expect(response).toBeOK();
+  expect(response?.ok()).toBe(true);
   expect(page.url()).toMatch(/\/zh-tw\/?$/);
 });
 

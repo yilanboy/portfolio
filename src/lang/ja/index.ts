@@ -1,11 +1,11 @@
-import header from "./header";
-import introduction from "./introduction";
-import project from "./project";
-import experience from "./experience";
-import skill from "./skill";
-import about from "./about";
-import footer from "./footer";
-import post from "./post";
+import header from "./header.js";
+import introduction from "./introduction.js";
+import project from "./project.js";
+import experience from "./experience.js";
+import skill from "./skill.js";
+import about from "./about.js";
+import footer from "./footer.js";
+import post from "./post.js";
 
 export default {
   header: header,

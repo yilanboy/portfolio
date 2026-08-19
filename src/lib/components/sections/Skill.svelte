@@ -10,7 +10,7 @@
     import Livewire from "#lib/components/icons/Livewire.svelte";
     import Modal from "#lib/components/Modal.svelte";
     import { type Component } from "svelte";
-    import type { SkillTranslation } from "#lang/type/skill.type";
+    import type { SkillTranslation } from "#lang/type/skill.type.js";
     import type { Locale } from "#lib/enums.js";
     import { translations } from "#lib/translations.js";
 

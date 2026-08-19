@@ -3,7 +3,7 @@
     import FileEarmarkRichText from "@lucide/svelte/icons/file-text";
     import JournalText from "@lucide/svelte/icons/notebook-text";
     import Easel from "@lucide/svelte/icons/palette";
-    import type { ProjectTranslation } from "#lang/type/project.type";
+    import type { ProjectTranslation } from "#lang/type/project.type.js";
     import type { Locale } from "#lib/enums.js";
     import { translations } from "#lib/translations.js";
 

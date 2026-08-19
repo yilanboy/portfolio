@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { load } from "./+page.server";
+import { load } from "./+page.server.js";
 import { Locale, Theme } from "#lib/enums.js";
 
 function makeCookies(initial: Record<string, string> = {}) {

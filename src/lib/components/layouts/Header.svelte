@@ -7,7 +7,7 @@
     import { Theme, Locale } from "#lib/enums.js";
     import Language from "@lucide/svelte/icons/languages";
 
-    import type { HeaderTranslation } from "#lang/type/header.type";
+    import type { HeaderTranslation } from "#lang/type/header.type.js";
     import { translations } from "#lib/translations.js";
 
     interface Props {

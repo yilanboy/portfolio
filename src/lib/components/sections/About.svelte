@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { AboutTranslation } from "#lang/type/about.type";
+    import type { AboutTranslation } from "#lang/type/about.type.js";
     import { translations } from "#lib/translations.js";
     import type { Locale } from "#lib/enums.js";
 

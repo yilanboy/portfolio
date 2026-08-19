@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { formatDate } from "./helpers";
+import { formatDate } from "./helpers.js";
 
 describe("formatDate", () => {
   it("formats a valid ISO date string into a localized human-readable form", () => {

@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { translations } from "./translations";
-import { Locale } from "./enums";
+import { translations } from "./translations.js";
+import { Locale } from "./enums.js";
 
 const allLocales = Object.values(Locale);
 
