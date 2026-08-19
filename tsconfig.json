@@ -3,6 +3,7 @@
   "compilerOptions": {
     "sourceMap": true,
     "strict": true,
-    "types": ["./worker-configuration.d.ts"],
   },
+  // To make changes to top-level options such as include and exclude, we recommend extending
+  // the generated config; see https://svelte.dev/docs/kit/configuration#typescript
 }

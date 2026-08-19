@@ -112,7 +112,7 @@
                                     currentLocale === locale,
                                 "block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600": true,
                             }}
-                            data-sveltekit-noscroll
+                            data-sveltekit-reset
                             href={resolve("/[locale]", { locale: locale })}
                         >
                             {label}
