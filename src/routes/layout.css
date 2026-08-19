@@ -4,14 +4,15 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
-  --font-sans-roboto: "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Roboto", sans-serif;
-  --font-caveat: "Caveat", sans-serif;
+    --font-sans-roboto:
+        "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Roboto", sans-serif;
+    --font-caveat: "Caveat", sans-serif;
 
-  --animate-blink: blink 0.7s infinite;
+    --animate-blink: blink 0.7s infinite;
 
-  @keyframes blink {
-    50% {
-      opacity: 0;
+    @keyframes blink {
+        50% {
+            opacity: 0;
+        }
     }
-  }
 }

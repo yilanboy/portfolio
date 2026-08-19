@@ -2,6 +2,6 @@
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "svelte": true,
   "sortTailwindcss": {
-    "stylesheet": "src/app.css"
+    "stylesheet": "src/routes/layout.css"
   }
 }

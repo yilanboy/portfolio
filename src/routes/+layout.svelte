@@ -27,7 +27,7 @@
     </script>
 </svelte:head>
 
-<div>
+<div class="bg-neutral-50 text-neutral-900 dark:bg-neutral-800">
     <Background />
 
     <div
