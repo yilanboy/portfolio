@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { mount, unmount } from "svelte";
 import Experience from "./Experience.svelte";
-import { Locale } from "$lib/enums";
+import { Locale } from "#lib/enums.js";
 
 describe("Experience Component", () => {
   it("should add and remove event listeners on mount/unmount", async () => {

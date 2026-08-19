@@ -1,16 +1,16 @@
 <script lang="ts">
-  import Header from "$lib/components/layouts/Header.svelte";
-  import Introduction from "$lib/components/sections/Introduction.svelte";
-  import Project from "$lib/components/sections/Project.svelte";
-  import Experience from "$lib/components/sections/Experience.svelte";
-  import Skill from "$lib/components/sections/Skill.svelte";
-  import About from "$lib/components/sections/About.svelte";
-  import Footer from "$lib/components/layouts/Footer.svelte";
-  import { Theme } from "$lib/enums";
+  import Header from "#lib/components/layouts/Header.svelte";
+  import Introduction from "#lib/components/sections/Introduction.svelte";
+  import Project from "#lib/components/sections/Project.svelte";
+  import Experience from "#lib/components/sections/Experience.svelte";
+  import Skill from "#lib/components/sections/Skill.svelte";
+  import About from "#lib/components/sections/About.svelte";
+  import Footer from "#lib/components/layouts/Footer.svelte";
+  import { Theme } from "#lib/enums.js";
   import ArrowUp from "@lucide/svelte/icons/arrow-up";
   import { fade } from "svelte/transition";
   import type { PageServerData } from "./$types";
-  import Posts from "$lib/components/sections/Posts.svelte";
+  import Posts from "#lib/components/sections/Posts.svelte";
 
   interface Props {
     data: PageServerData;

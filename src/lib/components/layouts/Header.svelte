@@ -1,150 +1,157 @@
 <script lang="ts">
-  import Toggle from "$lib/components/Toggle.svelte";
-  import { theme } from "$lib/theme.svelte";
-  import { resolve } from "$app/paths";
-  import Sun from "@lucide/svelte/icons/sun";
-  import Moon from "@lucide/svelte/icons/moon";
-  import { Theme, Locale } from "$lib/enums";
-  import Language from "@lucide/svelte/icons/languages";
+    import Toggle from "#lib/components/Toggle.svelte";
+    import { theme } from "#lib/theme.svelte.js";
+    import { resolve } from "$app/paths";
+    import Sun from "@lucide/svelte/icons/sun";
+    import Moon from "@lucide/svelte/icons/moon";
+    import { Theme, Locale } from "#lib/enums.js";
+    import Language from "@lucide/svelte/icons/languages";
 
-  import type { HeaderTranslation } from "$lang/type/header.type";
-  import { translations } from "$lib/translations";
+    import type { HeaderTranslation } from "#lang/type/header.type";
+    import { translations } from "#lib/translations.js";
 
-  interface Props {
-    y: number;
-    isDarkModeEnabled: boolean;
-    currentLocale: Locale;
-  }
-
-  let { y, isDarkModeEnabled = $bindable(), currentLocale }: Props = $props();
-  let translation = $derived(translations[currentLocale].header as HeaderTranslation);
-  let showLanguageDropdown = $state(false);
-
-  let tabs = $derived([
-    { name: translation.project, id: "project" },
-    { name: translation.experiences, id: "experience" },
-    { name: translation.about, id: "about" },
-  ]);
-
-  const languages = [
-    { locale: Locale.En, label: "English" },
-    { locale: Locale.Cn, label: "简体中文" },
-    { locale: Locale.Tw, label: "繁體中文" },
-    { locale: Locale.Ja, label: "日本語" },
-  ];
-
-  $effect(() => {
-    const currentTheme = isDarkModeEnabled ? Theme.Dark : Theme.Light;
-    if (document.documentElement.getAttribute("data-theme") !== currentTheme) {
-      theme.current = currentTheme;
-      document.cookie = `theme=${currentTheme}`;
-      document.documentElement.setAttribute("data-theme", currentTheme);
+    interface Props {
+        y: number;
+        isDarkModeEnabled: boolean;
+        currentLocale: Locale;
     }
-  });
 
-  function toggleLanguageDropdown() {
-    showLanguageDropdown = !showLanguageDropdown;
-  }
+    let { y, isDarkModeEnabled = $bindable(), currentLocale }: Props = $props();
+    let translation = $derived(
+        translations[currentLocale].header as HeaderTranslation,
+    );
+    let showLanguageDropdown = $state(false);
 
-  function closeLanguageDropdown() {
-    showLanguageDropdown = false;
-  }
+    let tabs = $derived([
+        { name: translation.project, id: "project" },
+        { name: translation.experiences, id: "experience" },
+        { name: translation.about, id: "about" },
+    ]);
 
-  function stopPropagation(fn: (event: Event) => void) {
-    return function (this: (event: Event) => void, event: Event) {
-      event.stopPropagation();
-      fn.call(this, event);
-    };
-  }
+    const languages = [
+        { locale: Locale.En, label: "English" },
+        { locale: Locale.Cn, label: "简体中文" },
+        { locale: Locale.Tw, label: "繁體中文" },
+        { locale: Locale.Ja, label: "日本語" },
+    ];
+
+    $effect(() => {
+        const currentTheme = isDarkModeEnabled ? Theme.Dark : Theme.Light;
+        if (
+            document.documentElement.getAttribute("data-theme") !== currentTheme
+        ) {
+            theme.current = currentTheme;
+            document.cookie = `theme=${currentTheme}`;
+            document.documentElement.setAttribute("data-theme", currentTheme);
+        }
+    });
+
+    function toggleLanguageDropdown() {
+        showLanguageDropdown = !showLanguageDropdown;
+    }
+
+    function closeLanguageDropdown() {
+        showLanguageDropdown = false;
+    }
+
+    function stopPropagation(fn: (event: Event) => void) {
+        return function (this: (event: Event) => void, event: Event) {
+            event.stopPropagation();
+            fn.call(this, event);
+        };
+    }
 </script>
 
 <svelte:window onclick={closeLanguageDropdown} />
 
 <header
-  class={{
-    "top-2 border-neutral-300 bg-neutral-50 py-4 dark:border-neutral-600 dark:bg-neutral-800":
-      y > 0,
-    "top-0 border-transparent bg-transparent py-6": y <= 0,
-    "sticky z-10 mx-2 flex items-center justify-between rounded-2xl border border-solid px-6 duration-200": true,
-  }}
+    class={{
+        "top-2 border-neutral-300 bg-neutral-50 py-4 dark:border-neutral-600 dark:bg-neutral-800":
+            y > 0,
+        "top-0 border-transparent bg-transparent py-6": y <= 0,
+        "sticky z-10 mx-2 flex items-center justify-between rounded-2xl border border-solid px-6 duration-200": true,
+    }}
 >
-  <h1 class="dark:text-neutral-50">
-    <b>Allen</b> Jiang
-  </h1>
-  <div class="ml-auto hidden items-center gap-6 pr-4 sm:flex">
-    <div class="relative inline-block text-left">
-      <div>
-        <button
-          onclick={stopPropagation(toggleLanguageDropdown)}
-          type="button"
-          class="flex cursor-pointer items-center justify-center rounded-md bg-transparent"
-          id="menu-button"
-          aria-expanded="true"
-          aria-haspopup="true"
-          aria-label="change language"
-        >
-          <Language class="size-6 dark:text-neutral-50" />
-        </button>
-      </div>
+    <h1 class="dark:text-neutral-50">
+        <b>Allen</b> Jiang
+    </h1>
+    <div class="ml-auto hidden items-center gap-6 pr-4 sm:flex">
+        <div class="relative inline-block text-left">
+            <div>
+                <button
+                    onclick={stopPropagation(toggleLanguageDropdown)}
+                    type="button"
+                    class="flex cursor-pointer items-center justify-center rounded-md bg-transparent"
+                    id="menu-button"
+                    aria-expanded="true"
+                    aria-haspopup="true"
+                    aria-label="change language"
+                >
+                    <Language class="size-6 dark:text-neutral-50" />
+                </button>
+            </div>
 
-      <div
-        class={{
-          "scale-100 opacity-100 duration-100 ease-out": showLanguageDropdown,
-          "scale-0 opacity-0 duration-75 ease-in": !showLanguageDropdown,
-          "absolute right-0 z-10 mt-2 w-40 origin-top-right transform rounded-md bg-neutral-50 shadow-lg ring-1 ring-black/5 transition focus:outline-hidden dark:bg-neutral-700": true,
-        }}
-        role="menu"
-        aria-orientation="vertical"
-        aria-labelledby="menu-button"
-        tabindex="-1"
-      >
-        <div class="space-y-1 py-1">
-          {#each languages as { locale, label } ("menu-item-" + label)}
-            <a
-              class={{
-                "bg-neutral-200 dark:bg-neutral-600": currentLocale === locale,
-                "block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600": true,
-              }}
-              data-sveltekit-noscroll
-              href={resolve("/[locale]", { locale: locale })}
+            <div
+                class={{
+                    "scale-100 opacity-100 duration-100 ease-out":
+                        showLanguageDropdown,
+                    "scale-0 opacity-0 duration-75 ease-in":
+                        !showLanguageDropdown,
+                    "absolute right-0 z-10 mt-2 w-40 origin-top-right transform rounded-md bg-neutral-50 shadow-lg ring-1 ring-black/5 transition focus:outline-hidden dark:bg-neutral-700": true,
+                }}
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="menu-button"
+                tabindex="-1"
             >
-              {label}
-            </a>
-          {/each}
+                <div class="space-y-1 py-1">
+                    {#each languages as { locale, label } ("menu-item-" + label)}
+                        <a
+                            class={{
+                                "bg-neutral-200 dark:bg-neutral-600":
+                                    currentLocale === locale,
+                                "block w-full px-4 py-2 text-sm hover:bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-600": true,
+                            }}
+                            data-sveltekit-noscroll
+                            href={resolve("/[locale]", { locale: locale })}
+                        >
+                            {label}
+                        </a>
+                    {/each}
+                </div>
+            </div>
         </div>
-      </div>
+
+        <div class="flex items-center justify-center gap-2">
+            <Toggle bind:isEnabled={isDarkModeEnabled}>
+                {#snippet iconShowOnDisabled()}
+                    <Sun class="size-3" />
+                {/snippet}
+
+                {#snippet iconShowOnEnabled()}
+                    <Moon class="size-3 text-violet-500" />
+                {/snippet}
+            </Toggle>
+        </div>
+
+        {#each tabs as tab (tab.name)}
+            <a
+                data-sveltekit-replacestate
+                href={"#" + tab.id}
+                class="hover:text-neutral-600 dark:text-neutral-50 dark:hover:text-neutral-200"
+            >
+                <p>{tab.name}</p>
+            </a>
+        {/each}
     </div>
-
-    <div class="flex items-center justify-center gap-2">
-      <Toggle bind:isEnabled={isDarkModeEnabled}>
-        {#snippet iconShowOnDisabled()}
-          <Sun class="size-3" />
-        {/snippet}
-
-        {#snippet iconShowOnEnabled()}
-          <Moon class="size-3 text-violet-500" />
-        {/snippet}
-      </Toggle>
-    </div>
-
-    {#each tabs as tab (tab.name)}
-      <a
-        data-sveltekit-replacestate
-        href={"#" + tab.id}
-        class="hover:text-neutral-600 dark:text-neutral-50 dark:hover:text-neutral-200"
-      >
-        <p>{tab.name}</p>
-      </a>
-    {/each}
-  </div>
-  <a
-    href="https://docfunc.com"
-    target="_blank"
-    class="group relative overflow-hidden rounded-full bg-neutral-200/60 px-5 py-2 text-slate-950 dark:bg-neutral-700/60 dark:text-neutral-50"
-  >
-    <div
-      class="absolute top-0 right-full z-0 size-full bg-blue-400 opacity-20 duration-200 group-hover:translate-x-full"
-    ></div>
-    <div class="relative z-9">{translation.check_my_blog} &rarr;</div>
-  </a>
+    <a
+        href="https://docfunc.com"
+        target="_blank"
+        class="group relative overflow-hidden rounded-full bg-neutral-200/60 px-5 py-2 text-slate-950 dark:bg-neutral-700/60 dark:text-neutral-50"
+    >
+        <div
+            class="absolute top-0 right-full z-0 size-full bg-blue-400 opacity-20 duration-200 group-hover:translate-x-full"
+        ></div>
+        <div class="relative z-9">{translation.check_my_blog} &rarr;</div>
+    </a>
 </header>

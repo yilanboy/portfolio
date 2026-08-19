@@ -1,7 +1,7 @@
 import type { PageServerLoad } from "./$types";
-import { Locale, Theme } from "$lib/enums";
+import { Locale, Theme } from "#lib/enums.js";
 import { redirect } from "@sveltejs/kit";
-import type { Post } from "$lib/types";
+import type { Post } from "#lib/types.js";
 
 export const load: PageServerLoad = async ({ params, cookies, fetch }) => {
   const locales: string[] = Object.values(Locale);

@@ -1,4 +1,4 @@
-import { Theme } from "$lib/enums";
+import { Theme } from "#lib/enums.js";
 
 class ThemeState {
   current = $state<Theme>(Theme.Light);

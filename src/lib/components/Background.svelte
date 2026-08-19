@@ -6,7 +6,7 @@
   import Cloud from "@lucide/svelte/icons/cloud";
   import Cpu from "@lucide/svelte/icons/cpu";
   import Terminal from "@lucide/svelte/icons/terminal";
-  import TypeScript from "$lib/components/icons/TypeScript.svelte";
+  import TypeScript from "#lib/components/icons/TypeScript.svelte";
   import Lightbulb from "@lucide/svelte/icons/lightbulb";
   import MusicNoteBeamed from "@lucide/svelte/icons/music";
 </script>
