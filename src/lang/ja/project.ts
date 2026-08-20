@@ -19,16 +19,16 @@ export default {
   },
   note: {
     name: "メモ",
-    description_part_1: "",
-    description_highlight_part_1: "ここは、私が学んでいる新しい技術についてメモする場所です。",
-    description_part_2:
-      "新しい運用技術の習得や、新しいプログラミング言語の研究など、ここに記録しています。 困っている人たちの助けになれば幸いです。コメントや提案もお待ちしています！",
-    description_highlight_part_2: "",
-    description_part_3: "",
-    description_highlight_part_3: "",
-    description_part_4: "",
+    description_part_1: "これは私が ",
+    description_highlight_part_1: "Laravel",
+    description_part_2: "、",
+    description_highlight_part_2: "Inertia.js",
+    description_part_3: " と ",
+    description_highlight_part_3: "Svelte",
+    description_part_4: " で作った静的サイトで、私のノートを公開しています。",
     description_highlight_part_4: "",
-    description_part_5: "",
+    description_part_5:
+      "新しい運用技術の習得や、新しいプログラミング言語の研究など、ここに記録しています。 困っている人たちの助けになれば幸いです。コメントや提案もお待ちしています！",
     description_highlight_part_5: "",
   },
   slide: {

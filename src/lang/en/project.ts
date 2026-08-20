@@ -19,18 +19,18 @@ export default {
   },
   note: {
     name: "Note",
-    description_part_1: "",
-    description_highlight_part_1: "Here are the notes I use to record learning",
-    description_part_2:
+    description_part_1: "This is a static site made with ",
+    description_highlight_part_1: "Laravel",
+    description_part_2: ", ",
+    description_highlight_part_2: "Inertia.js",
+    description_part_3: " and ",
+    description_highlight_part_3: "Svelte",
+    description_part_4: " to show my notes. ",
+    description_highlight_part_4: "",
+    description_part_5:
       "Whether learning new operation techniques or researching new programming languages, " +
       "they will be recorded here. " +
       "I hope it can help those in need, and everyone is welcome to provide comments and suggestions!",
-    description_highlight_part_2: "",
-    description_part_3: "",
-    description_highlight_part_3: "",
-    description_part_4: "",
-    description_highlight_part_4: "",
-    description_part_5: "",
     description_highlight_part_5: "",
   },
   slide: {

@@ -19,16 +19,16 @@ export default {
   },
   note: {
     name: "笔记",
-    description_part_1: "",
-    description_highlight_part_1: "这里是我用来记录学习新技术时的心得与笔记",
-    description_part_2:
-      "无论是学习新的运维技术，或是研究新的编程语言，都会在这里记录下来。希望能够帮助到有需要的人，也欢迎大家提供意见与建议！",
-    description_highlight_part_2: "",
-    description_part_3: "",
-    description_highlight_part_3: "",
-    description_part_4: "",
+    description_part_1: "这是我用 ",
+    description_highlight_part_1: "Laravel",
+    description_part_2: "、",
+    description_highlight_part_2: "Inertia.js",
+    description_part_3: " 与 ",
+    description_highlight_part_3: "Svelte",
+    description_part_4: " 所打造的静态网站，用来展示我的笔记。",
     description_highlight_part_4: "",
-    description_part_5: "",
+    description_part_5:
+      "无论是学习新的运维技术，或是研究新的编程语言，都会在这里记录下来。希望能够帮助到有需要的人，也欢迎大家提供意见与建议！",
     description_highlight_part_5: "",
   },
   slide: {

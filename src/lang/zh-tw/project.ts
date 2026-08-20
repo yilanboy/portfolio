@@ -19,16 +19,16 @@ export default {
   },
   note: {
     name: "筆記",
-    description_part_1: "",
-    description_highlight_part_1: "這裡是我用來記錄學習新技術時的心得與筆記",
-    description_part_2:
-      "無論是學習新的維運技術，或是研究新的程式語言，都會在這裡記錄下來。希望能夠幫助到有需要的人，也歡迎大家提供意見與建議！",
-    description_highlight_part_2: "",
-    description_part_3: "",
-    description_highlight_part_3: "",
-    description_part_4: "",
+    description_part_1: "這是我用 ",
+    description_highlight_part_1: "Laravel",
+    description_part_2: "、",
+    description_highlight_part_2: "Inertia.js",
+    description_part_3: " 與 ",
+    description_highlight_part_3: "Svelte",
+    description_part_4: " 所打造的靜態網站，用來展示我的筆記。",
     description_highlight_part_4: "",
-    description_part_5: "",
+    description_part_5:
+      "無論是學習新的維運技術，或是研究新的程式語言，都會在這裡記錄下來。希望能夠幫助到有需要的人，也歡迎大家提供意見與建議！",
     description_highlight_part_5: "",
   },
   slide: {
