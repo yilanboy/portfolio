@@ -12,20 +12,13 @@ type IntroductionTranslation = {
   i_am: string;
   a: string;
   occupation: string;
-  introduction_part_1: string;
-  introduction_highlight_part_1: string;
-  introduction_part_2: string;
-  introduction_highlight_part_2: string;
-  introduction_part_3: string;
-  introduction_highlight_part_3: string;
-  introduction_part_4: string;
-  introduction_highlight_part_4: string;
+  introduction: string;
 };
 
 export type { IntroductionTranslation };
 ```
 
-There should be a `introduction.ts` in each locale translation folder.
+There should be an `introduction.ts` in each locale translation folder. You can use `<hl>...</hl>` tags within paragraphs to mark words that should be highlighted.
 
 ```typescript
 // lang/en/introduction.ts
@@ -33,14 +26,9 @@ export default {
   i_am: "Hi! I'm",
   a: "A",
   occupation: "Engineer",
-  introduction_part_1: "Experienced backend developer who is skilled in ",
-  introduction_highlight_part_1: "operations",
-  introduction_part_2: " and ",
-  introduction_highlight_part_2: "cloud services",
-  introduction_part_3: ". Passionate about exploring both ",
-  introduction_highlight_part_3: "frontend and backend",
-  introduction_part_4:
-    "technologies in my free time. My work style is adaptable, but I strive for precision and rigor.",
-  introduction_highlight_part_4: "",
+  introduction:
+    "Experienced backend developer who is skilled in <hl>operations</hl> and <hl>cloud services</hl>. " +
+    "Passionate about exploring both <hl>frontend and backend</hl> technologies in my free time. " +
+    "My work style is adaptable, but I strive for precision and rigor.",
 };
 ```

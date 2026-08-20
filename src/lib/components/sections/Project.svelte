@@ -1,5 +1,6 @@
 <script lang="ts">
   import Step from "#lib/components/Step.svelte";
+  import HighlightedText from "#lib/components/HighlightedText.svelte";
   import FileEarmarkRichText from "@lucide/svelte/icons/file-text";
   import JournalText from "@lucide/svelte/icons/notebook-text";
   import Easel from "@lucide/svelte/icons/palette";
@@ -19,46 +20,19 @@
       name: translation.blog.name,
       url: "https://docfunc.com",
       iconComponent: FileEarmarkRichText,
-      descriptionPart1: translation.blog.description_part_1,
-      descriptionHighlightPart1: translation.blog.description_highlight_part_1,
-      descriptionPart2: translation.blog.description_part_2,
-      descriptionHighlightPart2: translation.blog.description_highlight_part_2,
-      descriptionPart3: translation.blog.description_part_3,
-      descriptionHighlightPart3: translation.blog.description_highlight_part_3,
-      descriptionPart4: translation.blog.description_part_4,
-      descriptionHighlightPart4: translation.blog.description_highlight_part_4,
-      descriptionPart5: translation.blog.description_part_5,
-      descriptionHighlightPart5: translation.blog.description_highlight_part_5,
+      description: translation.blog.description,
     },
     note: {
       name: translation.note.name,
       url: "https://note.docfunc.com",
       iconComponent: JournalText,
-      descriptionPart1: translation.note.description_part_1,
-      descriptionHighlightPart1: translation.note.description_highlight_part_1,
-      descriptionPart2: translation.note.description_part_2,
-      descriptionHighlightPart2: translation.note.description_highlight_part_2,
-      descriptionPart3: translation.note.description_part_3,
-      descriptionHighlightPart3: translation.note.description_highlight_part_3,
-      descriptionPart4: translation.note.description_part_4,
-      descriptionHighlightPart4: translation.note.description_highlight_part_4,
-      descriptionPart5: translation.note.description_part_5,
-      descriptionHighlightPart5: translation.note.description_highlight_part_5,
+      description: translation.note.description,
     },
     slide: {
       name: translation.slide.name,
       url: "https://github.com/yilanboy/slide",
       iconComponent: Easel,
-      descriptionPart1: translation.slide.description_part_1,
-      descriptionHighlightPart1: translation.slide.description_highlight_part_1,
-      descriptionPart2: translation.slide.description_part_2,
-      descriptionHighlightPart2: translation.slide.description_highlight_part_2,
-      descriptionPart3: translation.slide.description_part_3,
-      descriptionHighlightPart3: translation.slide.description_highlight_part_3,
-      descriptionPart4: translation.slide.description_part_4,
-      descriptionHighlightPart4: translation.slide.description_highlight_part_4,
-      descriptionPart5: translation.slide.description_part_5,
-      descriptionHighlightPart5: translation.slide.description_highlight_part_5,
+      description: translation.slide.description,
     },
   });
 </script>
@@ -87,28 +61,8 @@
         {/snippet}
 
         {#snippet content()}
-          <!-- eslint-disable-next-line -->
           <p class="text-left">
-            {step.descriptionPart1}
-            <span class="text-blue-500 dark:text-blue-400">
-              {step.descriptionHighlightPart1}
-            </span>
-            {step.descriptionPart2}
-            <span class="text-blue-500 dark:text-blue-400">
-              {step.descriptionHighlightPart2}
-            </span>
-            {step.descriptionPart3}
-            <span class="text-blue-500 dark:text-blue-400">
-              {step.descriptionHighlightPart3}
-            </span>
-            {step.descriptionPart4}
-            <span class="text-blue-500 dark:text-blue-400">
-              {step.descriptionHighlightPart4}
-            </span>
-            {step.descriptionPart5}
-            <span class="text-blue-500 dark:text-blue-400">
-              {step.descriptionHighlightPart5}
-            </span>
+            <HighlightedText text={step.description} />
           </p>
         {/snippet}
       </Step>

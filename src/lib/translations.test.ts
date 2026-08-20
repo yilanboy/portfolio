@@ -133,4 +133,33 @@ describe("translations", () => {
       ).not.toBe(en.section_title_highlight);
     }
   });
+
+  it("every locale defines introduction with valid string and highlight tags", () => {
+    for (const locale of allLocales) {
+      const intro = translations[locale].introduction;
+      expect(intro.introduction).toBeTypeOf("string");
+      expect(intro.introduction.length).toBeGreaterThan(0);
+      expect(intro.introduction).toContain("<hl>");
+      expect(intro.introduction).toContain("</hl>");
+    }
+  });
+
+  it("every locale defines all project entries with name and description containing highlights", () => {
+    const projectKeys = ["blog", "note", "slide"] as const;
+
+    for (const locale of allLocales) {
+      const project = translations[locale].project;
+      expect(project.go).toBeTypeOf("string");
+      expect(project.go.length).toBeGreaterThan(0);
+
+      for (const key of projectKeys) {
+        expect(project[key].name).toBeTypeOf("string");
+        expect(project[key].name.length).toBeGreaterThan(0);
+        expect(project[key].description).toBeTypeOf("string");
+        expect(project[key].description.length).toBeGreaterThan(0);
+        expect(project[key].description).toContain("<hl>");
+        expect(project[key].description).toContain("</hl>");
+      }
+    }
+  });
 });
