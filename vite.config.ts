@@ -1,11 +1,42 @@
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig } from "vitest/config";
-import { playwright } from "@vitest/browser-playwright";
+import { defineConfig, lazyPlugins } from "vite-plus";
+import { playwright } from "vite-plus/test/browser-playwright";
 import adapter from "@sveltejs/adapter-auto";
 import { sveltekit } from "@sveltejs/kit/vite";
 
 export default defineConfig({
-  plugins: [
+  staged: {
+    "*": "vp check --fix",
+  },
+  fmt: {
+    svelte: true,
+    sortTailwindcss: {
+      stylesheet: "src/routes/layout.css",
+    },
+  },
+  lint: {
+    plugins: ["typescript", "unicorn", "oxc"],
+    categories: {
+      correctness: "error",
+    },
+    rules: {
+      "vite-plus/prefer-vite-plus-imports": "error",
+    },
+    env: {
+      builtin: true,
+    },
+    options: {
+      typeAware: true,
+      typeCheck: true,
+    },
+    jsPlugins: [
+      {
+        name: "vite-plus",
+        specifier: "vite-plus/oxlint-plugin",
+      },
+    ],
+  },
+  plugins: lazyPlugins(() => [
     tailwindcss(),
     sveltekit({
       compilerOptions: {
@@ -19,7 +50,7 @@ export default defineConfig({
       // See https://svelte.dev/docs/kit/adapters for more information about adapters.
       adapter: adapter(),
     }),
-  ],
+  ]),
   test: {
     expect: { requireAssertions: true },
     projects: [

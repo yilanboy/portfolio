@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vite-plus/test";
 import { load } from "./+page.server.js";
 import { Locale, Theme } from "#lib/enums.js";
 

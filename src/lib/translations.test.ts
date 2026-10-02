@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect } from "vite-plus/test";
 import { translations } from "./translations.js";
 import { Locale } from "./enums.js";
 

@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi } from "vite-plus/test";
 import { mount, unmount } from "svelte";
 import Experience from "./Experience.svelte";
 import { Locale } from "#lib/enums.js";

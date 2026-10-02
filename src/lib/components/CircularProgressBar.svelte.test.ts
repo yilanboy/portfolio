@@ -1,4 +1,4 @@
-import { describe, it, expect, afterEach, vi } from "vitest";
+import { describe, it, expect, afterEach, vi } from "vite-plus/test";
 import { mount, unmount, flushSync } from "svelte";
 import CircularProgressBar from "./CircularProgressBar.svelte";
 

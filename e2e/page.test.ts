@@ -7,9 +7,7 @@ test("user can visit root page", async ({ page }) => {
 
 test("index page has expected h1", async ({ page }) => {
   await page.goto("/en");
-  await expect(
-    page.getByRole("heading", { name: "Allen Jiang" }),
-  ).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Allen Jiang" })).toBeVisible();
 });
 
 test("visitor can see introduction section", async ({ page }) => {
@@ -50,20 +48,12 @@ test("root URL redirects to /zh-tw by default", async ({ page }) => {
 
 test.describe("every supported locale renders the page", () => {
   for (const locale of ["en", "zh-cn", "zh-tw", "ja"]) {
-    test(`${locale} returns 200 and renders the main sections`, async ({
-      page,
-    }) => {
+    test(`${locale} returns 200 and renders the main sections`, async ({ page }) => {
       const response = await page.request.get(`/${locale}`);
       expect(response.ok()).toBe(true);
 
       await page.goto(`/${locale}`);
-      for (const id of [
-        "introduction",
-        "project",
-        "experience",
-        "skill",
-        "about",
-      ]) {
+      for (const id of ["introduction", "project", "experience", "skill", "about"]) {
         const section = await page.$(`#${id}`);
         expect(section, `${locale} should render #${id}`).not.toBeNull();
       }
@@ -80,15 +70,11 @@ test("back-to-top button is hidden at top and becomes interactive after scrollin
 
   // At the very top, the scroll-to-top button must not capture clicks.
   await page.evaluate(() => window.scrollTo(0, 0));
-  await expect(button.locator("xpath=ancestor::div[1]")).toHaveClass(
-    /pointer-events-none/,
-  );
+  await expect(button.locator("xpath=ancestor::div[1]")).toHaveClass(/pointer-events-none/);
 
   // After scrolling, it becomes pointer-interactive.
   await page.evaluate(() => window.scrollTo(0, 800));
-  await expect(button.locator("xpath=ancestor::div[1]")).toHaveClass(
-    /pointer-events-auto/,
-  );
+  await expect(button.locator("xpath=ancestor::div[1]")).toHaveClass(/pointer-events-auto/);
 });
 
 test("a theme cookie is set after first visit", async ({ page, context }) => {

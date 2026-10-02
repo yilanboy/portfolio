@@ -1,4 +1,4 @@
-import { describe, it, expect, afterEach } from "vitest";
+import { describe, it, expect, afterEach } from "vite-plus/test";
 import { mount, unmount, flushSync } from "svelte";
 import Toggle from "./Toggle.svelte";
 

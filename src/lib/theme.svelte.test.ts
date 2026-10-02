@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach } from "vite-plus/test";
 import { flushSync } from "svelte";
 import { theme } from "./theme.svelte.js";
 import { Theme } from "./enums.js";
