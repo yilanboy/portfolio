@@ -42,12 +42,5 @@
     "vitest": "catalog:",
     "vitest-browser-svelte": "^2.2.1"
   },
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "12.8.1",
-      "onFail": "download"
-    }
-  },
   "packageManager": "pnpm@12.8.1"
 }
