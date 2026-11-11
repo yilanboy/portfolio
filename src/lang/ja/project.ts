@@ -1,7 +1,5 @@
 export default {
-  section_title_prefix: "私がやった",
-  section_title_highlight: "面白いプロジェクト",
-  section_title_suffix: "を見よう",
+  section_title: "私がやった<hl>面白いプロジェクト</hl>を見よう",
   blog: {
     name: "ブログ",
     description:

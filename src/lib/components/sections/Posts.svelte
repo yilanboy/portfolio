@@ -1,4 +1,5 @@
 <script lang="ts">
+  import RichLabel from "#lib/components/RichLabel.svelte";
   import type { PostTranslation } from "#lang/type/post.type.js";
   import type { Post } from "#lib/types.js";
   import { formatDate } from "#lib/helpers.js";
@@ -19,15 +20,7 @@
     <div class="flex flex-col gap-2 text-center dark:text-neutral-50">
       <h6 class="font-caveat text-2xl md:text-4xl">Check them out!</h6>
       <h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
-        {translation.section_title_prefix}
-        <span
-          class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-violet-500 dark:before:bg-violet-600"
-        >
-          <span class="relative text-neutral-50">
-            {translation.section_title_highlight}
-          </span>
-        </span>
-        {translation.section_title_suffix}
+        <RichLabel text={translation.section_title} color="violet" />
       </h3>
     </div>
 

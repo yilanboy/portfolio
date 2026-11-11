@@ -128,9 +128,23 @@ describe("translations", () => {
 
     for (const locale of [Locale.Cn, Locale.Tw, Locale.Ja]) {
       expect(
-        translations[locale].about.section_title_highlight,
-        `${locale}.about.section_title_highlight must differ from English`,
-      ).not.toBe(en.section_title_highlight);
+        translations[locale].about.section_title,
+        `${locale}.about.section_title must differ from English`,
+      ).not.toBe(en.section_title);
+    }
+  });
+
+  it("every locale defines section_title with valid string and highlight tags across sections", () => {
+    const sectionsWithTitle = ["about", "experience", "post", "project", "skill"] as const;
+
+    for (const locale of allLocales) {
+      for (const section of sectionsWithTitle) {
+        const title = translations[locale][section].section_title;
+        expect(title, `${locale}.${section}.section_title should be string`).toBeTypeOf("string");
+        expect(title.length).toBeGreaterThan(0);
+        expect(title).toContain("<hl>");
+        expect(title).toContain("</hl>");
+      }
     }
   });
 

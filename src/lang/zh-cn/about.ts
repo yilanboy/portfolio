@@ -1,7 +1,5 @@
 export default {
-  section_title_prefix: "想知道更多",
-  section_title_highlight: "关于我",
-  section_title_suffix: "的事情吗？",
+  section_title: "想知道更多 <hl>关于我</hl> 的事情吗？",
   I_am_also: "我其实也是...",
   strengths: [
     {

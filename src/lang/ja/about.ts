@@ -1,7 +1,5 @@
 export default {
-  section_title_prefix: "",
-  section_title_highlight: "私のこと",
-  section_title_suffix: "をもっと知りたい？",
+  section_title: "<hl>私のこと</hl>をもっと知りたい？",
   I_am_also: "実は私は...",
   strengths: [
     {

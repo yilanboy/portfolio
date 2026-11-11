@@ -1,7 +1,5 @@
 export default {
-  section_title_prefix: "這些是我",
-  section_title_highlight: "使用過的技術",
-  section_title_suffix: "",
+  section_title: "這些是我<hl>使用過的技術</hl>",
   aws_experiences: [
     "擁有 AWS Solution Architecture Associate 認證",
     "使用 EC2、RDS 與 ElastiCache 搭建 LEMP 來運行自己的 Laravel 應用程式",

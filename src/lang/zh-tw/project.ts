@@ -1,7 +1,5 @@
 export default {
-  section_title_prefix: "看看我做了哪些",
-  section_title_highlight: "有趣的事情",
-  section_title_suffix: "",
+  section_title: "看看我做了哪些<hl>有趣的事情</hl>",
   blog: {
     name: "部落格",
     description:

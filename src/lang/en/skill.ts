@@ -1,7 +1,5 @@
 export default {
-  section_title_prefix: "",
-  section_title_highlight: "The Skills",
-  section_title_suffix: "I Specialize In",
+  section_title: "<hl>The Skills</hl> I Specialize In",
   aws_experiences: [
     "AWS Solution Architecture Associate certification",
     "Build LEMP to run Laravel application using EC2, RDS and ElastiCache",

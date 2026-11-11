@@ -18,6 +18,7 @@
   import Rust from "#lib/components/icons/Rust.svelte";
   import GoogleCloudPlatform from "#lib/components/icons/GoogleCloudPlatform.svelte";
   import K3s from "#lib/components/icons/K3s.svelte";
+  import RichLabel from "#lib/components/RichLabel.svelte";
   import type { ExperienceTranslation } from "#lang/type/experience.type.js";
   import { translations } from "#lib/translations.js";
   import type { Locale } from "#lib/enums.js";
@@ -168,15 +169,7 @@
   <div class="flex flex-col gap-2 text-center dark:text-neutral-50">
     <h6 class="font-caveat text-2xl md:text-4xl">From Dev to DevOps</h6>
     <h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
-      {translation.section_title_prefix}
-      <span
-        class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-yellow-400 dark:before:bg-yellow-500"
-      >
-        <span class="relative text-neutral-50">
-          {translation.section_title_highlight}
-        </span>
-      </span>
-      {translation.section_title_suffix}
+      <RichLabel text={translation.section_title} color="yellow" />
     </h3>
   </div>
 

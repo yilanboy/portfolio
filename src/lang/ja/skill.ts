@@ -1,7 +1,5 @@
 export default {
-  section_title_prefix: "これらは私が",
-  section_title_highlight: "使ったことのある技術です",
-  section_title_suffix: "",
+  section_title: "これらは私が<hl>使ったことのある技術です</hl>",
   aws_experiences: [
     "AWS Solution Architecture Associate 認定",
     "EC2、RDS と ElastiCache を使用して自作の Laravel アプリケーションを実行するためのLEMPを構築",

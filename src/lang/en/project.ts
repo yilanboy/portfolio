@@ -1,7 +1,5 @@
 export default {
-  section_title_prefix: "Check Out These",
-  section_title_highlight: "Fun Projects",
-  section_title_suffix: "I did",
+  section_title: "Check Out These <hl>Fun Projects</hl> I did",
   blog: {
     name: "Blog",
     description:

@@ -9,6 +9,7 @@
   import TailwindCss from "#lib/components/icons/TailwindCss.svelte";
   import Livewire from "#lib/components/icons/Livewire.svelte";
   import Modal from "#lib/components/Modal.svelte";
+  import RichLabel from "#lib/components/RichLabel.svelte";
   import { type Component } from "svelte";
   import type { SkillTranslation } from "#lang/type/skill.type.js";
   import type { Locale } from "#lib/enums.js";
@@ -109,15 +110,7 @@
   <div class="flex flex-col gap-2 text-center dark:text-neutral-50">
     <h6 class="font-caveat text-2xl md:text-4xl">These stuff are so cool!</h6>
     <h3 class="text-3xl font-semibold sm:text-4xl md:text-5xl">
-      {translation.section_title_prefix}
-      <span
-        class="relative inline-block p-1 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-green-500 dark:before:bg-green-600"
-      >
-        <span class="relative text-neutral-50">
-          {translation.section_title_highlight}
-        </span>
-      </span>
-      {translation.section_title_suffix}
+      <RichLabel text={translation.section_title} color="green" />
     </h3>
   </div>
 

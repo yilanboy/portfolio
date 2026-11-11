@@ -1,7 +1,5 @@
 export default {
-  section_title_prefix: "",
-  section_title_highlight: "My Past",
-  section_title_suffix: "Made Me",
+  section_title: "<hl>My Past</hl> Made Me",
   experience_1: {
     title: "Newcomers to Information Security",
     content:

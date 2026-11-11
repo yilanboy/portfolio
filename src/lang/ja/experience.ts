@@ -1,7 +1,5 @@
 export default {
-  section_title_prefix: "",
-  section_title_highlight: "過去の経験",
-  section_title_suffix: "が今の私を作っている",
+  section_title: "<hl>過去の経験</hl>が今の私を作っている",
   experience_1: {
     title: "新人として情報セキュリティの分野へ",
     content:

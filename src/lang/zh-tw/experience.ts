@@ -1,7 +1,5 @@
 export default {
-  section_title_prefix: "",
-  section_title_highlight: "過往的經歷",
-  section_title_suffix: "成就現在的我",
+  section_title: "<hl>過往的經歷</hl>成就現在的我",
   experience_1: {
     title: "新人初出茅廬，進入資安領域",
     content:

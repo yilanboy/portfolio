@@ -1,7 +1,5 @@
 export default {
-  section_title_prefix: "Want to Know More",
-  section_title_highlight: "About Me",
-  section_title_suffix: "?",
+  section_title: "Want to Know More <hl>About Me</hl>?",
   I_am_also: "In fact, I am also...",
   strengths: [
     {
